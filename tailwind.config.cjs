@@ -4,12 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        //myCustomColor: "rgba(0, 0, 0, 0.44)"
+        "moon-blue": "#0B3B8E",
+        "moon-orange": "#D7594F",
+        "moon-gold": "#F9B95C",
       },
-      fontFamily:{
-
-      }
     },
   },
   plugins: [],
-}
+};

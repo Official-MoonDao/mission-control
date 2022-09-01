@@ -1,5 +1,13 @@
+import AnnoucementSelect from "./AnnoucementSelect";
+import AnnoucementBoard from "./AnnoucementBoard";
+
 const Announcements = () => {
-  return <div className={`mt-72 flex justify-center items-center text-6xl`}>Announcements.</div>;
+  return <div className={`flex flex-col items-center bg-gray-800`}>
+
+    <AnnoucementSelect/>
+    <AnnoucementBoard/>
+
+  </div>;
 };
 
 export default Announcements;

@@ -1,6 +1,6 @@
 const Sun = () => {
   return (
-    <svg className="bg-gray-800 rounded-[4px]" width="50" height="54" viewBox="0 0 50 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg style={{"background":"#333333"}} className="rounded-[4px]" width="50" height="54" viewBox="0 0 50 54" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect y="0.5" width="50" height="53" rx="4" fillOpacity="0.12" />
       <path
         d="M19.1886 19.85L19.5461 20.2075C19.9036 20.5559 19.9036 21.1425 19.5461 21.4909L19.5369 21.5C19.1794 21.8575 18.6111 21.8575 18.2536 21.5L17.8961 21.1425C17.5386 20.7942 17.5386 20.2167 17.8961 19.8592L17.9052 19.85C18.2536 19.5017 18.8311 19.4925 19.1886 19.85Z"
