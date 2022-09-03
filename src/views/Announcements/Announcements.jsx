@@ -2,12 +2,17 @@ import AnnoucementSelect from "./AnnoucementSelect";
 import AnnoucementBoard from "./AnnoucementBoard";
 
 const Announcements = () => {
-  return <div className={`flex flex-col items-center bg-gray-800`}>
+  return <section className={`w-full flex flex-col`}>
 
+<div className="mx-[19px] mt-[77px]">
     <AnnoucementSelect/>
+    <div className="mt-[5px]">
     <AnnoucementBoard/>
+    </div>
+</div>
 
-  </div>;
+
+  </section>;
 };
 
 export default Announcements;

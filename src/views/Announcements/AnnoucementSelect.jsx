@@ -1,7 +1,11 @@
 const AnnoucementSelect = () => {
   return (
-    <main className="flex flex-col items-center mt-[72px] w-[335px] min-h-[600px] bg-white bg-opacity-[0.04] border-[0.5px] border-white border-opacity-[0.38] rounded-lg">
-      {/*Filters */}
+    <main className="flex flex-start justify-start">
+      
+      <button className="bg-moon-gold  rounded py-3 px-6 text-white">Filters</button>
+      
+      {/*
+      Date Filters
       <div className="flex flex-col items-center py-[25px] px-[50px]">
         <select name="date" id="date">
           <option value="all">All announcements</option>
@@ -12,9 +16,8 @@ const AnnoucementSelect = () => {
 
         <button className="">Categories</button>
       </div>
+      */}
 
-      {/*People filter*/}
-      <div></div>
     </main>
   );
 };

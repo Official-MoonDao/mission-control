@@ -5,6 +5,7 @@ import { Announcements, Balance, Bounties, Proposals, Treasury } from "./views";
 
 const App = () => {
   return (
+    <main className="min-h-screen bg-gradient-to-r from-moon-orange via-background-middle to-background-right">
     <BrowserRouter>
       <ThemeProvider>
         <Navbar />
@@ -17,6 +18,7 @@ const App = () => {
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
+    </main>
   );
 };
 

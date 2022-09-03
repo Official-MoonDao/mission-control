@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,12 @@
 
 * {
   scroll-behavior: smooth;
+  transition: all;
+  transition-duration: 175ms;
 }
+
+
+
 
 :root {
   font-family: Open Sans, Inter, Avenir, Helvetica, Arial, sans-serif;

@@ -5,4 +5,6 @@ import MoonDaoLogoWhite from "./MoonDaoLogoWhite";
 import MoonDAOLogoMobile from "./MoonDAOLogoMobile";
 import MoonDAOMenu from "./MoonDAOMenu";
 import MoonDAOWalletMobile from "./MoonDAOWalletMobile";
-export {Moon, Sun, MoonDaoLogoBlack, MoonDaoLogoWhite, MoonDAOLogoMobile, MoonDAOMenu, MoonDAOWalletMobile};
+import SearchIcon from "./SearchIcon";
+import MoonDAOShield from "./MoonDAOShield.png";
+export {Moon, Sun, MoonDaoLogoBlack, MoonDaoLogoWhite, MoonDAOLogoMobile, MoonDAOMenu, MoonDAOWalletMobile, SearchIcon, MoonDAOShield};
