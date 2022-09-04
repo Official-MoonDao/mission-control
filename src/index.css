@@ -10,9 +10,6 @@
   transition-duration: 175ms;
 }
 
-
-
-
 :root {
   font-family: Open Sans, Inter, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
@@ -22,6 +19,4 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.header {
-  font-family: Montserrat, sans-serif;
-}
+

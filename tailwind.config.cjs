@@ -10,6 +10,9 @@ module.exports = {
         "background-middle": "#143b7d",
         "background-right": "#0e086a"
       },
+      fontFamily: {
+        Montserrat:["Montserrat", 'sans-serif']
+      }
     },
   },
   plugins: [],
