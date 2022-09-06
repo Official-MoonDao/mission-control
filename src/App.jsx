@@ -1,23 +1,25 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
-import { Announcements, Balance, Bounties, Proposals, Treasury } from "./views";
+import { Announcements, Projects, Bounties, Proposals, Treasury } from "./views";
+import { useState } from "react";
+
+// Set "Dark" class on "main" to toggle between color modes.
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(true);
+
   return (
-    <main className="min-h-screen bg-gradient-to-r from-moon-orange via-background-middle to-background-right">
-    <BrowserRouter>
-      <ThemeProvider>
-        <Navbar />
+    <main className={`${darkMode ? "dark from-emerald-900 via-slate-800  to-gray-900 " : "from-emerald-100 via-sky-200 to-indigo-200"} min-h-screen bg-gradient-to-r`}>
+      <BrowserRouter>
+        <Navbar darkMode={darkMode} changeColorMode={() => setDarkMode((darkMode) => !darkMode)} />
         <Routes>
           <Route path="/" element={<Announcements />}></Route>
-          <Route path="/balance" element={<Balance />}></Route>
+          <Route path="/Projects" element={<Projects />}></Route>
           <Route path="/bounties" element={<Bounties />}></Route>
           <Route path="/proposals" element={<Proposals />}></Route>
           <Route path="/treasury" element={<Treasury />}></Route>
         </Routes>
-      </ThemeProvider>
-    </BrowserRouter>
+      </BrowserRouter>
     </main>
   );
 };

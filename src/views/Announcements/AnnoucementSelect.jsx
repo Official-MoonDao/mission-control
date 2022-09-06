@@ -1,6 +1,6 @@
 const AnnoucementSelect = () => {
   return (
-    <main className="flex flex-start justify-start">
+    <main className="">
       
       <button className="bg-moon-gold  rounded py-3 px-6 text-white">Filters</button>
       

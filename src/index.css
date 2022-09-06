@@ -7,7 +7,6 @@
 * {
   scroll-behavior: smooth;
   transition: all;
-  transition-duration: 175ms;
 }
 
 :root {

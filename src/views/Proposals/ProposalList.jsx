@@ -1,4 +1,3 @@
-import React from "react";
 import SearchBar from "../../components/SearchBar";
 import Proposal from "./Proposal";
 import { proposalTests } from "../../test-data/tests";
@@ -13,10 +12,9 @@ const ProposalList = () => {
 
       <div className="w-[335px] mt-[34px] bg-white opacity-20 h-[1px]"></div>
 
-        {proposalTests.map((e, i) => (
-          <Proposal key={i} idx={i} title={e.title} author={e.author} active={e.active} executionDays={e.executionDays} />
-        ))}
-
+      {proposalTests.map((e, i) => (
+        <Proposal key={i} idx={i} title={e.title} author={e.author} active={e.active} executionDays={e.executionDays} />
+      ))}
     </section>
   );
 };

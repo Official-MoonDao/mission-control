@@ -1,29 +1,39 @@
-import NavigationLink from "./NavigationLink";
+import RouterLinks from "./RouterLinks";
 import { Sun, Moon, MoonDaoLogoBlack, MoonDaoLogoWhite, MoonDAOLogoMobile, MoonDAOMenu, MoonDAOWalletMobile } from "../assets";
-import { useTheme, useThemeUpdate } from "../context/ThemeContext";
+import { useState } from "react";
 
-const Navbar = () => {
-  const darkTheme = useTheme();
-  const toggleTheme = useThemeUpdate();
+const Navbar = ({ darkMode, changeColorMode }) => {
+  const [toggleLinks, setToggleLinks] = useState(false);
 
   return (
-    <nav className={`w-full items-center flex justify-between bg-gray-900 py-3 px-2`}>
+    <nav className={`w-full items-center flex justify-between dark:bg-gray-900 bg-gray-100 py-3 px-2`}>
       <div className="flex items-center">
         <MoonDAOLogoMobile />
 
-        <button className="ml-1"><MoonDAOMenu/></button>
+        {/* Mobile menu / links */}
+        <div className="relative md:hidden flex items-center ">
+          <button className="ml-1" onClick={() => setToggleLinks((toggleLinks) => !toggleLinks)}>
+            <MoonDAOMenu />
+          </button>
 
+          <div className={`${!toggleLinks ? "hidden" : "flex"} w-[195px] z-10  absolute top-[55px] rounded left-[5px] bg-gray-100 dark:bg-gray-900`}>
+            <ul className="flex flex-col items-start p-2 pt-4">
+              <RouterLinks/>
+            </ul>
+          </div>
+        </div>
+
+        {/*Desktop links*/}
         <div className="hidden md:flex">
-          <NavigationLink link="/" text="Announcements" />
-          <NavigationLink link="/balance" text="Balance" />
-          <NavigationLink link="/bounties" text="Bounties" />
-          <NavigationLink link="/proposals" text="Proposals" />
-          <NavigationLink link="/treasury" text="Treasury" />
+          <RouterLinks/>
         </div>
       </div>
 
+      {/*Color mode and Wallet */}
       <div className="flex items-center">
-        <button className="mr-2" onClick={toggleTheme}>{darkTheme ? <Sun /> : <Moon />}</button>
+        <button className="mr-2" onClick={changeColorMode}>
+          {darkMode ? <Sun /> : <Moon />}
+        </button>
         <button>
           <MoonDAOWalletMobile />
         </button>

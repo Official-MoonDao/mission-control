@@ -8,12 +8,13 @@ module.exports = {
         "moon-orange": "#D7594F",
         "moon-gold": "#F9B95C",
         "background-middle": "#143b7d",
-        "background-right": "#0e086a"
+        "background-right": "#0e086a",
       },
       fontFamily: {
-        Montserrat:["Montserrat", 'sans-serif']
-      }
+        Montserrat: ["Montserrat", "sans-serif"],
+      },
     },
   },
+  darkMode: "class",
   plugins: [],
 };

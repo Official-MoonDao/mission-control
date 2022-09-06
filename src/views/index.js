@@ -1,7 +1,7 @@
 import Announcements from "./Announcements/Announcements";
-import Balance from "./Balance/Balance";
+import Projects from "./Projects/Projects";
 import Bounties from "./Bounties/Bounties";
 import Proposals from "./Proposals/Proposals";
 import Treasury from "./Treasury/Treasury";
 
-export { Announcements, Balance, Bounties, Proposals, Treasury };
+export { Announcements, Projects, Bounties, Proposals, Treasury };
