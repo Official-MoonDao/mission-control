@@ -1,6 +1,5 @@
 import SearchBar from "../../components/SearchBar";
 import Proposal from "./Proposal";
-import { proposalTests } from "../../test-data/tests";
 import Header from "../../components/Header";
 import { useQuery, gql } from "@apollo/client";
 
