@@ -2,13 +2,13 @@ import { SearchIcon } from "../assets";
 
 const SearchBar = () => {
   return (
-    <label className="relative block ">
+    <label className="relative block">
       <div className="absolute inset-y-0 left-6 flex items-center">
-        <SearchIcon />
+        <SearchIcon color="stroke-black dark:stroke-white" />
       </div>
 
       <input
-        className="px-[52px] rounded-md py-4  min-w-[335px] bg-white bg-opacity-10  placeholder-white placeholder-opacity-[0.45] "
+        className="min-w-[335px] rounded-md border-[0.5px] border-black border-opacity-20 px-[52px] py-4 text-gray-900 shadow dark:bg-white dark:bg-opacity-10 dark:text-gray-100  dark:placeholder-white dark:placeholder-opacity-[0.45]"
         placeholder="Search"
         type="text"
         name="search"

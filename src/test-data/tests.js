@@ -27,5 +27,5 @@ export const projectTests = [
   {title: "Ticket to space NFT work", postDate: "05-03-2023" , active:true, deadline:"03-07-2023"},
   {title: "Extracting precious metals from Comet", postDate: "05-06-2023" , active:false, deadline:"08-08-2025"},
   {title: "Project: MoonDAO Constitution", postDate: "09-04-2023" , active: true, deadline:"01-02-2024"},
-  {title: "", postDate: "05-03-2023" , active:false, deadline:"03-07-2029"},
+  {title: "Genetically engineering a Rainbow Lobster to use as a mascot", postDate: "05-03-2023" , active:false, deadline:"03-07-2029"},
 ]

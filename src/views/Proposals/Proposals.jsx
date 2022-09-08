@@ -8,7 +8,7 @@ const Proposals = () => {
     <div className="mt-[65px] pb-[150px]">
       <div className="flex flex-col items-center">
        
-       <OptionsContainer sectionOptions={["Proposal", "New Proposal", "About", "Settings"]} />
+       <OptionsContainer sectionOptions={["Proposals", "New Proposal", "About", "Settings"]} />
 
 
         <ProposalList />

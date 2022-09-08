@@ -1,4 +1,4 @@
-const MoonDaoLogoBlack = () => {
+const LogoBlack = () => {
   return (
     <svg width="300.43" height="64.86" viewBox="0 0 1233 345" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -65,4 +65,4 @@ const MoonDaoLogoBlack = () => {
   );
 };
 
-export default MoonDaoLogoBlack
+export default LogoBlack

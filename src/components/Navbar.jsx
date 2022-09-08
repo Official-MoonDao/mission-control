@@ -1,41 +1,41 @@
 import RouterLinks from "./RouterLinks";
-import { Sun, Moon, MoonDaoLogoBlack, MoonDaoLogoWhite, MoonDAOLogoMobile, MoonDAOMenu, MoonDAOWalletMobile } from "../assets";
+import { Sun, Moon, LogoBlack, LogoWhite, LogoMobile, Menu, WalletMobile, MenuClose } from "../assets";
 import { useState } from "react";
 
-const Navbar = ({ darkMode, changeColorMode }) => {
+const Navbar = ({ darkMode, setDarkMode }) => {
   const [toggleLinks, setToggleLinks] = useState(false);
 
   return (
-    <nav className={`w-full items-center flex justify-between dark:bg-gray-900 bg-gray-100 py-3 px-2`}>
+    <nav className={`flex w-full items-center justify-between bg-gray-100 py-3 px-2 dark:bg-gray-900`}>
       <div className="flex items-center">
-        <MoonDAOLogoMobile />
+        <LogoMobile />
 
         {/* Mobile menu / links */}
-        <div className="relative md:hidden flex items-center ">
+        <div className="relative flex items-center md:hidden ">
           <button className="ml-1" onClick={() => setToggleLinks((toggleLinks) => !toggleLinks)}>
-            <MoonDAOMenu />
+            {toggleLinks ? <MenuClose /> : <Menu />}
           </button>
 
-          <div className={`${!toggleLinks ? "hidden" : "flex"} w-[195px] z-10  absolute top-[55px] rounded left-[5px] bg-gray-100 dark:bg-gray-900`}>
+          <div className={`${!toggleLinks ? "hidden" : "flex"} absolute top-[55px]  left-[5px] z-10 w-[195px] rounded bg-gray-100 dark:bg-gray-900`}>
             <ul className="flex flex-col items-start p-2 pt-4">
-              <RouterLinks/>
+              <RouterLinks />
             </ul>
           </div>
         </div>
 
         {/*Desktop links*/}
         <div className="hidden md:flex">
-          <RouterLinks/>
+          <RouterLinks />
         </div>
       </div>
 
       {/*Color mode and Wallet */}
       <div className="flex items-center">
-        <button className="mr-2" onClick={changeColorMode}>
+        <button className="mr-2" onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? <Sun /> : <Moon />}
         </button>
         <button>
-          <MoonDAOWalletMobile />
+          <WalletMobile />
         </button>
       </div>
     </nav>

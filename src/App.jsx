@@ -1,17 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { Announcements, Projects, Bounties, Proposals, Treasury } from "./views";
-import { useState } from "react";
+import useLocalStorage from './hooks&utils/useLocalStorage'
 
-// Set "Dark" class on "main" to toggle between color modes.
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useLocalStorage("darkMode" , false);
 
   return (
     <main className={`${darkMode ? "dark from-emerald-900 via-slate-800  to-gray-900 " : "from-emerald-100 via-sky-200 to-indigo-200"} min-h-screen bg-gradient-to-r`}>
       <BrowserRouter>
-        <Navbar darkMode={darkMode} changeColorMode={() => setDarkMode((darkMode) => !darkMode)} />
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
           <Route path="/" element={<Announcements />}></Route>
           <Route path="/Projects" element={<Projects />}></Route>
