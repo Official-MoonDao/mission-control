@@ -29,3 +29,7 @@ export const projectTests = [
   {title: "Project: MoonDAO Constitution", postDate: "09-04-2023" , active: true, deadline:"01-02-2024"},
   {title: "Genetically engineering a Rainbow Lobster to use as a mascot", postDate: "05-03-2023" , active:false, deadline:"03-07-2029"},
 ]
+
+export const authorMappings = {
+  "0x679d87D8640e66778c3419D164998E720D7495f6": "@pmoncada",
+}
