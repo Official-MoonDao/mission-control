@@ -4,23 +4,19 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 const snapshotClient = new ApolloClient({
   uri: "https://hub.snapshot.org/graphql",
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 const Proposals = () => {
-
-
   return (
     <ApolloProvider client={snapshotClient}>
-      <div className="mt-[65px] pb-[150px]">
-        <div className="flex flex-col items-center">
-        
-        <OptionsContainer sectionOptions={["Proposals", "New Proposal", "About", "Settings"]} />
-
+      <div className="mt-[65px] pb-[150px] xl:px-6">
+        <div className="flex flex-col items-center xl:flex-row-reverse xl:items-start xl:justify-center">
+          <OptionsContainer sectionOptions={["Proposals", "New Proposal", "About", "Settings"]} />
 
           <ProposalList />
         </div>
-    </div>
+      </div>
     </ApolloProvider>
   );
 };

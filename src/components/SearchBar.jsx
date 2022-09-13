@@ -8,7 +8,7 @@ const SearchBar = () => {
       </div>
 
       <input
-        className="min-w-[335px] rounded-md border-[0.5px] border-black border-opacity-20 px-[52px] py-4 text-gray-900 shadow dark:bg-white dark:bg-opacity-10 dark:text-gray-100  dark:placeholder-white dark:placeholder-opacity-[0.45]"
+        className="min-w-[335px] sm:w-[400px] xl:w-full rounded-md border-[0.5px] border-black border-opacity-20 px-[52px] py-4 text-gray-900 shadow dark:bg-white dark:bg-opacity-10 dark:text-gray-100  dark:placeholder-white dark:placeholder-opacity-[0.45]"
         placeholder="Search"
         type="text"
         name="search"
