@@ -17,9 +17,16 @@ export const proposalTests = [
 
 export const bountyTests = [
   {title: "Project: MoonDAO Constitution - Bounty #001", date: "05-03-2023" , img: melvina, mooney:3000, dollars: 500},
+  {title: "Genetically engineering a Rainbow Lobster to use as a mascot", date: "08-11-2026" , img: jessica , mooney:999999, dollars: 9999},
   {title: "The head of the Lizard King - Bounty #002", date: "01-03-2024" , img: hunter, mooney:10000, dollars: 2000},
   {title: "Extracting precious metals from Comet - Bounty #003", date: "02-13-2025" , img: dexter, mooney:90000, dollars: 8500},
   {title: "Genetically engineering a Rainbow Lobster to use as a mascot", date: "08-11-2026" , img: jessica , mooney:999999, dollars: 9999},
+  {title: "Project: MoonDAO Constitution - Bounty #001", date: "05-03-2023" , img: melvina, mooney:3000, dollars: 500},
+  {title: "The head of the Lizard King - Bounty #002", date: "01-03-2024" , img: hunter, mooney:10000, dollars: 2000},
+  {title: "Genetically engineering a Rainbow Lobster to use as a mascot", date: "08-11-2026" , img: jessica , mooney:999999, dollars: 9999},
+  {title: "Extracting precious metals from Comet - Bounty #003", date: "02-13-2025" , img: dexter, mooney:90000, dollars: 8500},
+  {title: "Genetically engineering a Rainbow Lobster to use as a mascot", date: "08-11-2026" , img: jessica , mooney:999999, dollars: 9999},
+
 ]
 
 
