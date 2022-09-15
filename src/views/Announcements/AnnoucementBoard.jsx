@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 
 const AnnoucementBoard = () => {
   return (
-    <div className="flex flex-col">
+    <div className="mt-[31px] flex flex-col xl:mt-0 xl:min-w-[700px] xl:mr-16 xl:rounded-lg xl:bg-white dark:xl:bg-opacity-[0.04] xl:px-[58px] xl:pt-[16px] xl:pb-[24px]">
 
       <Header text={'All announcements'} />
 

@@ -14,7 +14,7 @@ const Proposal = ({ title, startTime, endTime, author, state, idx, proposalId })
     <article
       className={`${
         idx === 0 ? "mt-[35px]" : "mt-[30px]"
-      } w-[336px] rounded-[15px] border-[0.5px] shadow-lg dark:shadow-indigo-500  border-gray-300 bg-white text-gray-100 duration-300 hover:scale-105 dark:bg-transparent sm:w-[400px] xl:w-full`}
+      } w-[336px] rounded-[15px] border-[0.5px] border-gray-300 bg-white  text-gray-100 shadow-lg duration-300 hover:scale-105 dark:bg-transparent dark:shadow-indigo-500 sm:w-[400px] xl:w-full`}
     >
       <div className="px-[20px] pt-[25px] pb-[19px] xl:px-[30px] xl:pt-[20px]">
         <div className="justify-between xl:flex">

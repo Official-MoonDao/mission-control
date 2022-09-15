@@ -17,7 +17,7 @@ const Project = ({ idx, title, postDate, active, deadline, team }) => {
           {team && team.length > 0 && (
             <>
               {team.map((e, i) => (
-                <p
+                <p key={i}
                   className={`${
                     i === 0 ? "ml-[21px]" : "ml-[8px]"
                   } rounded bg-black bg-opacity-[0.09] px-[10px] py-[5px] font-semibold text-gray-600 dark:bg-white dark:bg-opacity-10 dark:text-white`}
