@@ -6,7 +6,7 @@ const Bounty = ({ title, date, img, mooney, dollars, idx }) => {
     <article
       className={`${
         idx === 0 ? "mt-[35px]" : "mt-[30px]"
-      } flex w-[336px] flex-col items-center rounded-[15px] border-[0.5px] border-gray-300 bg-white pt-[10px] text-gray-100 shadow-lg hover:scale-105 dark:bg-transparent dark:shadow-indigo-500 sm:w-[400px] xl:w-full xl:flex-row xl:justify-between xl:py-[19px] xl:px-[20px] xl:dark:bg-white dark:xl:bg-opacity-[0.04]`}
+      } flex w-[336px] flex-col items-center rounded-[15px] border-[0.5px] border-gray-300 bg-white pt-[10px] text-gray-100 shadow-lg hover:scale-105 dark:bg-transparent dark:shadow-sky-700 sm:w-[400px] xl:w-full xl:flex-row xl:justify-between xl:py-[19px] xl:px-[20px] xl:dark:bg-white dark:xl:bg-opacity-[0.04]`}
     >
       {/*photo, title and date */}
       <div className="flex items-center xl:min-w-[500px]">

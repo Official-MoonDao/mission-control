@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navigation/Navbar";
 import { Announcements, Projects, Bounties, Proposals, Treasury } from "./views";
 import useLocalStorage from "./hooks&utils/useLocalStorage";
 
@@ -7,7 +7,7 @@ const App = () => {
   const [darkMode, setDarkMode] = useLocalStorage("darkMode", false);
 
   return (
-    <main className={`${darkMode ? "dark from-indigo-900 via-slate-800  to-slate-900 " : "from-emerald-100 via-sky-200 to-indigo-200"} min-h-screen bg-gradient-to-r`}>
+    <main className={`${darkMode ? "dark from-slate-900 via-sky-900 to-slate-900 " : "from-amber-200 via-moon-gold to-amber-200"} min-h-screen bg-gradient-to-r`}>
       <BrowserRouter>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>

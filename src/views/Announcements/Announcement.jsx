@@ -15,7 +15,7 @@ const Announcement = ({ title, audience, author, date, img, bottomBorder }) => {
 
         {/*Audience, date */}
         <div className="mt-[24px] flex flex-col xl:mt-0 xl:pl-[70px] 2xl:pl-[210px]">
-          <p className="text-[22px] text-moon-gold">{author}</p>
+          <p className="text-[22px] text-amber-50 xl:text-moon-gold">{author}</p>
           <p className="text-[22px] text-black opacity-60 dark:text-gray-100 dark:opacity-100 ">{date}</p>
         </div>
 

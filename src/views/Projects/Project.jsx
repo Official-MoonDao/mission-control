@@ -5,7 +5,7 @@ const Project = ({ idx, title, postDate, active, deadline, team }) => {
     <article
       className={`${
         idx === 0 ? "mt-[35px]" : "mt-[30px]"
-      } flex w-[336px] flex-col rounded-[8px] border-[0.5px]  border-white border-opacity-40 bg-white px-[20px] pt-[10px] text-white shadow-lg hover:scale-105 dark:bg-transparent dark:shadow-indigo-500 sm:w-[400px] xl:w-full xl:flex-row xl:justify-between xl:dark:bg-white dark:xl:bg-opacity-[0.04]`}
+      } flex w-[336px] flex-col rounded-[8px] border-[0.5px]  border-white border-opacity-40 bg-white px-[20px] pt-[10px] text-white shadow-lg hover:scale-105 dark:bg-transparent dark:shadow-sky-700 sm:w-[400px] xl:w-full xl:flex-row xl:justify-between xl:dark:bg-white dark:xl:bg-opacity-[0.04]`}
     >
       {/*Title and date, team*/}
       <div className=" mt-[20px] pb-[20px] xl:mt-0">
@@ -17,7 +17,8 @@ const Project = ({ idx, title, postDate, active, deadline, team }) => {
           {team && team.length > 0 && (
             <>
               {team.map((e, i) => (
-                <p key={i}
+                <p
+                  key={i}
                   className={`${
                     i === 0 ? "ml-[21px]" : "ml-[8px]"
                   } rounded bg-black bg-opacity-[0.09] px-[10px] py-[5px] font-semibold text-gray-600 dark:bg-white dark:bg-opacity-10 dark:text-white`}
