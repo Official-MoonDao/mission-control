@@ -8,7 +8,7 @@ const AnnoucementSelect = () => {
       <div className="w-[335px] sm:w-[400px] xl:hidden">
         <button
           onClick={() => setFilterOptions(!filterOptions)}
-          className="rounded border bg-gradient-to-br from-amber-400 to-yellow-300 py-3 px-6 font-semibold text-gray-100 hover:scale-105 hover:text-white"
+          className="rounded border bg-gradient-to-br from-amber-500 to-yellow-200 dark:from-slate-800 dark:to-gray-900 py-3 px-6 font-semibold text-gray-100 hover:scale-105 hover:text-white"
         >
           Filters
         </button>

@@ -4,7 +4,7 @@ import { Sun, Moon, LogoBlack, LogoWhite, LogoMobile, WalletMobile } from "../..
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   return (
-    <nav className={`flex w-full items-center justify-between bg-gray-100 py-3 px-2 dark:bg-gray-900 sm:py-4 sm:px-5  2xl:px-6`}>
+    <nav className={`flex w-full items-center justify-between bg-gradient-to-r from-gray-100 via-amber-50 to-white dark:from-slate-800 dark:via-slate-900 dark:to-gray-900 py-3 px-2  sm:py-4 sm:px-5  2xl:px-6`}>
       <div className="flex items-center">
         <span className="inline xl:hidden">
           <LogoMobile />
