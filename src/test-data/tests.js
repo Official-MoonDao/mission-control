@@ -58,6 +58,68 @@ export const projectTests = [
   { title: "Extracting precious metals from Comet", postDate: "05-06-2023", active: false, deadline: "08-08-2025", team: ["Larrotiz", "Barney", "Pablo", "Favian"] },
 ];
 
+export const transactionTests = [
+  {
+    wallet: "4vsifeiufhauewfhofha...",
+    time: "...A few minutes ago",
+  },
+  {
+    wallet: "4vsifeiufhauewfhofha...",
+    time: "...A few minutes ago",
+  },
+  {
+    wallet: "4vsifeiufhauewfhofha...",
+    time: "...A few minutes ago",
+  },
+  {
+    wallet: "4vsifeiufhauewfhofha...",
+    time: "...A few minutes ago",
+  },
+  {
+    wallet: "4vsifeiufhauewfhofha...",
+    time: "...A few minutes ago",
+  },
+  {
+    wallet: "4vsifeiufhauewfhofha...",
+    time: "...A few minutes ago",
+  },
+  {
+    wallet: "4vsifeiufhauewfhofha...",
+    time: "...A few minutes ago",
+  },
+];
+
+export const assetTests = [
+  {
+    mooney: "2,609,583,580",
+    dollars: "$29,000,340.00",
+  },
+  {
+    mooney: "2,609,583,580",
+    dollars: "$29,000,340.00",
+  },
+  {
+    mooney: "2,609,583,580",
+    dollars: "$29,000,340.00",
+  },
+  {
+    mooney: "2,609,583,580",
+    dollars: "$29,000,340.00",
+  },
+  {
+    mooney: "2,609,583,580",
+    dollars: "$29,000,340.00",
+  },
+  {
+    mooney: "2,609,583,580",
+    dollars: "$29,000,340.00",
+  },
+  {
+    mooney: "2,609,583,580",
+    dollars: "$29,000,340.00",
+  },
+];
+
 export const authorMappings = {
   "0x679d87D8640e66778c3419D164998E720D7495f6": "@pmoncada",
 };
