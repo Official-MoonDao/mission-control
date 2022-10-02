@@ -10,5 +10,26 @@ import SearchIcon from "./SearchIcon";
 import MoonDAOShield from "./MoonDAOShield.png";
 import ArrowDown from "./ArrowDown";
 import ArrowUp from "./ArrowUp";
+import ArrowSide from "./ArrowSide";
+import CopyIcon from "./CopyIcon";
+import GoldPaperArrow from "./GoldPaperArrow";
+import TreasuryLogo from "./TreasuryLogo";
 
-export { Moon, Sun, LogoBlack, LogoWhite, LogoMobile, Menu, MenuClose, WalletMobile, SearchIcon, MoonDAOShield, ArrowDown, ArrowUp };
+export {
+  Moon,
+  Sun,
+  LogoBlack,
+  LogoWhite,
+  LogoMobile,
+  Menu,
+  MenuClose,
+  WalletMobile,
+  SearchIcon,
+  MoonDAOShield,
+  ArrowDown,
+  ArrowUp,
+  ArrowSide,
+  CopyIcon,
+  GoldPaperArrow,
+  TreasuryLogo,
+};

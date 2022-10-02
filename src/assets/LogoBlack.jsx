@@ -65,4 +65,4 @@ const LogoBlack = () => {
   );
 };
 
-export default LogoBlack
+export default LogoBlack;
