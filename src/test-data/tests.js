@@ -87,9 +87,33 @@ export const transactionTests = [
     wallet: "4vsifeiufhauewfhofha...",
     time: "...A few minutes ago",
   },
+  {
+    wallet: "4vsifeiufhauewfhofha...",
+    time: "...A few minutes ago",
+  },
+  {
+    wallet: "4vsifeiufhauewfhofha...",
+    time: "...A few minutes ago",
+  },
+  {
+    wallet: "4vsifeiufhauewfhofha...",
+    time: "...A few minutes ago",
+  },
 ];
 
 export const assetTests = [
+  {
+    mooney: "2,609,583,580",
+    dollars: "$29,000,340.00",
+  },
+  {
+    mooney: "2,609,583,580",
+    dollars: "$29,000,340.00",
+  },
+  {
+    mooney: "2,609,583,580",
+    dollars: "$29,000,340.00",
+  },
   {
     mooney: "2,609,583,580",
     dollars: "$29,000,340.00",

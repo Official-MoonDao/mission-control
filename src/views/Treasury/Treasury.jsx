@@ -3,12 +3,10 @@ import BalanceAssets from "./BalanceAndAssets/BalanceAssets";
 
 const Treasury = () => {
   return (
-    <div className="mt-[65px] pb-[150px] xl:px-6">
-      {/*Add desktop row reverse here*/}
-      <div className="flex flex-col items-center">
+    <div className="mt-[65px] pb-[150px]">
+      <div className="flex flex-col items-center xl:flex-row-reverse xl:items-start xl:justify-center">
         <WalletActivity />
-        {/*Remove margin top for true desktop view*/}
-        <div className="mt-11">
+        <div className="mt-11 xl:mt-0">
           <BalanceAssets />
         </div>
       </div>
