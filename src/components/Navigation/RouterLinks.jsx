@@ -5,9 +5,9 @@ const RouterLinks = () => {
     <ul className="lg:flex">
       <NavigationLink link="/" text="Announcements" />
       <NavigationLink link="/proposals" text="Proposals" />
-      <NavigationLink link="/treasury" text="Treasury Balance" />
-      <NavigationLink link="/bounties" text="Open Bounties" />
-      <NavigationLink link="/projects" text="Ongoing Projects" />
+      <NavigationLink link="/treasury" text="Treasury" />
+      <NavigationLink link="/bounties" text="Bounties" />
+      <NavigationLink link="/projects" text="Projects" />
     </ul>
   );
 };

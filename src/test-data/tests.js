@@ -13,12 +13,7 @@ export const announcementTests = [
   { title: "Our new guild onboarding form is live", audience: "rocketeers", author: "@hunter", date: "Aug 22", img: jessica },
 ];
 
-export const proposalTests = [
-  { title: "MDP-38: Interplanetary war with the Cyber Vikings. Help needed!", executionDays: 2, author: "@pmoncada", active: true },
-  { title: "MDP-35: Searching for gardener and rocket scientist for the Space Golf tournament", executionDays: 14, author: "@pmoncada", active: false },
-  { title: "MDP-33: Looking for MoonDAO members to join the Radroach Extermination Squad", executionDays: 55, author: "@pmoncada", active: true },
-  { title: "MDP-29: moonDAO a leader at the International Astronautical Federation And Space Arena", executionDays: 192, author: "@pmoncada", active: false },
-];
+
 
 export const bountyTests = [
   { title: "Project: MoonDAO Constitution - Bounty #001", date: "05-03-2023", img: melvina, mooney: 3000, dollars: 500 },
@@ -144,6 +139,3 @@ export const assetTests = [
   },
 ];
 
-export const authorMappings = {
-  "0x679d87D8640e66778c3419D164998E720D7495f6": "@pmoncada",
-};
