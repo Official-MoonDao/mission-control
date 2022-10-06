@@ -10,7 +10,7 @@ const ProposalSkeletons = () => {
       {Array(10)
         .fill(skeletonData)
         .map((e, i) => (
-          <Proposal loading={true} key={i} idx={i} title={e.title} author={e.author} />
+          <Proposal loading={true} key={i} idx={i} title={e.title} author={e.author} state="pending" />
         ))}
     </>
   );

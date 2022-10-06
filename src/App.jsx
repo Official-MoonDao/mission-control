@@ -7,7 +7,7 @@ const App = () => {
   const [darkMode, setDarkMode] = useLocalStorage("darkMode", false);
 
   return (
-    <main className={`${darkMode ? "dark from-slate-900 via-sky-900 to-slate-900 " : "from-amber-100 via-moon-gold to-amber-100"} min-h-screen bg-gradient-to-r`}>
+    <main className={`${darkMode ? "dark stars-dark" : "stars-light"} min-h-screen `}>
       <BrowserRouter>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>

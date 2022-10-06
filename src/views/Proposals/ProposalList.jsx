@@ -21,13 +21,11 @@ const ProposalList = () => {
 
       <div className="mt-[34px] h-[1px] w-[335px] bg-black opacity-20 dark:bg-white sm:w-[400px] xl:w-full"></div>
 
-      <div className={`${loading && "loading-container"}`}>
-        {loading ? (
-          <ProposalSkeletons />
-        ) : (
-          data.proposals.map((e, i) => <Proposal key={e.id} idx={i} proposalId={e.id} title={e.title} author={e.author} state={e.state} startTime={e.start} endTime={e.end} />)
-        )}
-      </div>
+      {loading ? (
+        <ProposalSkeletons />
+      ) : (
+        data.proposals.map((e, i) => <Proposal key={e.id} idx={i} proposalId={e.id} title={e.title} author={e.author} state={e.state} startTime={e.start} endTime={e.end} />)
+      )}
     </section>
   );
 };
