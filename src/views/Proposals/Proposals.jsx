@@ -1,4 +1,5 @@
 import ProposalList from "./ProposalList";
+import PageLayout from "../../components/Layout";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 const snapshotClient = new ApolloClient({
@@ -9,11 +10,9 @@ const snapshotClient = new ApolloClient({
 const Proposals = () => {
   return (
     <ApolloProvider client={snapshotClient}>
-      <div className="mt-[65px] pb-[150px]">
-        <div className="flex flex-col items-center">
-          <ProposalList />
-        </div>
-      </div>
+      <PageLayout>
+        <ProposalList />
+      </PageLayout>
     </ApolloProvider>
   );
 };

@@ -11,6 +11,7 @@ module.exports = {
       },
       fontFamily: {
         Montserrat: ["Montserrat", "sans-serif"],
+        GoodTimes: ["Good Times", "sans-serif"],
       },
     },
   },

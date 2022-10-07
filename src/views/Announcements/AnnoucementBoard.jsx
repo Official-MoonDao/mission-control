@@ -2,12 +2,12 @@ import SearchBar from "../../components/SearchBar";
 import Announcement from "./Announcement";
 import { announcementTests } from "../../test-data/tests";
 import Header from "../../components/Header";
+import SectionLayout from "../../components/Layout/SectionLayout";
 
 const AnnoucementBoard = () => {
   return (
-    <div className="mt-[31px] flex flex-col xl:mt-0 xl:mr-16 xl:min-w-[700px] xl:rounded-lg xl:bg-white xl:bg-opacity-60 xl:px-[58px] xl:pt-[16px] xl:pb-[24px] dark:xl:bg-opacity-[0.04]">
+    <SectionLayout>
       <Header text={"All announcements"} />
-
       <div className="mt-[20px]">
         <SearchBar />
       </div>
@@ -18,7 +18,7 @@ const AnnoucementBoard = () => {
           );
         })}
       </div>
-    </div>
+    </SectionLayout>
   );
 };
 
