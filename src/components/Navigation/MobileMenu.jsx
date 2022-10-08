@@ -5,16 +5,12 @@ import { Menu, MenuClose } from "../../assets";
 const MobileMenu = () => {
   const [toggleLinks, setToggleLinks] = useState(false);
   return (
-    <div className="relative flex items-center lg:hidden ">
-      <button className="ml-1 sm:ml-3" onClick={() => setToggleLinks((toggleLinks) => !toggleLinks)}>
-        {toggleLinks ? <MenuClose /> : <Menu />}
-      </button>
+    <div className="relative ml-2 flex items-center sm:ml-3">
+      <button onClick={() => setToggleLinks((toggleLinks) => !toggleLinks)}>{toggleLinks ? <MenuClose /> : <Menu />}</button>
 
-      <div className={`${!toggleLinks ? "hidden" : "flex"} absolute top-[55px] left-[5px]  z-10 w-[195px] rounded bg-gray-100 dark:bg-gray-900 sm:left-[10px] sm:w-[250px]`}>
-        <ul className="flex flex-col items-start p-2 pt-4 sm:p-3">
-          <RouterLinks />
-        </ul>
-      </div>
+      <ul className={`${!toggleLinks ? "hidden" : "block"} absolute top-[52px] z-10 flex flex-col justify-around h-[220px] w-[220px] sm:h-[300px] sm:w-[300px] rounded bg-gray-100 p-2 sm:p-4 dark:bg-gray-900`}>
+        <RouterLinks />
+      </ul>
     </div>
   );
 };

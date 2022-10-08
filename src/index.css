@@ -26,7 +26,7 @@
 
 
 .stars-dark {
-  background: url("./assets/star-background.png") repeat, linear-gradient(to right,rgb(12, 34, 29),rgb(19, 15, 42),rgb(24, 23, 61));
+  background: url("./assets/star-background.png") repeat, linear-gradient(to right,rgb(12, 34, 29),rgb(30, 24, 68),rgb(21, 0, 48));
 }
 
 .stars-light {
@@ -45,7 +45,10 @@
   }
 
   .dark-glass{
-    @apply bg-purple-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-purple-200
-    !important
+    @apply bg-slate-700 backdrop-filter backdrop-blur-[0.8px] bg-opacity-[0.15] border-indigo-200
+  }
+
+  .light-glass{
+    @apply bg-white backdrop-filter backdrop-blur-[1px] bg-opacity-10 
   }
 }

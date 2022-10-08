@@ -1,5 +1,5 @@
 import ProposalList from "./ProposalList";
-import PageLayout from "../../components/Layout";
+import {PageLayout} from "../../components/Layout";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 const snapshotClient = new ApolloClient({

@@ -1,29 +1,36 @@
 import MobileMenu from "./MobileMenu";
 import RouterLinks from "./RouterLinks";
-import { Sun, Moon, LogoBlack, LogoWhite, LogoMobile } from "../../assets";
+import { Sun, Moon, LogoBlack, LogoWhite, LogoMobile, DiscordIcon } from "../../assets";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   return (
     <nav
-      className={`flex w-full items-center justify-between bg-gradient-to-r from-gray-100 via-amber-50 to-white py-3 px-2 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900  sm:py-4 sm:px-5  2xl:px-6`}
+      className={`flex w-full items-center justify-between bg-gradient-to-r from-gray-100 via-amber-50 to-white py-3 px-3 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900  sm:py-4 sm:px-5`}
     >
-      <div className="flex items-center">
-        <span className="inline xl:hidden">
-          <LogoMobile />
+      {/*Mobile logo and Mobile Menu */}
+      <div className="flex items-center xl:hidden">
+        <LogoMobile />
+        <span className="lg:hidden">
+          <MobileMenu />
         </span>
-        <span className="hidden xl:inline">{darkMode ? <LogoWhite /> : <LogoBlack />}</span>
-        <MobileMenu />
       </div>
 
-      {/*Desktop links*/}
-      <div className="hidden lg:flex">
+      {/*Main logo*/}
+      <div className="hidden xl:flex relative right-5">{darkMode ? <LogoWhite /> : <LogoBlack />}</div>
+
+      <ul className="hidden w-full justify-around lg:flex relative xl:right-5">
         <RouterLinks />
-      </div>
+      </ul>
 
-      {/*Color mode*/}
-      <button className="mr-2 sm:mr-3" onClick={() => setDarkMode(!darkMode)}>
-        {darkMode ? <Sun /> : <Moon />}
-      </button>
+      {/*Color mode and discord link*/}
+      <div className="flex">
+        <button className="mr-3 lg:mr-4 xl:mr-5" onClick={() => setDarkMode(!darkMode)}>
+          {darkMode ? <Sun /> : <Moon />}
+        </button>
+        <a href="https://discord.com/invite/5nAu7K9aES" target="_blank">
+          <DiscordIcon />
+        </a>
+      </div>
     </nav>
   );
 };

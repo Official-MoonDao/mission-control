@@ -3,6 +3,7 @@ import Sun from "./Sun";
 import LogoBlack from "./LogoBlack";
 import LogoWhite from "./LogoWhite";
 import LogoMobile from "./LogoMobile";
+import DiscordIcon from "./DiscordIcon";
 import Menu from "./Menu";
 import MenuClose from "./MenuClose";
 import WalletMobile from "./WalletMobile";
@@ -21,6 +22,7 @@ export {
   LogoBlack,
   LogoWhite,
   LogoMobile,
+  DiscordIcon,
   Menu,
   MenuClose,
   WalletMobile,
