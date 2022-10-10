@@ -23,8 +23,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       </ul>
 
       {/*Color mode and discord link*/}
-      <div className="flex">
-        <button className="mr-3 lg:mr-4 xl:mr-5" onClick={() => setDarkMode(!darkMode)}>
+      <div className="flex lg:ml-2">
+        <button className="mr-3  xl:mr-5" onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? <Sun /> : <Moon />}
         </button>
         <a href="https://discord.com/invite/5nAu7K9aES" target="_blank">

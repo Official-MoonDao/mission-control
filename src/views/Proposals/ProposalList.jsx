@@ -11,7 +11,7 @@ const ProposalList = () => {
   const { data, loading, error } = useQuery(PROPOSALS_QUERY);
 
   if (error) failedFetchAlert();
-console.log(data)
+
   return (
     <SectionLayout>
 
