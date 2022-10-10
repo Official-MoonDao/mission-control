@@ -5,7 +5,7 @@ import { Sun, Moon, LogoBlack, LogoWhite, LogoMobile, DiscordIcon } from "../../
 const Navbar = ({ darkMode, setDarkMode }) => {
   return (
     <nav
-      className={`flex w-full items-center justify-between bg-gradient-to-r from-gray-100 via-amber-50 to-white py-3 px-3 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900  sm:py-4 sm:px-5`}
+      className={`flex w-full items-center justify-between bg-gradient-to-r from-gray-100 via-amber-50 to-white py-3 px-3 dark:from-slate-800 dark:via-slate-900 dark:to-gray-900  sm:py-4 sm:px-6 xl:pr-10`}
     >
       {/*Mobile logo and Mobile Menu */}
       <div className="flex items-center xl:hidden">

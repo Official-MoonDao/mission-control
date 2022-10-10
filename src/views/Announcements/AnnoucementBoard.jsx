@@ -7,7 +7,7 @@ import SectionLayout from "../../components/Layout/SectionLayout";
 const AnnoucementBoard = () => {
   return (
     <SectionLayout>
-      <Header text={"All announcements"} />
+      <Header text={"Announcements"} />
       <div className="mt-[20px]">
         <SearchBar />
       </div>

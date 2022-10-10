@@ -1,7 +1,7 @@
 const ArticleTitle = ({ text, loading, link }) => {
   return (
     <h4
-      className={`text-[22px] font-bold leading-10 text-black opacity-70 hover:opacity-100 dark:text-gray-200 dark:opacity-100 dark:hover:text-white ${
+      className={`font-Montserrat text-[22px] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white  lg:text-2xl ${
         loading ? "loading-line" : link && "underline decoration-moon-gold decoration-1 duration-200 hover:decoration-2"
       }`}
     >

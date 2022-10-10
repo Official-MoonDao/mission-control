@@ -1,6 +1,6 @@
 const Line = () => {
   return (
-    <div className="mt-[34px] h-[1px] w-[335px] bg-black opacity-20 dark:bg-white sm:w-[400px] xl:w-full"></div>
+    <div className="mt-[25px] h-[2px] w-[335px] bg-moon-blue opacity-50 dark:bg-moon-gold sm:w-[400px] lg:w-full lg:h-[3px]"></div>
   )
 }
 

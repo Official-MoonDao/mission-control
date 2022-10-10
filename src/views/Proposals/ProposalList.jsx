@@ -11,21 +11,24 @@ const ProposalList = () => {
   const { data, loading, error } = useQuery(PROPOSALS_QUERY);
 
   if (error) failedFetchAlert();
-
+console.log(data)
   return (
     <SectionLayout>
-      <Header text={"Proposals"} />
-      <div className="mt-[20px]">
-        <SearchBar />
-      </div>
+
+        <Header text={"Proposals"} />
+
 
       <Line />
+      <div className="mt-3 lg:hidden">
+      <p className="dark:text-gray-100 font-semibold text-lg text-emerald-900">Click the proposal's title to read more.</p>
+      </div>
 
       {loading || error ? (
         <ProposalSkeletons />
       ) : (
-        data.proposals.map((e, i) => <Proposal key={e.id} idx={i} proposalId={e.id} title={e.title} author={e.author} state={e.state} startTime={e.start} endTime={e.end} />)
+        data.proposals.map((e, i) => <Proposal key={e.id} idx={i} proposalId={e.id} title={e.title} author={e.author} state={e.state} startTime={e.start} endTime={e.end} body={e.body} />)
       )}
+
     </SectionLayout>
   );
 };
