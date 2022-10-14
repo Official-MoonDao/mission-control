@@ -1,16 +1,18 @@
-import WalletActivity from "./WalletAndActivity/WalletActivity";
+import Transactions from "./Transactions/Transactions";
 import BalanceAssets from "./BalanceAndAssets/BalanceAssets";
-
+import PageLayout from "../../components/Layout/PageLayout";
+import { SectionLayout } from "../../components/Layout";
+//Icons for assets have to be handled manually, consider that.
 const Treasury = () => {
   return (
-    <div className="mt-[65px] pb-[150px]">
-      <div className="flex flex-col items-center xl:flex-row-reverse xl:items-start xl:justify-center">
-        <WalletActivity />
-        <div className="mt-11 xl:mt-0">
+    <PageLayout>
+      <SectionLayout twoSection>
+        <div className="lg:flex lg:justify-around">
           <BalanceAssets />
+          <Transactions />
         </div>
-      </div>
-    </div>
+      </SectionLayout>
+    </PageLayout>
   );
 };
 

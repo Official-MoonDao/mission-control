@@ -1,6 +1,6 @@
 const TreasuryLogo = () => {
   return (
-    <svg className="h-auto w-[134px] xl:w-[98px]" viewBox="0 0 97 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className="h-auto w-[134px] lg:w-[158px] xl:hidden" viewBox="0 0 97 27" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_151_849)">
         <path
           d="M26.0328 22.0844V4.65605C22.5385 2.12253 18.3327 0.758301 14.0164 0.758301C9.70015 0.758301 5.49434 2.12253 2 4.65605V22.0844C5.49434 24.6179 9.70015 25.9821 14.0164 25.9821C18.3327 25.9821 22.5385 24.6179 26.0328 22.0844Z"

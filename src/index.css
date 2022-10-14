@@ -49,6 +49,6 @@
   }
 
   .light-glass{
-    @apply bg-white backdrop-filter backdrop-blur-[1px] bg-opacity-10 
+    @apply bg-gray-200 backdrop-filter backdrop-blur-[0.8px] bg-opacity-20
   }
 }

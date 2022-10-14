@@ -10,7 +10,7 @@ const Proposal = ({ title, loading, startTime, endTime, author, state, idx, prop
     <article
       className={`${
         idx === 0 ? "mt-9" : "mt-8"
-      } mt- w-[336px] rounded-[15px] border-[0.5px] border-gray-300 bg-white bg-opacity-20 text-gray-100 shadow-md hover:scale-105 dark:bg-transparent dark:shadow-indigo-400 sm:w-[400px] lg:mt-10 lg:w-full dark:lg:bg-black dark:lg:bg-opacity-[0.15] ${
+      } w-[336px] rounded-[15px] border-[0.5px] border-gray-300 bg-white bg-opacity-20 text-gray-100 shadow-md hover:scale-105 dark:bg-transparent dark:shadow-indigo-400 sm:w-[400px] lg:mt-10 lg:w-full dark:lg:bg-black dark:lg:bg-opacity-[0.15] ${
         loading && "loading-component"
       }`}
     >
@@ -35,7 +35,9 @@ const Proposal = ({ title, loading, startTime, endTime, author, state, idx, prop
               </p>
             </div>
 
-            <p className={`mt-[30px] font-semibold text-emerald-900 dark:text-moon-gold lg:mt-[22px] lg:text-lg ${loading && "loading-line"}`}>Started {age} days ago</p>
+            <p className={`mt-[30px] font-semibold text-emerald-900 dark:text-moon-gold lg:mt-[22px] lg:text-lg ${loading && "loading-line"}`}>
+              {age == 0 ? "Started today" : `Started ${age} day${age == 1 ? "" : "s"} ago`}
+            </p>
           </div>
 
           {/*Author and status */}
