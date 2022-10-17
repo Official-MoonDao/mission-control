@@ -26,7 +26,7 @@
 
 
 .stars-dark {
-  background: url("./assets/star-background.png") repeat, linear-gradient(to right,rgb(12, 34, 29),rgb(30, 24, 68),rgb(21, 0, 48));
+  background: url("./assets/star-background.png") repeat, linear-gradient(to right,rgb(14, 15, 15),rgb(25, 20, 58),rgb(13, 0, 31));
 }
 
 .stars-light {
@@ -38,17 +38,20 @@
     @apply select-none bg-slate-400 dark:bg-slate-700 !important;
   }
   .loading-component {
-    @apply select-none rounded-xl border-none bg-emerald-100 shadow-none dark:bg-slate-800 !important;
+    @apply select-none rounded-xl border-none bg-emerald-100 shadow-none dark:bg-slate-800 hover:scale-100 cursor-wait !important;
   }
   .loading-line {
-    @apply animate-pulse  bg-emerald-700 text-emerald-700 dark:bg-indigo-600 rounded-lg dark:text-indigo-600 select-none !important;
+    @apply animate-pulse bg-emerald-700 text-emerald-700 dark:bg-indigo-600 rounded-lg dark:text-indigo-600 select-none hover:scale-100 fill-current stroke-current !important;
   }
 
   .dark-glass{
-    @apply bg-slate-700 backdrop-filter backdrop-blur-[0.8px] bg-opacity-[0.15] border-indigo-200
+    @apply bg-black backdrop-filter backdrop-blur-[0.5px] bg-opacity-[0.15] 
   }
 
   .light-glass{
-    @apply bg-gray-200 backdrop-filter backdrop-blur-[0.8px] bg-opacity-20
+    @apply bg-gray-200 backdrop-filter backdrop-blur-[0.5px] bg-opacity-20
   }
 }
+
+
+
