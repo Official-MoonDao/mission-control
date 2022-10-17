@@ -48,7 +48,7 @@ const BalanceAssets = () => {
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
           );
-          setTokens(tokenArr);
+          setTokens(tokenArr.sort((a,b) => b.usd - a.usd));
         },
         (error) => {
           setIsLoaded(true);
