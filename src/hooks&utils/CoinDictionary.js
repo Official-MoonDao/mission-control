@@ -1,4 +1,4 @@
-export const CoinDictionary = {
+export const coinDictionary = {
     DAI: 'svg',
     BTC: 'svg',
     BNB: 'svg',

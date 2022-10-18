@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import AssetSkeletons from "../../../components/Skeletons/AssetSkeletons";
 import Assets from "./Assets";
+import { transformAssets } from "../../../hooks&utils/transformAssets";
 import TreasuryBalance from "./TreasuryBalance";
+import { errorToast } from "../../../hooks&utils/errorToast";
 
 // MoonDAO Multsig Wallet address.
 const MULTISIG_ADDRESS = "0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9";
@@ -21,34 +23,16 @@ const BalanceAssets = () => {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
-          var balanceSum = 0.0;
-          balanceSum += result.ETH.balance * result.ETH.price.rate;
-          var tokenArr = [];
-          result.tokens.forEach((token) => {
-            // console.log(token.rawBalance);
-            // console.log(token.tokenInfo.price.rate);
-            if (token.tokenInfo.price) {
-              balanceSum += (token.rawBalance * token.tokenInfo.price.rate) / 10 ** token.tokenInfo.decimals;
-              tokenArr.push({
-                balance: parseFloat(token.rawBalance) / 10 ** parseFloat(token.tokenInfo.decimals),
-                symbol: token.tokenInfo.symbol,
-                usd: (token.rawBalance / 10 ** token.tokenInfo.decimals) * token.tokenInfo.price.rate,
-              });
-            }
-          });
+          if(result.error){
+            setError(true)
+            return;
+          }
+          
+          const [balanceSum, tokens] = transformAssets(result);
 
-          tokenArr.push({ balance: result.ETH.balance, symbol: "ETH", decimal: 18, usd: result.ETH.balance * result.ETH.price.rate });
-
-          balanceSum = balanceSum;
+          setBalanceSum(balanceSum);
+          setTokens(tokens);
           setIsLoaded(true);
-          setBalanceSum(
-            balanceSum
-              .toFixed(2)
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-          );
-          setTokens(tokenArr.sort((a,b) => b.usd - a.usd));
         },
         (error) => {
           setIsLoaded(true);
@@ -56,6 +40,8 @@ const BalanceAssets = () => {
         }
       );
   }, []);
+
+  if (error) errorToast("Connection with Etherscan failed. Click the link below to see MoonDAO assets.");
 
   return (
     <section className="xl:w-[40%] xl:max-w-[600px]">

@@ -1,8 +1,8 @@
-import { CoinDictionary } from "../../../hooks&utils/CoinDictionary";
+import { coinDictionary } from "../../../hooks&utils/coinDictionary";
 
 const Asset = ({ name, amount, usd, loading }) => {
 
-  const image = CoinDictionary[name] ? `/coins/${name}.${CoinDictionary[name]}` : "/coins/DEFAULT.png"
+  const image = coinDictionary[name] ? `/coins/${name}.${coinDictionary[name]}` : "/coins/DEFAULT.png"
 
   return (
     <div className={`mt-5 flex xl:mt-6 w-[336px] flex-col xl:flex-row items-center xl:justify-between xl:px-7 py-1 xl:py-2 rounded-xl lg:rounded-sm border-[0.5px] border-gray-300 bg-white bg-opacity-20 shadow-md dark:bg-transparent dark:shadow-indigo-400 sm:w-[400px] lg:w-[336px] xl:w-full dark:lg:bg-black dark:lg:bg-opacity-30 ${loading && "loading-component"}`}>

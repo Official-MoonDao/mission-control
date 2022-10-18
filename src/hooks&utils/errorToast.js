@@ -1,6 +1,6 @@
 import {toast} from 'react-toastify'
 
-export const failedFetchAlert = () => toast.error('Connection failed. Contact MoonDAO discord if the problem persists 🚀', {
+export const errorToast = (msg) => toast.error(msg, {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,

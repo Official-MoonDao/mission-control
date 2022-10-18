@@ -5,12 +5,12 @@ import Header from "../../components/Header";
 import { SectionLayout, Line } from "../../components/Layout";
 import { useQuery } from "@apollo/client";
 import { PROPOSALS_QUERY } from "../../api/Proposals";
-import { failedFetchAlert } from "../../hooks&utils/toasts";
+import { errorToast } from "../../hooks&utils/errorToast";
 
 const ProposalList = () => {
   const { data, loading, error } = useQuery(PROPOSALS_QUERY);
 
-  if (error) failedFetchAlert();
+  if (error) errorToast('Connection failed. Contact MoonDAO discord if the problem persists 🚀');
 
   return (
     <SectionLayout>
