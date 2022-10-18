@@ -8,7 +8,6 @@ import Menu from "./Menu";
 import MenuClose from "./MenuClose";
 import WalletMobile from "./WalletMobile";
 import SearchIcon from "./SearchIcon";
-import MoonDAOShield from "./MoonDAOShield.png";
 import ArrowDown from "./ArrowDown";
 import ArrowUp from "./ArrowUp";
 import ArrowSide from "./ArrowSide";
@@ -27,7 +26,6 @@ export {
   MenuClose,
   WalletMobile,
   SearchIcon,
-  MoonDAOShield,
   ArrowDown,
   ArrowUp,
   ArrowSide,
