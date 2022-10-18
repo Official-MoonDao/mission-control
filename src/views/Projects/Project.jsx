@@ -1,6 +1,6 @@
 import ArticleTitle from "../../components/ArticleTitle";
 
-const Project = ({ idx, title, postDate, active, deadline, team }) => {
+const Project = ({ idx, title, startDate, active, deadline, teamLeads, link, body, tags }) => {
   return (
     <article
       className={`${
@@ -10,13 +10,46 @@ const Project = ({ idx, title, postDate, active, deadline, team }) => {
       {/*Title and date, team*/}
       <div className=" mt-[20px] pb-[20px] xl:mt-0">
         <ArticleTitle text={title} />
-        <p className="mt-1 font-semibold text-moon-gold">Posted {postDate}</p>
+        <p className="mt-1 font-semibold text-moon-gold">Start Date: {startDate} | Deadline: {deadline}</p>
 
+        {/*Body*/}
+        <div className="mt-5 hidden lg:block">
+          <p className={`text-lg leading-8 text-gray-800 dark:text-gray-100`}>
+            {body.slice(0, 350)}
+            <a
+              className={`inline-block whitespace-pre text-xl font-semibold text-yellow-600 hover:scale-105 hover:text-yellow-500 dark:text-moon-gold dark:hover:text-amber-300`}
+              href={link}
+              target="_blank"
+            >
+              {" ...read more."}
+            </a>
+          </p>
+        </div>
+
+        {/*Status, Team, and Tags*/}
         <div className="mt-[32px] hidden xl:flex xl:items-center">
-          <p className="font-semibold text-black opacity-30 dark:text-white dark:opacity-40">{team && team.length > 0 ? "Team stewards" : "No team data yet"}</p>
-          {team && team.length > 0 && (
+          <div className={`${active ? "bg-moon-blue" : "bg-red-500"}     inline-block rounded py-[8px] px-[10px] `}>
+            <p className={`font-semibold uppercase `}>{active ? "ongoing" : "ended"}</p>
+          </div>
+          <p className="pl-[30px] font-semibold text-moon-gold ">{teamLeads && teamLeads.length > 0 ? "Team stewards" : "No team data yet"}</p>
+          {teamLeads && teamLeads.length > 0 && (
             <>
-              {team.map((e, i) => (
+              {teamLeads.map((e, i) => (
+                <p
+                  key={i}
+                  className={`${
+                    i === 0 ? "ml-[21px]" : "ml-[8px]"
+                  } rounded bg-black bg-opacity-[0.09] px-[10px] py-[5px] font-semibold text-gray-600 dark:bg-white dark:bg-opacity-10 dark:text-white`}
+                >
+                  {e}
+                </p>
+              ))}
+            </>
+          )}
+          <p className="pl-[30px] font-semibold text-moon-gold ">{tags && tags.length > 0 ? "Tags" : "No tags"}</p>
+          {tags && tags.length > 0 && (
+            <>
+              {tags.map((e, i) => (
                 <p
                   key={i}
                   className={`${
@@ -29,14 +62,6 @@ const Project = ({ idx, title, postDate, active, deadline, team }) => {
             </>
           )}
         </div>
-      </div>
-
-      {/*Status and deadline */}
-      <div className="mt-[24px] pb-[20px] xl:mt-[48px] xl:pb-[35px] xl:text-right">
-        <div className={`${active ? "bg-moon-blue" : "bg-red-500"}     inline-block rounded py-[8px] px-[10px] `}>
-          <p className={`font-semibold uppercase `}>{active ? "ongoing" : "paused"}</p>
-        </div>
-        <p className="mt-[9px] text-sm text-black opacity-40 dark:text-white dark:opacity-80">Project Deadline: {deadline}</p>
       </div>
     </article>
   );
