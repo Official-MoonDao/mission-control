@@ -51,6 +51,10 @@
   .light-glass{
     @apply bg-gray-200 backdrop-filter backdrop-blur-[0.5px] bg-opacity-20
   }
+
+  .text-gradient{
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-emerald-600 to-emerald-800 dark:from-moon-gold dark:via-indigo-200 dark:to-indigo-100;
+  }
 }
 
 

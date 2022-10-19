@@ -4,13 +4,16 @@ const Project = ({ idx, title, startDate, active, deadline, teamLeads, link, bod
   return (
     <article
       className={`${
-        idx === 0 ? "mt-[35px]" : "mt-[30px]"
-      } flex w-[336px] flex-col rounded-[8px] border-[0.5px]  border-white border-opacity-40 bg-white px-[20px] pt-[10px] text-white shadow-lg hover:scale-105 dark:bg-transparent dark:shadow-sky-700 sm:w-[400px] xl:w-full xl:flex-row xl:justify-between xl:dark:bg-white dark:xl:bg-opacity-[0.04]`}
+        idx === 0 ? "mt-9" : "mt-8"
+      } flex w-[336px] flex-col rounded-[8px] border-[0.5px]  border-white border-opacity-40 bg-white bg-opacity-40 px-[20px] text-white shadow-md hover:scale-105 dark:bg-transparent dark:shadow-indigo-400 sm:w-[400px] lg:w-full lg:flex-row lg:justify-between dark:lg:bg-black dark:lg:bg-opacity-30`}
     >
-      {/*Title and date, team*/}
-      <div className=" mt-[20px] pb-[20px] xl:mt-0">
-        <ArticleTitle text={title} />
-        <p className="mt-1 font-semibold text-moon-gold">Start Date: {startDate} | Deadline: {deadline}</p>
+      {/*Title and date*/}
+      <div className=" mt-[20px] pb-[20px]">
+        <ArticleTitle text={title} link={link} />
+        <Status active={active} mobile />
+        <p className="mt-3 font-semibold text-moon-gold">
+          Start Date: {startDate} | Deadline: {deadline}
+        </p>
 
         {/*Body*/}
         <div className="mt-5 hidden lg:block">
@@ -27,44 +30,36 @@ const Project = ({ idx, title, startDate, active, deadline, teamLeads, link, bod
         </div>
 
         {/*Status, Team, and Tags*/}
-        <div className="mt-[32px] hidden xl:flex xl:items-center">
-          <div className={`${active ? "bg-moon-blue" : "bg-red-500"}     inline-block rounded py-[8px] px-[10px] `}>
-            <p className={`font-semibold uppercase `}>{active ? "ongoing" : "ended"}</p>
-          </div>
+        <div className="mt-[32px] hidden lg:flex lg:items-center">
+          <Status active={active} />
           <p className="pl-[30px] font-semibold text-moon-gold ">{teamLeads && teamLeads.length > 0 ? "Team stewards" : "No team data yet"}</p>
-          {teamLeads && teamLeads.length > 0 && (
-            <>
-              {teamLeads.map((e, i) => (
-                <p
-                  key={i}
-                  className={`${
-                    i === 0 ? "ml-[21px]" : "ml-[8px]"
-                  } rounded bg-black bg-opacity-[0.09] px-[10px] py-[5px] font-semibold text-gray-600 dark:bg-white dark:bg-opacity-10 dark:text-white`}
-                >
-                  {e}
-                </p>
-              ))}
-            </>
-          )}
+
+          {teamLeads && teamLeads.length > 0 && teamLeads.map((e, i) => <Stamp teamMember name={e} />)}
+
           <p className="pl-[30px] font-semibold text-moon-gold ">{tags && tags.length > 0 ? "Tags" : "No tags"}</p>
-          {tags && tags.length > 0 && (
-            <>
-              {tags.map((e, i) => (
-                <p
-                  key={i}
-                  className={`${
-                    i === 0 ? "ml-[21px]" : "ml-[8px]"
-                  } rounded bg-black bg-opacity-[0.09] px-[10px] py-[5px] font-semibold text-gray-600 dark:bg-white dark:bg-opacity-10 dark:text-white`}
-                >
-                  {e}
-                </p>
-              ))}
-            </>
-          )}
+          {tags && tags.length > 0 && tags.map((e, i) => <Stamp i={i} key={i} name={e} />)}
         </div>
       </div>
     </article>
   );
 };
+
+const Status = ({ active, mobile }) => {
+  return (
+    <div className={`${active ? "bg-moon-gold" : "bg-stone-800 dark:bg-slate-900"} ${mobile && "my-4 lg:hidden"}  inline-block rounded py-[8px] px-[10px] `}>
+      <p className={`font-semibold uppercase`}>{active ? "ongoing" : "ended"}</p>
+    </div>
+  );
+};
+
+const Stamp = ({ name, i, teamMember }) => (
+  <p
+    className={`${i === 0 ? "ml-[21px]" : "ml-[8px]"} ${
+      teamMember ? "bg-emerald-600 dark:bg-indigo-600" : "bg-gray-300 text-gray-600 dark:bg-slate-900 dark:text-white"
+    }  rounded  px-[10px] py-[5px] font-semibold`}
+  >
+    {name}
+  </p>
+);
 
 export default Project;

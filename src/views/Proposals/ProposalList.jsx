@@ -1,4 +1,3 @@
-import SearchBar from "../../components/SearchBar";
 import Proposal from "./Proposal";
 import ProposalSkeletons from "../../components/Skeletons/ProposalSkeletons";
 import Header from "../../components/Header";
