@@ -1,9 +1,10 @@
 import React from "react";
 import ArticleTitle from "../../components/ArticleTitle";
 import { authorMappings } from "../../api/Proposals";
+import { getHumanTime } from "../../hooks&utils/getHumanTime";
 
 const Proposal = ({ title, loading, startTime, endTime, author, state, idx, proposalId, body }) => {
-  const age = Math.round((Date.now() / 1000 - startTime) / 86400);
+  const timeStr = state == "pending" ? getHumanTime((startTime - Math.floor(Date.now() / 1000)) * 1000) : state == "active" ? getHumanTime((endTime - Math.floor(Date.now() / 1000)) * 1000) : getHumanTime((Math.floor(Date.now() / 1000) - endTime) * 1000);
   const link = "https://snapshot.org/#/tomoondao.eth/proposal/" + proposalId;
 
   return (
@@ -36,7 +37,13 @@ const Proposal = ({ title, loading, startTime, endTime, author, state, idx, prop
             </div>
 
             <p className={`mt-[30px] font-semibold text-emerald-900 dark:text-moon-gold lg:mt-[22px] lg:text-lg ${loading && "loading-line"}`}>
-              {age == 0 ? "Started today" : `Started ${age} day${age == 1 ? "" : "s"} ago`}
+              {
+              state == "active" ? 
+                (`Voting Ends in ${timeStr}`) : 
+              state == "pending" ?
+                (`Voting Starts in ${timeStr}`) :
+                (`Voting Ended ${timeStr} ago`)
+              }
             </p>
           </div>
 

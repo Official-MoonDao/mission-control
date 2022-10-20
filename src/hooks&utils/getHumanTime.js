@@ -28,5 +28,5 @@ export const getHumanTime = function (timestamp) {
     units = "seconds";
   }
 
-  return `${humanTime} ${humanTime == "1" ? units.slice(0,units.length-1) : units} ago`;
+  return `${humanTime} ${humanTime == "1" ? units.slice(0,units.length-1) : units}`;
 };
