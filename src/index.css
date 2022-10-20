@@ -55,6 +55,10 @@
   .text-gradient{
     @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-emerald-600 to-emerald-800 dark:from-moon-gold dark:via-indigo-200 dark:to-indigo-100;
   }
+
+  .link{
+    @apply whitespace-pre-wrap underline font-semibold text-yellow-600 hover:text-yellow-500 dark:text-moon-gold dark:hover:text-amber-300
+  }
 }
 
 

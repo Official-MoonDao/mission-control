@@ -20,11 +20,11 @@ const Proposal = ({ title, loading, startTime, endTime, author, state, idx, prop
           <div className="max-w-[850px] lg:pr-1 2xl:max-w-[950px]">
             <ArticleTitle text={title} loading={loading} link={link} />
             {/*Body*/}
-            <div className="mt-5 hidden lg:block">
-              <p className={`text-lg leading-8 text-gray-800 dark:text-gray-100 ${loading && "loading-line"}`}>
+            <div className="mt-5 2xl:mt-6 hidden lg:block">
+              <p className={`text-lg 2xl:text-xl leading-8 2xl:leading-9 text-gray-800 dark:text-gray-100 ${loading && "loading-line"}`}>
                 {body.slice(0, 250)}
                 <a
-                  className={`inline-block whitespace-pre text-xl font-semibold text-yellow-600 hover:scale-105 hover:text-yellow-500 dark:text-moon-gold dark:hover:text-amber-300 ${
+                  className={`link text-xl 2xl:text-2xl ${
                     loading && "hidden"
                   }`}
                   href={link}
