@@ -15,27 +15,33 @@ const Announcement = ({ content, mentions, author, timestamp, reactions, loading
         {/*Avatar, Name, Date */}
         <div className="flex items-center justify-between lg:justify-start">
           <div className="flex items-center">
-            <img src={avatar} className="2xl:[h-75px] h-[60px] w-auto rounded-full object-cover lg:h-[70px]" />
-            <h4 className={`text-gradient ml-2 font-Montserrat text-lg font-bold sm:ml-3 sm:text-xl lg:ml-4 lg:text-2xl xl:text-3xl 2xl:text-4xl ${loading && "loading-line"}`}>
+            {loading ? (
+              <div className="loading-line h-16 w-16 rounded-full"></div>
+            ) : (
+              <img src={avatar} className="2xl:[h-75px] h-[60px] w-auto rounded-full object-cover lg:h-[70px]" />
+            )}
+            <h4 className={`ml-2 font-Montserrat text-lg font-bold sm:ml-3 sm:text-xl lg:ml-4 lg:text-2xl xl:text-3xl 2xl:text-4xl ${loading ? "loading-line" : "text-gradient"}`}>
               {name}
             </h4>
           </div>
-          <p className="inline-block font-semibold text-moon-gold lg:ml-6 lg:text-base 2xl:ml-8">{time}</p>
+          <p className={`inline-block font-semibold text-moon-gold lg:ml-6 lg:text-base 2xl:ml-8 ${loading && "loading-line"}`}>{time}</p>
         </div>
 
         {/*Content*/}
         <div className="mt-2 lg:mt-4 2xl:mt-6">
-          <AnnouncementContent text={content} mentions={mentions} />
+          <AnnouncementContent text={content} mentions={mentions} loading={loading} />
         </div>
 
         {/*Reactions*/}
-        <div className="mt-3 flex lg:mt-5 2xl:mt-6">{reactions && reactions.map((reaction, i) => <Reaction key={i} reaction={reaction} index={i} />)}</div>
+        <div className="mt-3 flex lg:mt-5 2xl:mt-6">{reactions && reactions.map((reaction, i) => <Reaction key={i} reaction={reaction} index={i} loading={loading} />)}</div>
       </div>
     </article>
   );
 };
 
-const Reaction = ({ reaction, index }) => {
+const Reaction = ({ reaction, index, loading }) => {
+  if (loading) return <div className="loading-line ml-3 h-10 w-12 rounded-full"></div>;
+
   return (
     <div className={`${index === 0 ? "" : "ml-3"} flex items-center rounded-2xl bg-gray-300 py-1 px-2 dark:bg-slate-900 lg:px-3`}>
       <h1>{reaction.emoji.name}</h1>
@@ -44,19 +50,18 @@ const Reaction = ({ reaction, index }) => {
   );
 };
 
-const AnnouncementContent = ({ text, mentions }) => {
+const AnnouncementContent = ({ text, mentions, loading }) => {
   const linkRegex =
     /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
-  console.log(text);
   const words = text.replaceAll("\n", " \n ").split(" ");
 
   return (
-    <p className="whitespace-pre-wrap break-words leading-relaxed dark:text-gray-100 lg:text-lg 2xl:text-xl">
+    <p className={`whitespace-pre-wrap break-words leading-relaxed dark:text-gray-100 lg:text-lg 2xl:text-xl ${loading && "loading-line"}`}>
       {words.map((word, i) =>
         word.match(linkRegex) ? (
           <a key={i} className="link " href={word} target="_blank">{`${word} `}</a>
         ) : word.startsWith("<@") ? (
-          <ReplaceIdWithName word={word} mentions={mentions} />
+          <ReplaceIdWithName key={i} word={word} mentions={mentions} />
         ) : word.startsWith("@") ? (
           <span key={i} className="font-semibold text-emerald-500 dark:text-moon-gold">{`${word} `}</span>
         ) : (
@@ -80,20 +85,18 @@ const ReplaceIdWithName = ({ word, mentions }) => {
   return (
     <>
       {mentions.map(
-        (mention) =>
+        (mention, i) =>
           mention.id.includes(id) && (
-            <>
-              <span key={mention.id} className="font-semibold text-blue-500 dark:text-amber-400">{`@${mention.username}`}</span>
+            <span key={i}>
+              <span className="font-semibold text-blue-500 dark:text-amber-400">{`@${mention.username}`}</span>
               {word.slice(ending + 1) + " "}
-            </>
+            </span>
           )
       )}
 
       {roleDictionary[roleId] && (
         <>
-          <span key={roleId} className={`${roleDictionary[roleId] === "Rocketeers" ? "text-emerald-400" : "text-purple-500"}`}>
-            {`@${roleDictionary[roleId]}`}
-          </span>
+          <span className={`${roleDictionary[roleId] === "Rocketeers" ? "text-emerald-400" : "text-purple-500"}`}>{`@${roleDictionary[roleId]}`}</span>
           {word.slice(ending + 1) + " "}
         </>
       )}
