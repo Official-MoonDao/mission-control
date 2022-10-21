@@ -53,7 +53,7 @@
   }
 
   .text-gradient{
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-emerald-600 to-emerald-800 dark:from-moon-gold dark:via-indigo-200 dark:to-indigo-100;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-moon-pink to-moon-lightblue dark:from-moon-lightblue dark:to-moon-pink;
   }
 }
 

@@ -54,7 +54,7 @@ const Proposal = ({ title, loading, startTime, endTime, author, state, idx, prop
             </p>
             <p
               className={`${
-                state === "pending" ? "bg-moon-blue " : state === "active" ? "bg-moon-gold" : "bg-stone-800 dark:bg-slate-900"
+                state === "pending" ? "bg-slate-500 " : state === "active" ? "bg-emerald-500" : "bg-purple-600"
               } rounded-xl px-4 py-[4px] text-lg font-semibold capitalize lg:mt-2 lg:px-5 lg:text-xl ${loading && "loading-line"}`}
             >
               {state}

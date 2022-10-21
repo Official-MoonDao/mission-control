@@ -31,7 +31,7 @@ const Transaction = ({ data, loading }) => {
       </p>
 
       <div className="mt-2 flex items-center xl:mt-0">
-        <p className={`font-semibold opacity-80 dark:text-gray-100 dark:opacity-70 ${loading && "loading-line"}`}>{timeStr}</p>
+        <p className={`font-semibold opacity-80 dark:text-gray-100 dark:opacity-70 ${loading && "loading-line"}`}>{timeStr} ago</p>
         {!loading && (
           <a className={`ml-3 block`} href={transactionLink} target="_blank">
             <GoldPaperArrow loading={loading} />

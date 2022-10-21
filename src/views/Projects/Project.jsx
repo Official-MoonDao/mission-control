@@ -46,7 +46,7 @@ const Project = ({ idx, title, startDate, active, deadline, teamLeads, link, bod
 
 const Status = ({ active, mobile }) => {
   return (
-    <div className={`${active ? "bg-moon-gold" : "bg-stone-800 dark:bg-slate-900"} ${mobile && "my-4 lg:hidden"}  inline-block rounded py-[8px] px-[10px] `}>
+    <div className={`${active ? "bg-emerald-500" : "bg-purple-600"} ${mobile && "my-4 lg:hidden"}  inline-block rounded py-[8px] px-[10px] `}>
       <p className={`font-semibold uppercase`}>{active ? "ongoing" : "ended"}</p>
     </div>
   );

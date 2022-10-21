@@ -10,8 +10,6 @@ const OngoingProjects = () => {
 
 
       <Line />
-      <p className="mt-[24px] lg:text-lg font-semibold text-black text-opacity-60 dark:text-gray-100 dark:opacity-100">{projectsData.length} Projects</p>
-
       {projectsData.map((e, i) => (
         <Project
          key={i}
