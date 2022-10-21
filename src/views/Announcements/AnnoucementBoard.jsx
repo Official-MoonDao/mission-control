@@ -36,7 +36,7 @@ const AnnoucementBoard = () => {
       <div className="mt-[34px]">
         {!isLoaded || error
           ? "Loading or failed"
-          : announcements.map((e) => <Announcement key={e.id} content={e.content} author={e.author} timestamp={e.timestamp} reactions={e.reactions} />)}
+          : announcements.map((e) => <Announcement key={e.id} content={e.content} mentions={e.mentions} author={e.author} timestamp={e.timestamp} reactions={e.reactions} />)}
       </div>
     </SectionLayout>
   );

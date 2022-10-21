@@ -5,22 +5,22 @@ const Project = ({ idx, title, startDate, active, deadline, teamLeads, link, bod
     <article
       className={`${
         idx === 0 ? "mt-9" : "mt-8"
-      } flex w-[336px] flex-col rounded-[8px] border-[0.5px]  border-white border-opacity-40 bg-white bg-opacity-40 px-[20px] text-white shadow-md hover:scale-105 dark:bg-transparent dark:shadow-indigo-400 sm:w-[400px] lg:w-full lg:flex-row lg:justify-between dark:lg:bg-black dark:lg:bg-opacity-30`}
+      } flex w-[336px] flex-col rounded-[8px] border-[0.5px]  border-gray-300 bg-white bg-opacity-40 px-[20px] text-white shadow-md hover:scale-105 dark:bg-transparent dark:shadow-indigo-400 sm:w-[400px] lg:w-full lg:flex-row lg:justify-between dark:lg:bg-black dark:lg:bg-opacity-30`}
     >
       {/*Title and date*/}
       <div className=" mt-[20px] pb-[20px]">
         <ArticleTitle text={title} link={link} />
         <Status active={active} mobile />
-        <p className="mt-3 font-semibold text-moon-gold">
+        <p className="mt-3 2xl:mt-4 font-semibold text-moon-gold">
           Start Date: {startDate} | Deadline: {deadline}
         </p>
 
         {/*Body*/}
-        <div className="mt-5 hidden lg:block">
-          <p className={`text-lg leading-8 text-gray-800 dark:text-gray-100`}>
+        <div className="mt-5 2xl:mt-6 hidden lg:block">
+          <p className={`text-lg 2xl:text-xl 2xl:leading-9 leading-8 text-gray-800 dark:text-gray-100`}>
             {body.slice(0, 350)}
             <a
-              className={`inline-block whitespace-pre text-xl font-semibold text-yellow-600 hover:scale-105 hover:text-yellow-500 dark:text-moon-gold dark:hover:text-amber-300`}
+              className="link text-xl 2xl:text-2xl"
               href={link}
               target="_blank"
             >
@@ -34,7 +34,7 @@ const Project = ({ idx, title, startDate, active, deadline, teamLeads, link, bod
           <Status active={active} />
           <p className="pl-[30px] font-semibold text-moon-gold ">{teamLeads && teamLeads.length > 0 ? "Team stewards" : "No team data yet"}</p>
 
-          {teamLeads && teamLeads.length > 0 && teamLeads.map((e, i) => <Stamp teamMember name={e} />)}
+          {teamLeads && teamLeads.length > 0 && teamLeads.map((e, i) => <Stamp key={i} teamMember name={e} />)}
 
           <p className="pl-[30px] font-semibold text-moon-gold ">{tags && tags.length > 0 ? "Tags" : "No tags"}</p>
           {tags && tags.length > 0 && tags.map((e, i) => <Stamp i={i} key={i} name={e} />)}

@@ -6,13 +6,13 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 
 const App = () => {
-  const [darkMode, setDarkMode] = useLocalStorage("darkMode", false);
+  const [lightMode, setLightMode] = useLocalStorage("lightMode", false);
 
   return (
-    <main className={`${darkMode ? "dark stars-dark" : "stars-light"} min-h-screen `}>
+    <main className={`${!lightMode ? "dark stars-dark" : "stars-light"} min-h-screen `}>
       <ToastContainer/>
       <BrowserRouter>
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Navbar lightMode={lightMode} setLightMode={setLightMode} />
         <Routes>
           <Route path="/" element={<Announcements />}></Route>
           <Route path="/Projects" element={<Projects />}></Route>
