@@ -3,6 +3,7 @@ import TransactionSkeletons from "../../../components/Skeletons/TransactionSkele
 import Header from "../../../components/Header";
 import Transaction from "./Transaction";
 import { Line } from "../../../components/Layout";
+import HeaderWithButton from "../../../components/HeaderWithButton";
 
 // MoonDAO Multsig Wallet address.
 const MULTISIG_ADDRESS = "0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9";
@@ -33,7 +34,7 @@ const WalletTransactions = () => {
 
   return (
     <section className="mt-12 lg:mt-0 xl:w-[45%] xl:max-w-[700px]">
-      <Header text="Recent Activity" />
+      <HeaderWithButton text="Recent Activity" buttonTitle={"Gnosis"} link={"https://gnosis-safe.io/app/eth:0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/home"} img={"/coins/SAFE.png"}/>
       <Line />
       <div className="mt-10">{!isLoaded || error ? <TransactionSkeletons /> : transactions.map((e, i) => <Transaction key={i} data={e} />) }</div>
     </section>

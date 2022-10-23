@@ -8,6 +8,7 @@ export const transformAssets = (result) => {
       balance: parseFloat(token.balance) / 10 ** parseFloat(token.tokenInfo.decimals),
       symbol: token.tokenInfo.symbol,
       usd: parseFloat(token.fiatBalance),
+      address: token.tokenInfo.address
     });
   });
 

@@ -8,7 +8,7 @@ const Assets = ({ tokens }) => {
 
       {tokens.map((token, i) => (
         <Asset key={i} name={token.symbol} amount={token.balance.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-          usd={token.usd.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}/>
+          usd={token.usd.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} address={token.address}/>
       ))}
       
     </section>

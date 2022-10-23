@@ -1,7 +1,7 @@
 import { coinDictionary } from "../../../hooks&utils/coinDictionary";
 
-const Asset = ({ name, amount, usd, loading }) => {
-
+const Asset = ({ name, amount, usd, address, loading }) => {
+  const assetLink = address ? `https://etherscan.io/address/${address}` : "";
   const image = coinDictionary[name] ? `/coins/${name}.${coinDictionary[name]}` : "/coins/DEFAULT.png"
 
   return (
@@ -9,7 +9,7 @@ const Asset = ({ name, amount, usd, loading }) => {
       
       <div className="mt-1 flex items-center">
         {loading? <div className="rounded-full loading-line w-8 h-8"></div> : <img className="w-7 xl:w-8 h-auto" src={image} alt="Asset Logo."/>}
-      <h3 className={`ml-3 xl:ml-4 font-Montserrat text-lg xl:text-xl font-semibold text-amber-600 dark:text-moon-gold ${loading && "loading-line"}`}>${name}</h3>
+      <a href={assetLink} className={`ml-3 xl:ml-4 font-Montserrat text-lg xl:text-xl font-semibold text-amber-600 dark:text-moon-gold hover:scale-110 ${loading && "loading-line"}`}>{name}</a>
       </div>
 
       <div className="mt-3 text-center xl:mt-0">
