@@ -5,24 +5,20 @@ import { transformAssets } from "../../../hooks&utils/transformAssets";
 import TreasuryBalance from "./TreasuryBalance";
 import { errorToast } from "../../../hooks&utils/errorToast";
 
-// MoonDAO Multsig Wallet address.
-const MULTISIG_ADDRESS = "0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9";
-const ETHPLORER_API_BASE = "https://api.ethplorer.io/";
-const ETHPLORER_API_KEY = "freekey";
-
 const BalanceAssets = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [tokens, setTokens] = useState([]);
   const [balanceSum, setBalanceSum] = useState(null);
 
-  const url = ETHPLORER_API_BASE + `getAddressInfo/${MULTISIG_ADDRESS}` + `?apiKey=${ETHPLORER_API_KEY}`;
+  const url = "https://safe-client.gnosis.io/v1/chains/1/safes/0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/balances/USD?exclude_spam=true&trusted=false";
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then(
         (result) => {
+          console.log(result);
           if(result.error){
             setError(true)
             return;
