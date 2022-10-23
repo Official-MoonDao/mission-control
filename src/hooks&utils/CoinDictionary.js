@@ -8,4 +8,5 @@ export const coinDictionary = {
     USDC: 'svg',
     JBX: 'png',
     MOONEY: 'png',
+    SAFE: 'png',
 }
