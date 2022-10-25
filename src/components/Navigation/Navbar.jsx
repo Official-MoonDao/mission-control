@@ -24,10 +24,10 @@ const Navbar = ({ lightMode, setLightMode }) => {
 
       {/*Color mode and discord link*/}
       <div className="flex lg:ml-2">
-        <button className="mr-3  xl:mr-8 2xl:mr-9" onClick={() => setLightMode(!lightMode)}>
+        <button aria-label="Toggle Light Mode" className="mr-3  xl:mr-8 2xl:mr-9" onClick={() => setLightMode(!lightMode)}>
           {lightMode ? <Moon /> : <Sun />}
         </button>
-        <a href="https://discord.com/invite/5nAu7K9aES" target="_blank">
+        <a aria-label="Link to Discord" href="https://discord.com/invite/5nAu7K9aES" target="_blank">
           <DiscordIcon />
         </a>
       </div>

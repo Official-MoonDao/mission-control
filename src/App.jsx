@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navigation/Navbar";
-import { Announcements, Projects, Proposals, Treasury } from "./views";
+import { Announcements, Proposals, Projects, Treasury } from "./views";
 import useLocalStorage from "./hooks&utils/useLocalStorage";
 import { useState, useEffect } from "react";
-
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
@@ -13,9 +12,9 @@ const ANNOUNCEMENTS_API_URL = "https://guarded-journey-41457.herokuapp.com/https
 const App = () => {
   const [lightMode, setLightMode] = useLocalStorage("lightMode", false);
 
+  const [announcements, setAnnouncements] = useState([]);
   const [announcementsError, setAnnouncementsError] = useState(null);
   const [announcementsLoaded, setAnnouncementsLoaded] = useState(false);
-  const [announcements, setAnnouncements] = useState([]);
 
   useEffect(() => {
     fetch(ANNOUNCEMENTS_API_URL)
@@ -25,10 +24,7 @@ const App = () => {
           setAnnouncements(result);
           setAnnouncementsLoaded(true);
         },
-        (error) => {
-          setAnnouncementsError(error);
-          setAnnouncementsLoaded(true);
-        }
+        (error) => setAnnouncementsError(error)
       );
   }, []);
 

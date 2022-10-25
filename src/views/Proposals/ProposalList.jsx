@@ -1,6 +1,7 @@
 import Proposal from "./Proposal";
 import ProposalSkeletons from "../../components/Skeletons/ProposalSkeletons";
-import HeaderWithButton from "../../components/HeaderWithButton";
+import Header from "../../components/Header";
+import LinkButton from "../../components/LinkButton";
 import { SectionLayout, Line } from "../../components/Layout";
 import { useQuery } from "@apollo/client";
 import { PROPOSALS_QUERY } from "../../api/Proposals";
@@ -13,7 +14,10 @@ const ProposalList = () => {
 
   return (
     <SectionLayout>
-      <HeaderWithButton text={"Proposals"} img={"/snapshot-icon.png"} link={"https://snapshot.org/#/tomoondao.eth"} buttonTitle={"Snapshot"} />
+      <div className="lg:flex lg:flex-row-reverse lg:justify-between">
+      <LinkButton text={"Snapshot"} img={"/snapshot-icon.png"} link={"https://snapshot.org/#/tomoondao.eth"}/>
+      <Header text={"Proposals"} position="mt-1 xl:mt-0"/>
+      </div>
 
       <Line />
       <div className="mt-3 lg:hidden">

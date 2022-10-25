@@ -18,7 +18,7 @@ const Announcement = ({ content, mentions, author, timestamp, reactions, loading
             {loading ? (
               <div className="loading-line h-16 w-16 rounded-full"></div>
             ) : (
-              <img src={avatar} className="2xl:[h-75px] h-[60px] w-auto rounded-full object-cover lg:h-[70px]" />
+              <img alt={`${name} Discord's Avatar`} src={avatar} className="2xl:[h-75px] h-[60px] w-auto rounded-full object-cover lg:h-[70px]" />
             )}
             <h4 className={`ml-2 font-Montserrat text-lg font-bold sm:ml-3 sm:text-xl lg:ml-4 lg:text-2xl xl:text-3xl 2xl:text-4xl ${loading ? "loading-line" : "text-gradient"}`}>
               {name}
@@ -44,7 +44,7 @@ const Reaction = ({ reaction, index, loading }) => {
 
   return (
     <div className={`${index === 0 ? "" : "ml-3"} flex items-center rounded-2xl bg-gray-300 py-1 px-2 dark:bg-slate-900 lg:px-3`}>
-      <h1>{reaction.emoji.name}</h1>
+      <p>{reaction.emoji.name}</p>
       <p className="ml-1 text-sm dark:text-gray-100 lg:text-base">{reaction.count}</p>
     </div>
   );
