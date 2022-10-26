@@ -34,9 +34,11 @@ const WalletTransactions = () => {
 
   return (
     <section className="mt-12 lg:mt-0 xl:w-[45%] xl:max-w-[700px]">
-      <div className="2xl:flex 2xl:flex-row-reverse 2xl:justify-between 2xl:items-center">
-        <LinkButton text={"Gnosis"} link={"https://gnosis-safe.io/app/eth:0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/home"} img={"/coins/SAFE.png"} />
+      <div className="flex flex-row justify-between items-center">
         <Header text="Recent Activity" position="mt-1 2xl:mt-0" />
+        <div className="hidden treasury:block">
+          <LinkButton text={"Gnosis"} link={"https://gnosis-safe.io/app/eth:0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/home"} img={"/coins/SAFE.png"} />
+        </div>
       </div>
 
       <Line />

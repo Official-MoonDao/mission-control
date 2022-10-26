@@ -14,9 +14,11 @@ const ProposalList = () => {
 
   return (
     <SectionLayout>
-      <div className="lg:flex lg:flex-row-reverse lg:justify-between">
-      <LinkButton text={"Snapshot"} img={"/snapshot-icon.png"} link={"https://snapshot.org/#/tomoondao.eth"}/>
+      <div className="flex flex-row justify-between">
       <Header text={"Proposals"} position="mt-1 xl:mt-0"/>
+      <div className="hidden lg:block">
+        <LinkButton text={"Snapshot"} img={"/snapshot-icon.png"} link={"https://snapshot.org/#/tomoondao.eth"}/>
+      </div>
       </div>
 
       <Line />
