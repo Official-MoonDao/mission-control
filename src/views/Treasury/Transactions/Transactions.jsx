@@ -4,6 +4,7 @@ import Transaction from "./Transaction";
 import { Line } from "../../../components/Layout";
 import LinkButton from "../../../components/LinkButton";
 import Header from "../../../components/Header";
+import { errorToast } from "../../../hooks&utils/errorToast";
 
 // MoonDAO Multsig Wallet address.
 const MULTISIG_ADDRESS = "0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9";
@@ -25,16 +26,15 @@ const WalletTransactions = () => {
           setIsLoaded(true);
           setTransactions(result.result);
         },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
+        (error) => setError(error)
       );
   }, []);
 
+  if (error) errorToast("Connection with Etherscan failed. Contact MoonDAO if the problem persists 🚀");
+
   return (
     <section className="mt-12 lg:mt-0 xl:w-[45%] xl:max-w-[700px]">
-      <div className="2xl:flex 2xl:flex-row-reverse 2xl:justify-between 2xl:items-center">
+      <div className="2xl:flex 2xl:flex-row-reverse 2xl:items-center 2xl:justify-between">
         <LinkButton text={"Gnosis"} link={"https://gnosis-safe.io/app/eth:0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/home"} img={"/coins/SAFE.png"} />
         <Header text="Recent Activity" position="mt-1 2xl:mt-0" />
       </div>

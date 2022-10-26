@@ -19,11 +19,11 @@ const BalanceAssets = () => {
       .then(
         (result) => {
           console.log(result);
-          if(result.error){
-            setError(true)
+          if (result.error) {
+            setError(true);
             return;
           }
-          
+
           const [balanceSum, tokens] = transformAssets(result);
 
           setBalanceSum(balanceSum);
