@@ -2,14 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navigation/Navbar";
 import { Announcements, Proposals, Projects, Treasury } from "./views";
 import useLocalStorage from "./utilities/useLocalStorage";
-import { useAnnouncements } from "./api/useAnnouncements"
+import { useAnnouncements } from "./api/useAnnouncements";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
 const App = () => {
   const [lightMode, setLightMode] = useLocalStorage("lightMode", false);
   const { announcements, announcementsLoaded, announcementsError } = useAnnouncements();
-
+  
   return (
     <main className={`${!lightMode ? "dark stars-dark" : "stars-light"} min-h-screen `}>
       <ToastContainer />

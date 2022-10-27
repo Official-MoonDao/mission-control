@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const useAssets = () => {
-  const url = "https://safe-client.gnosis.io/v1/chains/1/safes/0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/balances/USD?exclude_spam=true&trusted=false";
+  const ASSETS_URL = import.meta.env.VITE_ASSETS_URL;
 
   const [tokens, setTokens] = useState([]);
   const [balanceSum, setBalanceSum] = useState(null);
@@ -9,7 +9,7 @@ export const useAssets = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(url)
+    fetch(ASSETS_URL)
       .then((res) => res.json())
       .then(
         (result) => {

@@ -4,7 +4,7 @@ export const useTransactions = () => {
   // MoonDAO Multsig Wallet address.
   const MULTISIG_ADDRESS = "0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9";
   const ETHERSCAN_API_BASE = "https://api.etherscan.io/api";
-  const ETHERSCAN_API_KEY = "TJ95PY19ASCIBJQWX4T77V9MTHG7P57CKS";
+  const ETHERSCAN_API_KEY = import.meta.env.VITE_ETHERSCAN_API_KEY;
 
   const [transactions, setTransactions] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
