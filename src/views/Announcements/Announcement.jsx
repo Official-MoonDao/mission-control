@@ -1,4 +1,5 @@
-//We don't know the ID for the role "Astronaut" so we can't color code it yet.
+import Reaction from "./Reaction";
+import AnnouncementContent from "./AnnouncementContent";
 
 const Announcement = ({ content, mentions, author, timestamp, reactions, loading }) => {
   const avatar = `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.webp?size=80`;
@@ -36,71 +37,6 @@ const Announcement = ({ content, mentions, author, timestamp, reactions, loading
         <div className="mt-3 flex lg:mt-5 2xl:mt-6">{reactions && reactions.map((reaction, i) => <Reaction key={i} reaction={reaction} index={i} loading={loading} />)}</div>
       </div>
     </article>
-  );
-};
-
-const Reaction = ({ reaction, index, loading }) => {
-  if (loading) return <div className="loading-line ml-3 h-10 w-12 rounded-full"></div>;
-
-  return (
-    <div className={`${index === 0 ? "" : "ml-3"} flex items-center rounded-2xl bg-gray-300 py-1 px-2 dark:bg-slate-900 lg:px-3`}>
-      <p>{reaction.emoji.name}</p>
-      <p className="ml-1 text-sm dark:text-gray-100 lg:text-base">{reaction.count}</p>
-    </div>
-  );
-};
-
-const AnnouncementContent = ({ text, mentions, loading }) => {
-  const linkRegex =
-    /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
-  const words = text.replaceAll("\n", " \n ").split(" ");
-
-  return (
-    <p className={`whitespace-pre-wrap break-words leading-relaxed dark:text-gray-100 lg:text-lg 2xl:text-xl ${loading && "loading-line"}`}>
-      {words.map((word, i) =>
-        word.match(linkRegex) ? (
-          <a key={i} className="link " href={word} target="_blank">{`${word} `}</a>
-        ) : word.startsWith("<@") ? (
-          <ReplaceIdWithName key={i} word={word} mentions={mentions} />
-        ) : word.startsWith("@") ? (
-          <span key={i} className="font-semibold text-emerald-500 dark:text-moon-gold">{`${word} `}</span>
-        ) : (
-          `${word} `
-        )
-      )}
-    </p>
-  );
-};
-
-const ReplaceIdWithName = ({ word, mentions }) => {
-  const roleDictionary = {
-    "914997939905101874": "Rocketeers",
-    "915011037017817149": "Moon Settlers",
-  };
-
-  const ending = word.lastIndexOf(">");
-  const id = word.slice(2, ending);
-  const roleId = word.slice(3, ending);
-
-  return (
-    <>
-      {mentions.map(
-        (mention, i) =>
-          mention.id.includes(id) && (
-            <span key={i}>
-              <span className="font-semibold text-blue-500 dark:text-amber-400">{`@${mention.username}`}</span>
-              {word.slice(ending + 1) + " "}
-            </span>
-          )
-      )}
-
-      {roleDictionary[roleId] && (
-        <>
-          <span className={`${roleDictionary[roleId] === "Rocketeers" ? "text-emerald-400" : "text-purple-500"}`}>{`@${roleDictionary[roleId]}`}</span>
-          {word.slice(ending + 1) + " "}
-        </>
-      )}
-    </>
   );
 };
 

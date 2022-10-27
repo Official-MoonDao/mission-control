@@ -1,7 +1,7 @@
 import React from "react";
 import ArticleTitle from "../../components/ArticleTitle";
-import { authorMappings } from "../../api/Proposals";
-import { getHumanTime } from "../../hooks&utils/getHumanTime";
+import { authorMappings } from "../../api/proposalsGQL";
+import { getHumanTime } from "../../utilities/getHumanTime";
 
 const Proposal = ({ title, loading, startTime, endTime, author, state, idx, proposalId, body }) => {
   const timeStr = state == "pending" ? getHumanTime((startTime - Math.floor(Date.now() / 1000)) * 1000) : state == "active" ? getHumanTime((endTime - Math.floor(Date.now() / 1000)) * 1000) : getHumanTime((Math.floor(Date.now() / 1000) - endTime) * 1000);

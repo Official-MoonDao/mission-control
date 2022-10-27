@@ -1,4 +1,4 @@
-import { coinDictionary } from "../../../hooks&utils/coinDictionary";
+import { coinDictionary } from "../../../utilities/coinDictionary";
 
 const Asset = ({ name, amount, usd, address, loading }) => {
   const assetLink = address ? `https://etherscan.io/address/${address}` : "";

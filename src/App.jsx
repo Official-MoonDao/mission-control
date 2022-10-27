@@ -1,32 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navigation/Navbar";
 import { Announcements, Proposals, Projects, Treasury } from "./views";
-import useLocalStorage from "./hooks&utils/useLocalStorage";
-import { useState, useEffect } from "react";
+import useLocalStorage from "./utilities/useLocalStorage";
+import { useAnnouncements } from "./api/useAnnouncements"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
-// URL to Python server that fetches discord data via proxy
-const ANNOUNCEMENTS_API_URL = "https://guarded-journey-41457.herokuapp.com/https://discordapimoondao.herokuapp.com/";
-
 const App = () => {
   const [lightMode, setLightMode] = useLocalStorage("lightMode", false);
-
-  const [announcements, setAnnouncements] = useState([]);
-  const [announcementsError, setAnnouncementsError] = useState(null);
-  const [announcementsLoaded, setAnnouncementsLoaded] = useState(false);
-
-  useEffect(() => {
-    fetch(ANNOUNCEMENTS_API_URL)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setAnnouncements(result);
-          setAnnouncementsLoaded(true);
-        },
-        (error) => setAnnouncementsError(error)
-      );
-  }, []);
+  const { announcements, announcementsLoaded, announcementsError } = useAnnouncements();
 
   return (
     <main className={`${!lightMode ? "dark stars-dark" : "stars-light"} min-h-screen `}>

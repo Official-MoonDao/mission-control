@@ -4,21 +4,21 @@ import Header from "../../components/Header";
 import LinkButton from "../../components/LinkButton";
 import { SectionLayout, Line } from "../../components/Layout";
 import { useQuery } from "@apollo/client";
-import { PROPOSALS_QUERY } from "../../api/Proposals";
-import { errorToast } from "../../hooks&utils/errorToast";
+import { PROPOSALS_QUERY } from "../../api/proposalsGQL";
+import { errorToast } from "../../utilities/errorToast";
 
 const ProposalList = () => {
   const { data, loading, error } = useQuery(PROPOSALS_QUERY);
 
-  if (error) errorToast('Connection failed. Contact MoonDAO discord if the problem persists 🚀');
+  if (error) errorToast("Connection failed. Contact MoonDAO discord if the problem persists 🚀");
 
   return (
     <SectionLayout>
       <div className="flex flex-row justify-between">
-      <Header text={"Proposals"} position="mt-1 xl:mt-0"/>
-      <div className="hidden lg:block">
-        <LinkButton text={"Snapshot"} img={"/snapshot-icon.png"} link={"https://snapshot.org/#/tomoondao.eth"}/>
-      </div>
+        <Header text={"Proposals"} />
+        <div className="hidden lg:block">
+          <LinkButton text={"Snapshot"} img={"/snapshot-icon.png"} link={"https://snapshot.org/#/tomoondao.eth"} />
+        </div>
       </div>
 
       <Line />

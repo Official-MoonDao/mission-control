@@ -1,41 +1,11 @@
-import { useState, useEffect } from "react";
 import AssetSkeletons from "../../../components/Skeletons/AssetSkeletons";
 import Assets from "./Assets";
-import { transformAssets } from "../../../hooks&utils/transformAssets";
 import TreasuryBalance from "./TreasuryBalance";
-import { errorToast } from "../../../hooks&utils/errorToast";
+import { errorToast } from "../../../utilities/errorToast";
+import { useAssets } from "../../../api/useAssets";
 
 const BalanceAssets = () => {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [tokens, setTokens] = useState([]);
-  const [balanceSum, setBalanceSum] = useState(null);
-
-  const url = "https://safe-client.gnosis.io/v1/chains/1/safes/0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/balances/USD?exclude_spam=true&trusted=false";
-
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-          if (result.error) {
-            setError(true);
-            return;
-          }
-
-          const [balanceSum, tokens] = transformAssets(result);
-
-          setBalanceSum(balanceSum);
-          setTokens(tokens);
-          setIsLoaded(true);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, []);
+  const { tokens, isLoaded, balanceSum, error } = useAssets();
 
   if (error) errorToast("Connection with Etherscan failed. Click the link below to see MoonDAO assets.");
 

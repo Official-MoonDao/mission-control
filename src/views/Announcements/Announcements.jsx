@@ -1,5 +1,5 @@
 import { PageLayout, SectionLayout } from "../../components/Layout";
-import { errorToast } from "../../hooks&utils/errorToast";
+import { errorToast } from "../../utilities/errorToast";
 import { Line } from "../../components/Layout";
 import Announcement from "./Announcement";
 import Header from "../../components/Header";

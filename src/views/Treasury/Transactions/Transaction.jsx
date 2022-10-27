@@ -1,5 +1,5 @@
 import { ArrowDown, ArrowUp, GoldPaperArrow } from "../../../assets";
-import { getHumanTime } from "../../../hooks&utils/getHumanTime";
+import { getHumanTime } from "../../../utilities/getHumanTime";
 
 const MULTISIG_ADDRESS = "0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9";
 
