@@ -1,5 +1,6 @@
 {
   "name": "moondao-dashboard",
+  "homepage": "https://melodious-longma-da7ab3.netlify.app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +12,7 @@
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "graphql": "^16.6.0",
+    "next": "^13.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",

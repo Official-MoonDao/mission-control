@@ -5,6 +5,7 @@ import useLocalStorage from "./utilities/useLocalStorage";
 import { useAnnouncements } from "./api/useAnnouncements";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import { HashRouter } from "react-router-dom";
 
 const App = () => {
   const [lightMode, setLightMode] = useLocalStorage("lightMode", false);
@@ -13,7 +14,7 @@ const App = () => {
   return (
     <main className={`${!lightMode ? "dark stars-dark" : "stars-light"} min-h-screen `}>
       <ToastContainer />
-      <BrowserRouter>
+      <HashRouter>
         <Navbar lightMode={lightMode} setLightMode={setLightMode} />
         <Routes>
           <Route path="/" element={<Announcements announcements={announcements} announcementsLoaded={announcementsLoaded} announcementsError={announcementsError} />}></Route>
@@ -22,7 +23,7 @@ const App = () => {
           <Route path="/treasury" element={<Treasury />}></Route>
           <Route path="*" element={<Announcements />}></Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </main>
   );
 };
