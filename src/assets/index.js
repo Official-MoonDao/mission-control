@@ -31,5 +31,5 @@ export {
   ArrowSide,
   CopyIcon,
   GoldPaperArrow,
-  TreasuryLogo,
+  TreasuryLogo
 };

@@ -17,7 +17,7 @@ const App = () => {
         <Navbar lightMode={lightMode} setLightMode={setLightMode} />
         <Routes>
           <Route path="/" element={<Announcements announcements={announcements} announcementsLoaded={announcementsLoaded} announcementsError={announcementsError} />}></Route>
-          <Route path="/Projects" element={<Projects />}></Route>
+          <Route path="/projects" element={<Projects />}></Route>
           <Route path="/proposals" element={<Proposals />}></Route>
           <Route path="/treasury" element={<Treasury />}></Route>
           <Route path="*" element={<Announcements />}></Route>
