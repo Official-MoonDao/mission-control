@@ -1,4 +1,34 @@
 export const projectsData = [
+    // { 
+    //     title: "", 
+    //     startDate: "Oct 1st 2022", 
+    //     active: true, 
+    //     deadline: "Nov 5th 2022", 
+    //     teamLeads: [],
+    //     link: "",
+    //     body: "",
+    //     tags: [],
+    // },
+    { 
+        title: "101.xyz Course Proposal", 
+        startDate: "Oct 23rd 2022", 
+        active: true, 
+        deadline: "Dec 1st 2022", 
+        teamLeads: ["Cheesebeard"],
+        link: "https://docs.google.com/document/d/1S_F6kHDoFB7nVNmoRc2wAVUhVoNRTOOmx06c-ZzGUYU/edit#",
+        body: "We will design courselets for 101.xyz so anyone can earn nontransferrable badges and learn about MoonDAO",
+        tags: ["Growth", "Writing"],
+    },
+    { 
+        title: "MoonDAO Representation at the Mars Society", 
+        startDate: "Oct 23re 2022", 
+        active: true, 
+        deadline: "Nov 1st 2022", 
+        teamLeads: ["Favian", "Stellie"],
+        link: "https://docs.google.com/document/d/1zYHMw01hD0mXVWXyiBrDFJu_wpapTCFjxr5aGq9dRlk/edit",
+        body: "MoonDAO is becoming a recognizable name in the space community and as that reputation grows, it is important to develop connections with technical experts and thought leaders in the space community. MoonDAO has been invited to give a session talk at the Mars Society Annual Conference as a model for decentralized funding for space. This conference is a great opportunity to recruit technical experts, thought leaders, and veterans of the space industry into MoonDAO. Further it is an opportunity to showcase the strength of MoonDAO’s model.",
+        tags: ["Growth"],
+    },
     { 
         title: "Marshall Islands DAO Entity Creation", 
         startDate: "Oct 15th 2022", 
@@ -78,15 +108,5 @@ export const projectsData = [
         link: "https://docs.google.com/document/d/1OG0FqTrrtQwToIP5em95uxtHzch346SCZkD3KGR3MJc/",
         body: "This project will focus on adding new interactive features to our website along with improvements to our documentation and visual appeal. This will be accomplished with various phases or “sub-projects”. The first phase is to create a MoonDAO online store to sell MoonDAO merchandising. Second, will be to implement $MOONEY staking for governance and LP rewards. The third phase will consist of updates to documentation. We will also create a dashboard to display key MoonDAO info. And lastly, we will revamp the landing/homepage with respect to the new additions. ",
         tags: ["Dev", "Writing"],
-    },
-    // { 
-    //     title: "", 
-    //     startDate: "Oct 1st 2022", 
-    //     active: true, 
-    //     deadline: "Nov 5th 2022", 
-    //     teamLeads: [],
-    //     link: "",
-    //     body: "",
-    //     tags: [],
-    // },
+    }
   ];
