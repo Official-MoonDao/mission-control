@@ -33,13 +33,13 @@ const ProposalList = () => {
         <p className="text-lg font-semibold text-emerald-900 dark:text-gray-100">Click the proposal's title to read more.</p>
       </div>
 
-      <PaginationContainer>
+      {/* <PaginationContainer>
         <CaretButton right skip={skip} setSkip={setSkip} />
         {pages.map((e, i) => (
           <PaginationButton page={i} key={i} skip={skip} setSkip={setSkip} />
         ))}
         <CaretButton skip={skip} setSkip={setSkip} total={(pages.length - 1) * 10} />
-      </PaginationContainer>
+      </PaginationContainer> */}
 
       {loading || error ? (
         <ProposalSkeletons />
