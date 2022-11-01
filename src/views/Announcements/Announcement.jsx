@@ -1,13 +1,14 @@
 import Reaction from "./Reaction";
 import AnnouncementContent from "./AnnouncementContent";
+import React from "react";
 
-const Announcement = ({ content, mentions, author, timestamp, reactions, loading }) => {
+const Announcement = React.forwardRef(({ content, mentions, author, timestamp, reactions, loading }, ref) => {
   const avatar = `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.webp?size=80`;
   const name = author.username;
   const time = new Date(timestamp).toDateString();
 
-  return (
-    <article
+  const AnnouncementBody = (
+    <div
       className={`mt-8 w-[336px] rounded-[12px] border-[0.5px] border-gray-300  bg-white  bg-opacity-40 text-gray-900 shadow-md dark:bg-black dark:bg-opacity-30 dark:shadow-indigo-400 sm:w-[400px] lg:mt-10 lg:w-full lg:bg-opacity-50  ${
         loading && "loading-component"
       }`}
@@ -34,10 +35,16 @@ const Announcement = ({ content, mentions, author, timestamp, reactions, loading
         </div>
 
         {/*Reactions*/}
-        <div className="mt-3 flex lg:mt-5 2xl:mt-6 overflow-x-auto">{reactions && reactions.map((reaction, i) => <Reaction key={i} reaction={reaction} index={i} loading={loading} />)}</div>
+        <div className="mt-3 flex overflow-x-auto lg:mt-5 2xl:mt-6">
+          {reactions && reactions.map((reaction, i) => <Reaction key={i} reaction={reaction} index={i} loading={loading} />)}
+        </div>
       </div>
-    </article>
+    </div>
   );
-};
+
+  const result = ref ? <article ref={ref}>{AnnouncementBody}</article> : <article>{AnnouncementBody}</article>;
+
+  return result;
+});
 
 export default Announcement;
