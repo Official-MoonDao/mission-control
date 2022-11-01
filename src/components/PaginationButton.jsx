@@ -2,6 +2,7 @@ const PaginationButton = ({ page, skip, setSkip, scrollUp }) => {
   const samePageClick = page * 10 === skip;
   return (
     <button
+      name={`Go to page ${page}`}
       disabled={samePageClick}
       className={` h-[36px] w-[36px] rounded-full text-center text-2xl font-semibold hover:scale-105 ${
         skip === page * 10

@@ -34,7 +34,7 @@ const Announcement = ({ content, mentions, author, timestamp, reactions, loading
         </div>
 
         {/*Reactions*/}
-        <div className="mt-3 flex lg:mt-5 2xl:mt-6">{reactions && reactions.map((reaction, i) => <Reaction key={i} reaction={reaction} index={i} loading={loading} />)}</div>
+        <div className="mt-3 flex lg:mt-5 2xl:mt-6 overflow-x-auto">{reactions && reactions.map((reaction, i) => <Reaction key={i} reaction={reaction} index={i} loading={loading} />)}</div>
       </div>
     </article>
   );
