@@ -9,14 +9,18 @@ const Navbar = ({ lightMode, setLightMode }) => {
     >
       {/*Mobile logo and Mobile Menu */}
       <div className="flex items-center xl:hidden">
+        <a href="https://moondao.com">
         <LogoMobile />
+        </a>
         <span className="lg:hidden">
           <MobileMenu />
         </span>
       </div>
 
       {/*Main logo*/}
+      <a href="https://moondao.com">
       <div className="relative right-5 hidden xl:flex">{lightMode ? <LogoBlack /> : <LogoWhite/>}</div>
+      </a>
 
       <ul className="relative hidden w-full justify-around lg:flex xl:right-5">
         <RouterLinks />
