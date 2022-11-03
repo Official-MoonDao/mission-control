@@ -17,9 +17,9 @@ const App = () => {
       <HashRouter>
         <Navbar lightMode={lightMode} setLightMode={setLightMode} />
         <Routes>
-          <Route path="/" element={<Announcements announcements={announcements} announcementsLoaded={announcementsLoaded} announcementsError={announcementsError} setAnnouncements={setAnnouncements} />}></Route>
+          <Route path="/" element={<Proposals />}></Route>
+          <Route path="/announcements" element={<Announcements announcements={announcements} announcementsLoaded={announcementsLoaded} announcementsError={announcementsError} setAnnouncements={setAnnouncements} />}></Route>
           <Route path="/projects" element={<Projects />}></Route>
-          <Route path="/proposals" element={<Proposals />}></Route>
           <Route path="/treasury" element={<Treasury />}></Route>
           <Route path="*" element={<Announcements />}></Route>
         </Routes>

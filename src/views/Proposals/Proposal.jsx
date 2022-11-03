@@ -1,4 +1,3 @@
-import React from "react";
 import ArticleTitle from "../../components/ArticleTitle";
 import { authorMappings } from "../../api/proposalsGQL";
 import { getHumanTime } from "../../utilities/getHumanTime";

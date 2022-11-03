@@ -7,8 +7,8 @@ import { useQuery } from "@apollo/client";
 import { PROPOSALS_QUERY } from "../../api/proposalsGQL";
 import { errorToast } from "../../utilities/errorToast";
 import { useState } from "react";
-import PaginationButton from "../../components/PaginationButton";
-import CaretButton from "../../components/CaretButton";
+import PaginationButton from "./PaginationButton";
+import CaretButton from "./CaretButton";
 
 const ProposalList = () => {
   const [skip, setSkip] = useState(0);

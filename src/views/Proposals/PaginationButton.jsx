@@ -4,10 +4,10 @@ const PaginationButton = ({ page, skip, setSkip, scrollUp }) => {
     <button
       name={`Go to page ${page}`}
       disabled={samePageClick}
-      className={` h-[36px] w-[36px] rounded-full text-center text-2xl font-semibold hover:scale-105 ${
+      className={` h-[40px] w-[40px] text-center text-xl font-semibold hover:scale-105 ${
         skip === page * 10
-          ? "scale-125 bg-emerald-500 text-white dark:bg-indigo-50 dark:text-pink-600"
-          : "bg-emerald-700 bg-opacity-50 text-zinc-700 dark:bg-gray-300 dark:text-rose-700"
+          ? "scale-125 bg-emerald-500 text-white dark:bg-slate-900 dark:text-white"
+          : "bg-emerald-700 bg-opacity-50 text-gray-300 dark:bg-slate-800 dark:text-gray-300"
       }`}
       onClick={() => {
         setSkip(10 * page);
