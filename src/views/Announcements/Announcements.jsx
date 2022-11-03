@@ -46,9 +46,9 @@ const Announcements = ({ announcements, announcementsLoaded, announcementsError,
               {announcements.length &&
                 announcements.map((e, i) =>
                   i + 1 === announcements.length ? (
-                    <Announcement ref={lastPostRef} key={e.id} content={e.content} mentions={e.mentions} author={e.author} timestamp={e.timestamp} reactions={e.reactions} />
+                    <Announcement ref={lastPostRef} key={e.id} content={e.content} mentions={e.mentions} author={e.author} timestamp={e.timestamp} reactions={e.reactions} attachments={e.attachments}/>
                   ) : (
-                    <Announcement key={e.id} content={e.content} mentions={e.mentions} author={e.author} timestamp={e.timestamp} reactions={e.reactions} />
+                    <Announcement key={e.id} content={e.content} mentions={e.mentions} author={e.author} timestamp={e.timestamp} reactions={e.reactions} attachments={e.attachments}/>
                   )
                 )}
 
