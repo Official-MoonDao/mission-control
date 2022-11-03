@@ -2,7 +2,7 @@ import Reaction from "./Reaction";
 import AnnouncementContent from "./AnnouncementContent";
 import React from "react";
 
-const Announcement = React.forwardRef(({ content, mentions, author, timestamp, reactions, loading }, ref) => {
+const Announcement = React.forwardRef(({ content, mentions, author, timestamp, reactions, loading, attachments }, ref) => {
   const avatar = `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.webp?size=80`;
   const name = author.username;
   const time = new Date(timestamp).toDateString();
@@ -32,6 +32,11 @@ const Announcement = React.forwardRef(({ content, mentions, author, timestamp, r
         {/*Content*/}
         <div className="mt-2 lg:mt-4 2xl:mt-6">
           <AnnouncementContent text={content} mentions={mentions} loading={loading} />
+        </div>
+
+        {/*Attachments*/}
+        <div className="mt-2 lg:mt-4 2xl:mt-6">
+          {attachments && attachments.map((attachment, i) => <img key={i} src={attachment.url} />)}
         </div>
 
         {/*Reactions*/}
