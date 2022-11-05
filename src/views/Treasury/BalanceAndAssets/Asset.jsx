@@ -15,7 +15,7 @@ const Asset = ({ name, amount, usd, address, loading }) => {
       <a href={assetLink} className={`ml-3 xl:ml-4 font-Montserrat text-lg xl:text-xl font-semibold text-amber-600 dark:text-moon-gold hover:scale-110 ${loading && "loading-line"}`}>{name}</a>
       </div>
 
-      <div className="mt-3 text-center xl:mt-0">
+      <div className="mt-3 text-center xl:mt-0 xl:text-right">
         <p className={`text-[24px] font-bold text-transparent opacity-80 dark:from-purple-100 dark:to-indigo-100 dark:opacity-100 ${loading ? "loading-line" : "bg-clip-text bg-gradient-to-r from-slate-900  to-stone-900"}`}>
           {amount}
         </p>
