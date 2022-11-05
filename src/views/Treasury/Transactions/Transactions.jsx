@@ -14,13 +14,13 @@ const WalletTransactions = () => {
   const [page, setPage] = useState(1);
   const pageMax = 697;
   const { transactions, isLoaded, error } = useTransactions(page);
-  console.log(transactions);
+
   if (error) errorToast("Connection with Etherscan failed. Contact MoonDAO if the problem persists 🚀");
 
   return (
     <section className="mt-12 lg:mt-0 xl:w-[45%] xl:max-w-[700px]">
       <div className="flex flex-row items-center justify-between">
-        <Header text="Transactions" />
+        <Header text="Transactions" noStar />
         <div className="hidden treasury:block">
           <LinkButton text={"Gnosis"} link={"https://gnosis-safe.io/app/eth:0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/home"} img={"/coins/SAFE.png"} />
         </div>

@@ -20,13 +20,12 @@
 }
 
 @font-face {
-  font-family: 'Good Times';
-  src: url('./assets/fonts/goodtimesrg.otf') format('opentype');
+  font-family: "Good Times";
+  src: url("./assets/fonts/goodtimesrg.otf") format("opentype");
 }
 
-
 .stars-dark {
-  background: url("./assets/star-background.png") repeat, linear-gradient(to right,rgb(14, 15, 15),rgb(25, 20, 58),rgb(13, 0, 31));
+  background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(14, 15, 15), rgb(15, 12, 36), rgb(13, 0, 31));
 }
 
 .stars-light {
@@ -34,30 +33,38 @@
 }
 
 @layer utilities {
-
   .loading-component {
-    @apply select-none rounded-xl border-none bg-emerald-100 shadow-none dark:bg-slate-800 hover:scale-100 cursor-wait !important;
+    @apply cursor-wait select-none rounded-sm bg-emerald-100 shadow-none hover:scale-100 dark:bg-slate-800 !important;
   }
   .loading-line {
-    @apply animate-pulse bg-emerald-700 text-emerald-700 dark:bg-indigo-600 rounded-lg dark:text-indigo-600 select-none hover:scale-100 fill-current stroke-current !important;
+    @apply animate-pulse select-none rounded-lg bg-emerald-700 fill-current stroke-current text-emerald-700 hover:scale-100 dark:bg-indigo-600 dark:text-indigo-600 !important;
   }
 
-  .dark-glass{
-    @apply bg-black backdrop-filter backdrop-blur-[0.5px] bg-opacity-[0.15] 
+  .dark-glass {
+    @apply bg-black bg-opacity-[0.15] backdrop-blur-[0.5px] backdrop-filter;
   }
 
-  .light-glass{
-    @apply bg-gray-200 backdrop-filter backdrop-blur-[0.5px] bg-opacity-20
+  .light-glass {
+    @apply bg-gray-200 bg-opacity-20 backdrop-blur-[0.5px] backdrop-filter;
   }
 
-  .text-gradient{
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-moon-pink to-moon-lightblue dark:from-moon-lightblue dark:to-moon-pink;
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-800 to-slate-800 bg-clip-text text-transparent dark:from-white dark:to-moon-gold;
   }
 
-  .link{
-    @apply whitespace-pre-wrap underline font-semibold text-yellow-600 hover:text-yellow-500 dark:text-moon-gold dark:hover:text-amber-300
+  .link {
+    @apply whitespace-pre-wrap font-semibold text-yellow-600 underline hover:text-yellow-500 dark:text-moon-gold dark:hover:text-amber-300;
+  }
+
+  .blur-background {
+    @apply absolute -inset-0.5 bg-gradient-to-br from-blue-300 to-blue-200 blur dark:from-indigo-100 dark:to-indigo-400;
+  }
+
+  .component-background {
+    @apply relative bg-gradient-to-br from-zinc-200 via-gray-100 to-white dark:from-black dark:via-slate-900 dark:to-slate-900;
   }
 }
 
-
-
+.rows {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}

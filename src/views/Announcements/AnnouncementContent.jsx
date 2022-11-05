@@ -8,7 +8,7 @@ const AnnouncementContent = ({ text, mentions, loading }) => {
   const textSeparatedFromLinks = parseAnnouncementText(text, linkRegex);
 
   return (
-    <p className={`whitespace-pre-wrap break-words leading-relaxed dark:text-gray-100 lg:text-lg 2xl:text-xl ${loading && "loading-line"}`}>
+    <p className={`whitespace-pre-wrap font-mono break-words leading-relaxed dark:text-gray-100 lg:text-lg 2xl:text-xl ${loading && "loading-line"}`}>
       {textSeparatedFromLinks.map((str, i) =>
         i % 2 === 0 ? <TextContent key={i} sentence={str} mentions={mentions} /> : <a key={i} className="link " href={str} target="_blank">{`${str} `}</a>
       )}

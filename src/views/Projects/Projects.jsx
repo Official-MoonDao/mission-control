@@ -10,18 +10,7 @@ const Projects = () => {
         <Header text={"Projects"} />
         <Line />
         {projectsData.map((e, i) => (
-          <Project
-            key={i}
-            active={e.active}
-            idx={i}
-            title={e.title}
-            deadline={e.deadline}
-            startDate={e.startDate}
-            teamLeads={e.teamLeads}
-            link={e.link}
-            body={e.body}
-            tags={e.tags}
-          />
+          <Project key={i} active={e.active} title={e.title} deadline={e.deadline} startDate={e.startDate} teamLeads={e.teamLeads} link={e.link} body={e.body} tags={e.tags} />
         ))}
       </SectionLayout>
     </PageLayout>

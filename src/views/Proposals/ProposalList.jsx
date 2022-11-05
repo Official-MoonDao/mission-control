@@ -21,7 +21,7 @@ const ProposalList = () => {
 
   return (
     <SectionLayout>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between items-center">
         <Header text={"Proposals"} id="top" />
         <div className="hidden lg:block">
           <LinkButton text={"Snapshot"} img={"/snapshot-icon.png"} link={"https://snapshot.org/#/tomoondao.eth"} />
@@ -33,14 +33,6 @@ const ProposalList = () => {
         <p className="text-lg font-semibold text-emerald-900 dark:text-gray-100">Click the proposal's title to read more.</p>
       </div>
 
-      {/* <PaginationContainer>
-        <CaretButton right skip={skip} setSkip={setSkip} />
-        {pages.map((e, i) => (
-          <PaginationButton page={i} key={i} skip={skip} setSkip={setSkip} />
-        ))}
-        <CaretButton skip={skip} setSkip={setSkip} total={(pages.length - 1) * 10} />
-      </PaginationContainer> */}
-
       {loading || error ? (
         <ProposalSkeletons />
       ) : (
@@ -50,7 +42,7 @@ const ProposalList = () => {
       )}
 
       <PaginationContainer>
-        <CaretButton right skip={skip} setSkip={setSkip} scrollUp />
+        <CaretButton left skip={skip} setSkip={setSkip} scrollUp />
         {pages.map((e, i) => (
           <PaginationButton page={i} key={i} skip={skip} setSkip={setSkip} scrollUp />
         ))}
