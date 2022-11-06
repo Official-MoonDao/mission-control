@@ -25,22 +25,22 @@ const Proposal = ({ title, loading, startTime, endTime, author, state, idx, prop
           <div className="max-w-[850px] lg:pr-1 2xl:max-w-[950px]">
             <ArticleTitle text={title} loading={loading} link={link} />
             {/*Body*/}
-            <div className="mt-5 hidden lg:block 2xl:mt-6">
-              <p className={`text-lg leading-8 text-gray-800 dark:text-gray-100 2xl:text-xl 2xl:leading-9 ${loading && "loading-line"}`}>
+            <div className="mt-4 lg:mt-5 2xl:mt-6">
+              <p className={`leading-8 text-gray-800 dark:text-gray-100 lg:text-lg 2xl:text-xl 2xl:leading-9 ${loading && "loading-line"}`}>
                 {body.slice(0, 250)}
-                <a className={`link text-xl 2xl:text-2xl ${loading && "hidden"}`} href={link} target="_blank">
-                  {" ...read more."}
+                <a className={`link text-lg lg:text-xl 2xl:text-2xl ${loading && "hidden"}`} href={link} target="_blank">
+                  {"...read more."}
                 </a>
               </p>
             </div>
 
-            <p className={`mt-[30px] font-semibold text-emerald-900 dark:text-moon-gold lg:mt-[22px] lg:text-lg ${loading && "loading-line"}`}>
+            <p className={`mt-6 font-semibold text-emerald-900 dark:text-moon-gold lg:mt-[22px] lg:text-lg ${loading && "loading-line"}`}>
               {state == "active" ? `Voting Ends in ${timeStr}` : state == "pending" ? `Voting Starts in ${timeStr}` : `Voting Ended ${timeStr} ago`}
             </p>
           </div>
 
           {/*Author and status */}
-          <div className="mt-[30px] flex items-center justify-between lg:mt-0 lg:flex-col lg:justify-end lg:pl-[10px]">
+          <div className="mt-7 flex items-center justify-between lg:mt-0 lg:flex-col lg:justify-end lg:pl-[10px]">
             <p className={`font-semibold text-slate-800  dark:text-gray-200  2xl:text-lg ${loading && "loading-line"}`}>
               {authorMappings[author] ? authorMappings[author] : author.slice(0, 12) + "..."}
             </p>

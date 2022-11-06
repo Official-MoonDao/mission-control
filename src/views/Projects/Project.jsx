@@ -8,17 +8,19 @@ const Project = ({ title, startDate, active, deadline, teamLeads, link, body, ta
       <div className="blur-background rounded-2xl"></div>
 
       <div className="component-background rounded-2xl px-5 pt-6 pb-3 lg:px-8 xl:px-9">
+      <div className="lg:hidden">
+            <Status active={active} />
+          </div>
         {/*Title and date*/}
-        <div className="pb-[20px]">
+        <div className="mt-3 lg:mt-0 pb-[20px]">
           <ArticleTitle text={title} link={link} />
-          <Status active={active} mobile />
-          <p className="mt-3 font-semibold text-moon-gold 2xl:mt-4">
+
+          <p className="mt-3 font-semibold text-blue-500 opacity-90 dark:text-moon-gold 2xl:mt-4">
             Start Date: {startDate} | Deadline: {deadline}
           </p>
-
           {/*Body*/}
-          <div className="mt-5 hidden lg:block 2xl:mt-6">
-            <p className={`text-lg leading-8 text-gray-800 dark:text-gray-100 2xl:text-xl 2xl:leading-9`}>
+          <div className="mt-5 2xl:mt-6">
+            <p className={`leading-8 text-gray-800 dark:text-gray-100 lg:text-lg 2xl:text-xl 2xl:leading-9`}>
               {body.slice(0, 350)}
               <a className="link text-xl 2xl:text-2xl" href={link} target="_blank">
                 {" ...read more."}
@@ -42,9 +44,9 @@ const Project = ({ title, startDate, active, deadline, teamLeads, link, body, ta
   );
 };
 
-const Status = ({ active, mobile }) => {
+const Status = ({ active }) => {
   return (
-    <div className={`${active ? "bg-amber-500" : "bg-purple-800"} ${mobile && "my-4 lg:hidden"}  inline-block rounded py-[8px] px-[10px] `}>
+    <div className={`${active ? "bg-amber-500" : "bg-purple-800"} inline-block rounded py-[8px] px-[10px] `}>
       <p className={`font-semibold uppercase`}>{active ? "ongoing" : "ended"}</p>
     </div>
   );
