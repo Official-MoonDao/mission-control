@@ -8,25 +8,28 @@ const Announcement = React.forwardRef(({ content, mentions, author, timestamp, r
   const time = new Date(timestamp).toDateString();
 
   const AnnouncementBody = (
-    <div
-      className={`mt-8 w-[336px] rounded-[12px] border-[0.5px] border-gray-300  bg-white  bg-opacity-40 text-gray-900 shadow-md dark:bg-black dark:bg-opacity-30 dark:shadow-indigo-400 sm:w-[400px] lg:mt-10 lg:w-full lg:bg-opacity-50  ${
-        loading && "loading-component"
-      }`}
-    >
-      <div className="px-3 py-3 sm:px-4 lg:py-4 lg:px-5 xl:px-6 xl:py-5">
+    <div className={`relative mt-10 w-[336px] rounded-2xl text-gray-900  sm:w-[400px] lg:mt-10 lg:w-full ${loading && "loading-component"}`}>
+      <div className="blur-background rounded-2xl"></div>
+
+      <div className="component-background relative rounded-2xl border border-gray-300 px-3 py-3 sm:px-4 lg:py-5 lg:px-6 xl:px-12 xl:py-9">
         {/*Avatar, Name, Date */}
-        <div className="flex items-center justify-between lg:justify-start">
-          <div className="flex items-center">
-            {loading ? (
-              <div className="loading-line h-16 w-16 rounded-full"></div>
-            ) : (
-              <img alt={`${name} Discord's Avatar`} src={avatar} className="2xl:[h-75px] h-[60px] w-auto rounded-full object-cover lg:h-[70px]" />
-            )}
-            <h4 className={`ml-2 font-Montserrat text-lg font-bold sm:ml-3 sm:text-xl lg:ml-4 lg:text-2xl xl:text-3xl 2xl:text-4xl ${loading ? "loading-line" : "text-gradient"}`}>
+        <div className="flex items-center">
+          {loading ? (
+            <div className="loading-line h-16 w-16 rounded-full"></div>
+          ) : (
+            <img alt={`${name} Discord's Avatar`} src={avatar} className="2xl:[h-75px] h-[60px] w-auto rounded-full object-cover lg:h-[70px]" />
+          )}
+
+          <div className="ml-6 flex flex-col">
+            <p className={`inline-block font-mono text-sm text-blue-600 dark:text-moon-orange xl:text-base ${loading && "loading-line"}`}>{time}</p>
+            <h4
+              className={`mt-1 font-GoodTimes text-xl lg:text-3xl xl:text-3xl ${
+                loading ? "loading-line" : "bg-gradient-to-b from-yellow-600 to-amber-500 bg-clip-text text-transparent dark:from-blue-300 dark:to-blue-100"
+              }`}
+            >
               {name}
             </h4>
           </div>
-          <p className={`inline-block font-semibold text-moon-gold lg:ml-6 lg:text-base 2xl:ml-8 ${loading && "loading-line"}`}>{time}</p>
         </div>
 
         {/*Content*/}
@@ -35,8 +38,8 @@ const Announcement = React.forwardRef(({ content, mentions, author, timestamp, r
         </div>
 
         {/*Attachments*/}
-        <div className="mt-2 lg:mt-4 2xl:mt-6">
-          {attachments && attachments.map((attachment, i) => <img key={i} src={attachment.url} />)}
+        <div className="rows mt-2 grid gap-4 lg:mt-4 2xl:mt-6">
+          {attachments && attachments.map((attachment, i) => <img className="h-auto max-w-[300px] lg:max-w-[400px] 2xl:max-w-[450px]" key={i} src={attachment.url} />)}
         </div>
 
         {/*Reactions*/}

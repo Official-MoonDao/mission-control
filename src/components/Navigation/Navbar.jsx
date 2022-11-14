@@ -12,7 +12,7 @@ const Navbar = ({ lightMode, setLightMode }) => {
         <a href="https://moondao.com">
         <LogoMobile />
         </a>
-        <span className="lg:hidden">
+        <span className="md:hidden">
           <MobileMenu />
         </span>
       </div>
@@ -22,13 +22,13 @@ const Navbar = ({ lightMode, setLightMode }) => {
       <div className="relative right-5 hidden xl:flex">{lightMode ? <LogoBlack /> : <LogoWhite/>}</div>
       </a>
 
-      <ul className="relative hidden w-full justify-around lg:flex xl:right-5">
+      <ul className="relative hidden w-full justify-around md:flex items-center xl:right-5">
         <RouterLinks />
       </ul>
 
       {/*Color mode and discord link*/}
       <div className="flex lg:ml-2">
-        <button aria-label="Toggle Light Mode" className="mr-3  xl:mr-8 2xl:mr-9" onClick={() => setLightMode(!lightMode)}>
+        <button aria-label="Toggle Light Mode" className="mr-3 xl:mr-8 2xl:mr-9" onClick={() => setLightMode(!lightMode)}>
           {lightMode ? <Moon /> : <Sun />}
         </button>
         <a aria-label="Link to Discord" href="https://discord.com/invite/5nAu7K9aES" target="_blank">

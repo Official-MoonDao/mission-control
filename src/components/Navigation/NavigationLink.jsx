@@ -3,8 +3,13 @@ import { NavLink } from "react-router-dom";
 const NavigationLink = ({ link, text }) => {
   return (
     <li>
-      <NavLink to={link} className={(element) => (element.isActive ? "text-moon-gold" : "text-gray-800 dark:text-gray-100")}>
-      <p className="font-GoodTimes text-lg sm:text-xl lg:text-base xl:text-[17px] 2xl:text-xl hover:scale-105 hover:text-yellow-500 hover:dark:text-amber-400">{text}</p>
+      <NavLink
+        to={link}
+        className={(element) =>
+          element.isActive ? "font-semibold text-blue-500 dark:text-moon-gold" : "font-medium text-gray-800 hover:text-blue-400 dark:text-gray-100 hover:dark:text-amber-200"
+        }
+      >
+        <p className="font-mono text-xl hover:scale-105 sm:text-2xl md:text-base lg:text-xl xl:text-2xl">{text}</p>
       </NavLink>
     </li>
   );
