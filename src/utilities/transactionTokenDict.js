@@ -7,5 +7,6 @@ export const transactionTokenDict = {
     'SDETHER.COM': "Unknown\n(SDETHER)",
     '! StableDAI': "Unknown\n(StableDAI)",
     'DAIBlack.com': "Unknown\n(DAIBlack)",
-    'mdai.io': "Unknown\n(MDAI)"
+    'mdai.io': "Unknown\n(MDAI)",
+    '$ DAIBonus.com':"Unknown\n(DAIBonus)"
 }
