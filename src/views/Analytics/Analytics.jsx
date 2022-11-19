@@ -1,22 +1,37 @@
+import { useEffect, useState } from "react";
 import { PageLayout, SectionLayout } from "../../components/Layout";
 import Holders from "./Charts/Holders";
-
+import Frame from "./Frame";
 function Analytics() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   return (
     <PageLayout>
-      <SectionLayout>
-        <div className="lg:flex lg:justify-around">
-          <Holders />
-          <div className="bg-white">
-            <h1>Mooney staked vs total supply</h1>
-          </div>
-          <div className="bg-white">
-            <h1>Total treasury value & composition</h1>
-          </div>
-        </div>
+      <SectionLayout twoSection>
+        <Frame>
+          <Holders data={data} />
+        </Frame>
       </SectionLayout>
     </PageLayout>
   );
 }
 
 export default Analytics;
+
+///formatting for chart
+/*
+setData([
+  {
+    id: "mooney",
+    color: "hsl(38, 70%, 50%)",
+    data: res.data.prices.map((price) => ({
+      x: String(moment(price[0]).format("YYYY-MM-DD")),
+      y: price[1],
+    })),
+  },
+]);
+*/
