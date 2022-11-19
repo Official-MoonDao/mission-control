@@ -1,4 +1,6 @@
 function Frame(props) {
-  return <div className="flex h-[60vh] w-[80vw]  p-6">{props.children}</div>;
+  return (
+    <div className="absolute flex h-[70vh] w-[90vw]">{props.children}</div>
+  );
 }
 export default Frame;
