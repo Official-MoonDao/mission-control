@@ -6,7 +6,7 @@ function Holders({ data }) {
   return (
     <ResponsiveLine
       data={data}
-      margin={{ top: 0, right: 100, bottom: 50, left: 50 }}
+      margin={{ top: 50, right: 100, bottom: 50, left: 50 }}
       yScale={{
         type: "linear",
         min: "0",
@@ -16,7 +16,8 @@ function Holders({ data }) {
       }}
       xScale={{ format: "%Y-%m-%d", type: "time" }}
       xFormat="time:%Y-%m-%d"
-      axisLeft={{
+      axisLeft={false}
+      axisRight={{
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
@@ -36,7 +37,7 @@ function Holders({ data }) {
         legendPosition: "middle",
       }}
       enableGridX={false}
-      enableGridY={true}
+      enableGridY={false}
       pointSize={0}
       pointColor="white"
       pointBorderWidth={2}

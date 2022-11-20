@@ -12,9 +12,9 @@ function Balance({ data }) {
       data={data}
       keys={["balance"]}
       indexBy="date"
-      margin={{ top: 0, right: 100, bottom: 50, left: 50 }}
+      margin={{ top: 20, right: 100, bottom: 50, left: 50 }}
       padding={0.3}
-      maxValue={0.08}
+      maxValue={0.16}
       groupMode="grouped"
       gridXValues={false}
       gridYValues={false}
@@ -45,15 +45,7 @@ function Balance({ data }) {
       }}
       axisTop={null}
       axisRight={null}
-      axisBottom={{
-        tickValues: "",
-        tickSize: 5,
-        tickPadding: 5,
-        tickRotation: 0,
-        legend: "",
-        legendPosition: "middle",
-        legendOffset: 32,
-      }}
+      axisBottom={false}
       axisLeft={{
         tickSize: 5,
         tickPadding: 5,
