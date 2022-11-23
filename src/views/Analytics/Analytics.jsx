@@ -29,33 +29,31 @@ const pieData = [
 ];
 
 function Analytics() {
-  const [data, setData] = useState([]);
-  const [barData, setBarData] = useState([]);
+  const [data, setData] = useState({});
   useEffect(() => {
     (async () => {
-      setData(await getHistoricalMOONEYBalance());
-      setBarData(await getHistoricalMOONEYBalanceBar());
-      // console.log(await getVMOONEYData());
+      setData(await getVMOONEYData());
+      console.log(data.balance);
     })();
   }, []);
-  if (!data) return;
+  if (!data.balance || !data.holders) return;
   return (
     <PageLayout>
       <SectionLayout twoSection>
         <div className="absolute opacity-[0.5]">
           <Frame>
-            <Balance data={barData} />
-          </Frame>
-        </div>
-        <div className="z-10">
-          <Frame>
-            <Holders data={data} />
+            <Balance data={data.balance} />
           </Frame>
         </div>
         <div className="">
           <Frame>
-            <Pie data={pieData} />
+            <Holders data={data.holders} />
           </Frame>
+        </div>
+        <div className="">
+          <div className="h-[100vh] w-[80vw]">
+            <Pie data={data.distribution} />
+          </div>
           <Frame></Frame>
         </div>
       </SectionLayout>

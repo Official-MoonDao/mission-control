@@ -7,6 +7,7 @@ import { ResponsiveBar } from "@nivo/bar";
 // you'll often use just a few of them.
 function Balance({ data }) {
   if (!data) return;
+  console.log(data);
   return (
     <ResponsiveBar
       data={data}
@@ -14,7 +15,7 @@ function Balance({ data }) {
       indexBy="date"
       margin={{ top: 20, right: 100, bottom: 50, left: 50 }}
       padding={0.3}
-      maxValue={0.08}
+      maxValue={"auto"}
       groupMode="grouped"
       gridXValues={false}
       gridYValues={false}
@@ -41,15 +42,18 @@ function Balance({ data }) {
       //   ]}
       borderColor={{
         from: "color",
-        modifiers: [["darker", 1.6]],
+        modifiers: [["darker", 0.5]],
       }}
       axisTop={null}
       axisRight={null}
       axisBottom={false}
+      colors={["skyblue", "slategrey", "cyan", "grey"]}
+      colorBy="index"
       axisLeft={{
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
+        format: ".2s",
         legend: "",
         legendPosition: "middle",
         legendOffset: -40,
@@ -57,6 +61,36 @@ function Balance({ data }) {
       labelSkipWidth={12}
       labelSkipHeight={12}
       role="application"
+      theme={{
+        textColor: "white",
+      }}
+      legends={[
+        {
+          itemTextColor: "white",
+          anchor: "bottom-right",
+          direction: "column",
+          justify: false,
+          translateX: 110,
+          translateY: 20,
+          itemsSpacing: 0,
+          itemDirection: "left-to-right",
+          itemWidth: 80,
+          itemHeight: 20,
+          itemOpacity: 0.85,
+          symbolSize: 12,
+          symbolShape: "circle",
+          symbolBorderColor: "rgba(0, 0, 0, .5)",
+          effects: [
+            {
+              on: "hover",
+              style: {
+                itemBackground: "rgba(0, 0, 0, .03)",
+                itemOpacity: 1,
+              },
+            },
+          ],
+        },
+      ]}
     />
   );
 }

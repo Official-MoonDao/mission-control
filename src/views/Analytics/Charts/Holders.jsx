@@ -1,15 +1,20 @@
 import { ResponsiveLine } from "@nivo/line";
 function Holders({ data }) {
   if (!data) return;
+  const formattedData = [
+    {
+      id: "holders",
+      data: data,
+    },
+  ];
   return (
     <ResponsiveLine
-      data={data}
+      data={formattedData}
       margin={{ top: 50, right: 100, bottom: 50, left: 50 }}
       yScale={{
         type: "linear",
         min: "0",
         max: "auto",
-        stacked: true,
         reverse: false,
       }}
       xScale={{ format: "%Y-%m-%d", type: "time" }}
@@ -19,8 +24,8 @@ function Holders({ data }) {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        format: ".2f",
-        legend: "price",
+        format: ".2s",
+        legend: "holders",
         legendOffset: -40,
         legendPosition: "middle",
       }}
@@ -41,12 +46,17 @@ function Holders({ data }) {
       pointBorderWidth={2}
       pointBorderColor={{ from: "serieColor" }}
       useMesh={true}
+      theme={{
+        textColor: "white",
+      }}
+      colors={["orange"]}
       legends={[
         {
+          itemTextColor: "white",
           anchor: "bottom-right",
           direction: "column",
           justify: false,
-          translateX: 100,
+          translateX: 110,
           translateY: 0,
           itemsSpacing: 0,
           itemDirection: "left-to-right",
