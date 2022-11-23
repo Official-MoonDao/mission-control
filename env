@@ -1,0 +1,3 @@
+VITE_ANNOUNCEMENTS_API_URL="https://guarded-journey-41457.herokuapp.com/https://moondao-discordapi.herokuapp.com/"
+VITE_ASSETS_URL="https://safe-client.gnosis.io/v1/chains/1/safes/0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/balances/USD?exclude_spam=true&trusted=false"
+VITE_ETHERSCAN_API_KEY="TJ95PY19ASCIBJQWX4T77V9MTHG7P57CKS"
