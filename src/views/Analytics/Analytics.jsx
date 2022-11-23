@@ -5,11 +5,29 @@ import { PageLayout, SectionLayout } from "../../components/Layout";
 import {
   getHistoricalMOONEYBalance,
   getHistoricalMOONEYBalanceBar,
-} from "../../utilities/getAnalytics";
+} from "../../api/analytics/getMOONEYAnalytics";
 
 import Balance from "./Charts/Balance";
 import Holders from "./Charts/Holders";
+import Pie from "./Charts/Pie";
 import Frame from "./Frame";
+import { getVMOONEYData } from "../../api/analytics/getVMOONEYAnalytics";
+
+const pieData = [
+  {
+    id: "treasury",
+    label: "treasury",
+    value: 1000,
+    color: "hsl(243, 70%, 50%)",
+  },
+  {
+    id: "holders",
+    label: "holders",
+    value: 100,
+    color: "hsl(243, 70%, 50%)",
+  },
+];
+
 function Analytics() {
   const [data, setData] = useState([]);
   const [barData, setBarData] = useState([]);
@@ -17,13 +35,14 @@ function Analytics() {
     (async () => {
       setData(await getHistoricalMOONEYBalance());
       setBarData(await getHistoricalMOONEYBalanceBar());
+      // console.log(await getVMOONEYData());
     })();
   }, []);
   if (!data) return;
   return (
     <PageLayout>
       <SectionLayout twoSection>
-        <div className="opacity-[0.5]">
+        <div className="absolute opacity-[0.5]">
           <Frame>
             <Balance data={barData} />
           </Frame>
@@ -32,6 +51,12 @@ function Analytics() {
           <Frame>
             <Holders data={data} />
           </Frame>
+        </div>
+        <div className="">
+          <Frame>
+            <Pie data={pieData} />
+          </Frame>
+          <Frame></Frame>
         </div>
       </SectionLayout>
     </PageLayout>

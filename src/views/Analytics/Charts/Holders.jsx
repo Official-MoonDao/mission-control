@@ -1,5 +1,3 @@
-// install (please make sure versions match peerDependencies)
-// yarn add @nivo/core @nivo/line
 import { ResponsiveLine } from "@nivo/line";
 function Holders({ data }) {
   if (!data) return;
@@ -16,7 +14,7 @@ function Holders({ data }) {
       }}
       xScale={{ format: "%Y-%m-%d", type: "time" }}
       xFormat="time:%Y-%m-%d"
-      axisLeft={false}
+      axisLeft={null}
       axisRight={{
         tickSize: 5,
         tickPadding: 5,

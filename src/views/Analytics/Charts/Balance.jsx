@@ -14,7 +14,7 @@ function Balance({ data }) {
       indexBy="date"
       margin={{ top: 20, right: 100, bottom: 50, left: 50 }}
       padding={0.3}
-      maxValue={0.16}
+      maxValue={0.08}
       groupMode="grouped"
       gridXValues={false}
       gridYValues={false}
@@ -31,14 +31,14 @@ function Balance({ data }) {
           spacing: 5,
         },
       ]}
-      fill={[
-        {
-          match: {
-            id: "balance",
-          },
-          id: "lines",
-        },
-      ]}
+      //   fill={[
+      //     {
+      //       match: {
+      //         id: "balance",
+      //       },
+      //       id: "lines",
+      //     },
+      //   ]}
       borderColor={{
         from: "color",
         modifiers: [["darker", 1.6]],
@@ -57,7 +57,6 @@ function Balance({ data }) {
       labelSkipWidth={12}
       labelSkipHeight={12}
       role="application"
-      ariaLabel="Nivo bar chart demo"
     />
   );
 }
