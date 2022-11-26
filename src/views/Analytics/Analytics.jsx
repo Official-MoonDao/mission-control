@@ -12,6 +12,7 @@ import Holders from "./Charts/Holders";
 import Pie from "./Charts/Pie";
 import Frame from "./Frame";
 import { getVMOONEYData } from "../../api/analytics/getVMOONEYAnalytics";
+import ArticleTitle from "../../components/ArticleTitle";
 
 const pieData = [
   {
@@ -40,7 +41,18 @@ function Analytics() {
   return (
     <PageLayout>
       <SectionLayout twoSection>
-        <div className="absolute opacity-[0.5]">
+        <Frame>
+          <Pie data={data.distribution} />
+        </Frame>
+        <div className="component-background border-gray-30 my-16 h-[50vh] rounded-2xl border-[0.5px]">
+          <div className="blur-background z-[-10]" />
+          <div className="flex h-full w-full flex-col justify-center gap-8 p-10 text-center">
+            <ArticleTitle text={"vMooney Distribution"} />
+            <hr className="w-full"></hr>
+            <div className="flex h-[80%] w-full flex-col justify-center rounded-2xl bg-white"></div>
+          </div>
+        </div>
+        <div className="absolute">
           <Frame>
             <Balance data={data.balance} />
           </Frame>
@@ -49,12 +61,6 @@ function Analytics() {
           <Frame>
             <Holders data={data.holders} />
           </Frame>
-        </div>
-        <div className="">
-          <div className="h-[100vh] w-[80vw]">
-            <Pie data={data.distribution} />
-          </div>
-          <Frame></Frame>
         </div>
       </SectionLayout>
     </PageLayout>

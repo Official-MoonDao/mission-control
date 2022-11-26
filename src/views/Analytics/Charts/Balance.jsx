@@ -13,7 +13,7 @@ function Balance({ data }) {
       data={data}
       keys={["balance"]}
       indexBy="date"
-      margin={{ top: 20, right: 100, bottom: 50, left: 50 }}
+      margin={{ top: 20, right: 50, bottom: 50, left: 50 }}
       padding={0.3}
       maxValue={"auto"}
       groupMode="grouped"
@@ -32,14 +32,6 @@ function Balance({ data }) {
           spacing: 5,
         },
       ]}
-      //   fill={[
-      //     {
-      //       match: {
-      //         id: "balance",
-      //       },
-      //       id: "lines",
-      //     },
-      //   ]}
       borderColor={{
         from: "color",
         modifiers: [["darker", 0.5]],
@@ -70,8 +62,8 @@ function Balance({ data }) {
           anchor: "bottom-right",
           direction: "column",
           justify: false,
-          translateX: 110,
-          translateY: 20,
+          translateX: 10,
+          translateY: 50,
           itemsSpacing: 0,
           itemDirection: "left-to-right",
           itemWidth: 80,
@@ -80,15 +72,6 @@ function Balance({ data }) {
           symbolSize: 12,
           symbolShape: "circle",
           symbolBorderColor: "rgba(0, 0, 0, .5)",
-          effects: [
-            {
-              on: "hover",
-              style: {
-                itemBackground: "rgba(0, 0, 0, .03)",
-                itemOpacity: 1,
-              },
-            },
-          ],
         },
       ]}
     />

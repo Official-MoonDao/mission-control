@@ -1,6 +1,6 @@
 import { createClient } from "urql";
 import moment from "moment";
-const APIURL = "https://api.studio.thegraph.com/query/38443/vmooney/v0.1.52";
+const APIURL = "https://api.studio.thegraph.com/query/38443/vmooney/v0.1.812";
 const client = createClient({
   url: APIURL,
 });
@@ -11,22 +11,36 @@ export async function getVMOONEYData() {
         supply
         blockTimestamp
       }
-        holders(where: {totalValue_gt: "0"}, orderBy: initialLock){
+      holders(where: {totalLocked_gt: "0"}, orderBy: initialLock){
             id
-            totalValue
+            totalLocked
             locktime
             initialLock
-        }
       }
+      deposits(orderBy: blockTimestamp) {
+        increaseVMooney
+        ts
+      }
+      withdraws(orderBy: blockTimestamp) {
+        decreaseVMooney
+        ts
+      }
+    }
     `;
   let totalHolders = 0;
-  let totalBalance = 0;
+  let totalVMooney = 0;
   const res = await client.query(query).toPromise();
-  const balance = res.data.supplies.map((d) => ({
-    balance: d.supply / 10 ** 18,
-    date: moment.unix(d.blockTimestamp).format("YYYY-MM-DD HH:mm"),
-  }));
-
+  const balance = res.data.deposits.map((d, i) => {
+    const deposit = {
+      balance: totalVMooney + Math.abs(d.increaseVMooney) / 10 ** 18,
+      date: moment.unix(d.ts).format("YYYY-MM-DD HH:mm"),
+    };
+    totalVMooney += Math.abs(d.increaseVMooney) / 10 ** 18;
+    return deposit;
+  });
+  const supply = res.data.supplies.reduce((avg, s, _, arr) => {
+    return avg + s.supply / arr.length;
+  }, 0);
   const holders = res.data.holders.map((d) => {
     totalHolders++;
     return {
@@ -35,10 +49,10 @@ export async function getVMOONEYData() {
     };
   });
   const distribution = res.data.holders.map((d) => ({
-    id: `${d.id.slice(0, 6)}...${d.id.slice(-4)}`,
-    label: d.id.slice(6),
+    id: `${d.id.slice(0, 4)}...${d.id.slice(-4)}`,
+    label: d.id,
     value:
-      d.totalValue / res.data.supplies[res.data.supplies.length - 1].supply,
+      d.totalLocked / res.data.supplies[res.data.supplies.length - 1].supply,
   }));
   return { balance, holders, distribution };
 }

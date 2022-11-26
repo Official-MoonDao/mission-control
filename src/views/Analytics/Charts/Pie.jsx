@@ -5,7 +5,7 @@ function Pie({ data }) {
       data={data}
       valueFormat=">-.2%"
       sortByValue={true}
-      margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+      margin={{ top: 10, right: 100, bottom: 80, left: 100 }}
       innerRadius={0.5}
       padAngle={0.5}
       cornerRadius={3}

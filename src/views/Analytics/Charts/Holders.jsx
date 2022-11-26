@@ -10,7 +10,7 @@ function Holders({ data }) {
   return (
     <ResponsiveLine
       data={formattedData}
-      margin={{ top: 50, right: 100, bottom: 50, left: 50 }}
+      margin={{ top: 20, right: 100, bottom: 50, left: 50 }}
       yScale={{
         type: "linear",
         min: "0",
@@ -56,8 +56,8 @@ function Holders({ data }) {
           anchor: "bottom-right",
           direction: "column",
           justify: false,
-          translateX: 110,
-          translateY: 0,
+          translateX: 10,
+          translateY: 30,
           itemsSpacing: 0,
           itemDirection: "left-to-right",
           itemWidth: 80,
