@@ -7,7 +7,6 @@ import { ResponsiveBar } from "@nivo/bar";
 // you'll often use just a few of them.
 function Balance({ data }) {
   if (!data) return;
-  console.log(data);
   return (
     <ResponsiveBar
       data={data}

@@ -1,7 +1,11 @@
 import axios from "axios";
 
 import { useEffect, useState } from "react";
-import { PageLayout, SectionLayout } from "../../components/Layout";
+import {
+  PageLayout,
+  PaginationContainer,
+  SectionLayout,
+} from "../../components/Layout";
 import {
   getHistoricalMOONEYBalance,
   getHistoricalMOONEYBalanceBar,
@@ -12,7 +16,21 @@ import Holders from "./Charts/Holders";
 import Pie from "./Charts/Pie";
 import Frame from "./Frame";
 import { getVMOONEYData } from "../../api/analytics/getVMOONEYAnalytics";
-import ArticleTitle from "../../components/ArticleTitle";
+function Title({ text }) {
+  return (
+    <div className="font-Montserrat text-[22px] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-2xl  2xl:text-[26px]">
+      {text}{" "}
+    </div>
+  );
+}
+
+function Number({ value }) {
+  return (
+    <div className="w-ful my-10 text-center font-Montserrat text-[40px] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-[orange]">
+      {value}
+    </div>
+  );
+}
 
 const pieData = [
   {
@@ -31,31 +49,34 @@ const pieData = [
 
 function Analytics() {
   const [data, setData] = useState({});
+  const [page, setPage] = useState(0);
   useEffect(() => {
     (async () => {
       setData(await getVMOONEYData());
-      console.log(data.balance);
     })();
-  }, []);
-  if (!data.balance || !data.holders) return;
+  });
+  if (!data.holders) return;
   return (
     <PageLayout>
       <SectionLayout twoSection>
+        <div className="component-background relative bottom-16 my-16 flex flex h-[80vh] w-[80vw] flex-col justify-center gap-[30%] rounded-2xl p-20">
+          <div className="blur-background z-[-10] rounded-2xl" />
+          <div>
+            <Title text={"vMooney Balance : "} />
+            <Number value={data.totals.vMooney} />
+          </div>
+          <div>
+            <Title text={"Locked $Mooney : "} />
+            <Number value={data.totals.Mooney} />
+          </div>
+        </div>
         <Frame>
           <Pie data={data.distribution} />
         </Frame>
-        <div className="component-background border-gray-30 my-16 h-[50vh] rounded-2xl border-[0.5px]">
-          <div className="blur-background z-[-10]" />
-          <div className="flex h-full w-full flex-col justify-center gap-8 p-10 text-center">
-            <ArticleTitle text={"vMooney Distribution"} />
-            <hr className="w-full"></hr>
-            <div className="flex h-[80%] w-full flex-col justify-center rounded-2xl bg-white"></div>
-          </div>
-        </div>
         <div className="absolute">
-          <Frame>
+          {/* <Frame>
             <Balance data={data.balance} />
-          </Frame>
+          </Frame> */}
         </div>
         <div className="">
           <Frame>

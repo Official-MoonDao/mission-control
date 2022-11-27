@@ -1,6 +1,6 @@
 import { createClient } from "urql";
 import moment from "moment";
-const APIURL = "https://api.studio.thegraph.com/query/38443/vmooney/v0.1.812";
+const APIURL = "https://api.studio.thegraph.com/query/38443/vmooney/v0.1.832";
 const client = createClient({
   url: APIURL,
 });
@@ -17,42 +17,56 @@ export async function getVMOONEYData() {
             locktime
             initialLock
       }
-      deposits(orderBy: blockTimestamp) {
-        increaseVMooney
-        ts
-      }
-      withdraws(orderBy: blockTimestamp) {
-        decreaseVMooney
+      deposits(first: 1000, orderBy: blockTimestamp, where: {type_not: "3"}) {
+        value
+        locktime
         ts
       }
     }
     `;
+  let now = new Date().getTime() / 1000;
   let totalHolders = 0;
   let totalVMooney = 0;
+  let totalLockedMooney = 0;
   const res = await client.query(query).toPromise();
-  const balance = res.data.deposits.map((d, i) => {
-    const deposit = {
-      balance: totalVMooney + Math.abs(d.increaseVMooney) / 10 ** 18,
-      date: moment.unix(d.ts).format("YYYY-MM-DD HH:mm"),
-    };
-    totalVMooney += Math.abs(d.increaseVMooney) / 10 ** 18;
-    return deposit;
-  });
-  const supply = res.data.supplies.reduce((avg, s, _, arr) => {
-    return avg + s.supply / arr.length;
-  }, 0);
-  const holders = res.data.holders.map((d) => {
-    totalHolders++;
-    return {
-      x: moment.unix(d.initialLock).format("YYYY-MM-DD"),
-      y: totalHolders,
-    };
-  });
-  const distribution = res.data.holders.map((d) => ({
-    id: `${d.id.slice(0, 4)}...${d.id.slice(-4)}`,
-    label: d.id,
-    value:
-      d.totalLocked / res.data.supplies[res.data.supplies.length - 1].supply,
+  //calc totalLockedMooney
+  // const deps = res.data.deposits
+  //   .filter((d) => moment.unix(d.locktime)._i > now)
+  //   .map((d, i) => {
+  //     const mooney = d.value / 10 ** 18;
+  //     totalLockedMooney += mooney;
+  //   });
+  //get holders + initialLock
+  const holders = res.data.holders
+    .filter((h) => h.locktime > now)
+    .map((h) => {
+      totalHolders++;
+      const mooney = h.totalLocked / 10 ** 18;
+      const vmooney = mooney * ((h.locktime - now) / (4 * 365 * 86400));
+      const holder = {
+        x: moment.unix(h.initialLock).format("YYYY-MM-DD"),
+        y: totalHolders,
+        id: h.id,
+        locktime: h.locktime,
+        totalLocked: mooney,
+        totalvMooney: vmooney,
+      };
+      totalLockedMooney += mooney;
+      totalVMooney += vmooney;
+      return holder;
+    });
+  const distribution = holders.map((h) => ({
+    id: `${h.id.slice(0, 4)}...${h.id.slice(-4)}`,
+    label: h.id,
+    value: h.totalvMooney / totalVMooney,
   }));
-  return { balance, holders, distribution };
+  console.log(Math.round(totalLockedMooney), Math.round(totalVMooney), holders);
+  return {
+    holders,
+    distribution,
+    totals: {
+      vMooney: Math.round(totalVMooney).toLocaleString("en-US"),
+      Mooney: Math.round(totalLockedMooney).toLocaleString("en-US"),
+    },
+  };
 }

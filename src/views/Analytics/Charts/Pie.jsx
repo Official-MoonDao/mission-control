@@ -5,21 +5,22 @@ function Pie({ data }) {
       data={data}
       valueFormat=">-.2%"
       sortByValue={true}
-      margin={{ top: 10, right: 100, bottom: 80, left: 100 }}
+      margin={{ top: 50, right: 200, bottom: 50, left: 100 }}
       innerRadius={0.5}
       padAngle={0.5}
       cornerRadius={3}
       activeOuterRadiusOffset={8}
       colors={{ scheme: "red_yellow_blue" }}
-      borderWidth={1}
+      borderWidth={2}
       borderColor={{
         from: "color",
         modifiers: [["darker", 0.2]],
       }}
-      arcLinkLabelsSkipAngle={12}
+      arcLinkLabelsSkipAngle={15}
       arcLinkLabelsTextColor="white"
       arcLinkLabelsStraightLength={100}
-      arcLinkLabelsThickness={10}
+      arcLinkLabelsDiagonalLength={20}
+      arcLinkLabelsThickness={3}
       arcLinkLabelsColor={{ from: "color" }}
       arcLabelsSkipAngle={12}
       arcLabelsTextColor={{
