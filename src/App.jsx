@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navigation/Navbar";
-import { Announcements, Proposals, Projects, Treasury } from "./views";
+import { Announcements, Proposals, Projects, Treasury, Calendar } from "./views";
 import useLocalStorage from "./utilities/useLocalStorage";
 import { useAnnouncements } from "./api/useAnnouncements";
 import { ToastContainer } from "react-toastify";
@@ -21,6 +21,7 @@ const App = () => {
           <Route path="/announcements" element={<Announcements announcements={announcements} announcementsLoaded={announcementsLoaded} announcementsError={announcementsError} setAnnouncements={setAnnouncements} />}></Route>
           <Route path="/projects" element={<Projects />}></Route>
           <Route path="/treasury" element={<Treasury />}></Route>
+          <Route path="/calendar" element={<Calendar/>}></Route>
           <Route path="*" element={<Announcements />}></Route>
         </Routes>
       </HashRouter>
