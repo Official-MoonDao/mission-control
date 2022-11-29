@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { useEffect, useState } from "react";
 import {
+  Line,
   PageLayout,
   PaginationContainer,
   SectionLayout,
@@ -16,9 +17,11 @@ import Holders from "./Charts/Holders";
 import Pie from "./Charts/Pie";
 import Frame from "./Frame";
 import { getVMOONEYData } from "../../api/analytics/getVMOONEYAnalytics";
+import HoldersList from "./HoldersList";
+import Header from "../../components/Header";
 function Title({ text }) {
   return (
-    <div className="font-Montserrat text-[22px] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-2xl  2xl:text-[26px]">
+    <div className="font-Montserrat text-[2vw] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-2xl 2xl:text-[26px]">
       {text}{" "}
     </div>
   );
@@ -26,7 +29,7 @@ function Title({ text }) {
 
 function Number({ value }) {
   return (
-    <div className="w-ful my-10 text-center font-Montserrat text-[40px] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-[orange]">
+    <div className="w-ful my-10 text-center font-Montserrat text-[4.5vw] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-[orange]">
       {value}
     </div>
   );
@@ -49,36 +52,35 @@ const pieData = [
 
 function Analytics() {
   const [data, setData] = useState({});
-  const [page, setPage] = useState(0);
   useEffect(() => {
     (async () => {
       setData(await getVMOONEYData());
     })();
-  });
+  }, []);
   if (!data.holders) return;
   return (
     <PageLayout>
-      <SectionLayout twoSection>
-        <div className="component-background relative bottom-16 my-16 flex flex h-[80vh] w-[80vw] flex-col justify-center gap-[30%] rounded-2xl p-20">
-          <div className="blur-background z-[-10] rounded-2xl" />
-          <div>
-            <Title text={"vMooney Balance : "} />
-            <Number value={data.totals.vMooney} />
-          </div>
-          <div>
-            <Title text={"Locked $Mooney : "} />
-            <Number value={data.totals.Mooney} />
-          </div>
-        </div>
-        <Frame>
-          <Pie data={data.distribution} />
-        </Frame>
-        <div className="absolute">
-          {/* <Frame>
-            <Balance data={data.balance} />
-          </Frame> */}
-        </div>
+      <SectionLayout>
         <div className="">
+          <Header text={"Analytics"} />
+          <Line />
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <div className="component-background relative top-10  mb-24 flex flex h-[70vh] w-[80vw] flex-col justify-center rounded-2xl p-10">
+            <div className="blur-background z-[-10] rounded-2xl" />
+            <div className=" flex flex-col rounded-2xl p-4">
+              <Title text={"vMooney Balance : "} />
+              <Number value={data.totals.vMooney} />
+            </div>
+            <div className="flex flex-col rounded-2xl p-4">
+              <Title text={"Locked $Mooney : "} />
+              <Number value={data.totals.Mooney} />
+            </div>
+          </div>
+          <Frame>
+            <Pie data={data.distribution} />
+            <HoldersList itemsPerPage={5} holders={data.holders} />
+          </Frame>
           <Frame>
             <Holders data={data.holders} />
           </Frame>
@@ -89,17 +91,3 @@ function Analytics() {
 }
 
 export default Analytics;
-
-///formatting for chart
-/*
-setData([
-  {
-    id: "mooney",
-    color: "hsl(38, 70%, 50%)",
-    data: res.data.prices.map((price) => ({
-      x: String(moment(price[0]).format("YYYY-MM-DD")),
-      y: price[1],
-    })),
-  },
-]);
-*/

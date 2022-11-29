@@ -1,6 +1,6 @@
 import { createClient } from "urql";
 import moment from "moment";
-const APIURL = "https://api.studio.thegraph.com/query/38443/vmooney/v0.1.832";
+const APIURL = "https://api.studio.thegraph.com/query/38443/vmooney/v0.1.834";
 const client = createClient({
   url: APIURL,
 });
@@ -11,7 +11,7 @@ export async function getVMOONEYData() {
         supply
         blockTimestamp
       }
-      holders(where: {totalLocked_gt: "0"}, orderBy: initialLock){
+      holders(first:1000, where: {totalLocked_gt: "0"}, orderBy: initialLock){
             id
             totalLocked
             locktime
@@ -25,18 +25,10 @@ export async function getVMOONEYData() {
     }
     `;
   let now = new Date().getTime() / 1000;
-  let totalHolders = 0;
-  let totalVMooney = 0;
-  let totalLockedMooney = 0;
+  let totalHolders = 0,
+    totalVMooney = 0,
+    totalLockedMooney = 0;
   const res = await client.query(query).toPromise();
-  //calc totalLockedMooney
-  // const deps = res.data.deposits
-  //   .filter((d) => moment.unix(d.locktime)._i > now)
-  //   .map((d, i) => {
-  //     const mooney = d.value / 10 ** 18;
-  //     totalLockedMooney += mooney;
-  //   });
-  //get holders + initialLock
   const holders = res.data.holders
     .filter((h) => h.locktime > now)
     .map((h) => {
@@ -46,8 +38,8 @@ export async function getVMOONEYData() {
       const holder = {
         x: moment.unix(h.initialLock).format("YYYY-MM-DD"),
         y: totalHolders,
-        id: h.id,
-        locktime: h.locktime,
+        id: `${h.id.slice(0, 4)}...${h.id.slice(-4)}`,
+        locktime: moment.unix(h.locktime).format("YYYY-MM-DD"),
         totalLocked: mooney,
         totalvMooney: vmooney,
       };
@@ -56,11 +48,10 @@ export async function getVMOONEYData() {
       return holder;
     });
   const distribution = holders.map((h) => ({
-    id: `${h.id.slice(0, 4)}...${h.id.slice(-4)}`,
+    id: h.id,
     label: h.id,
     value: h.totalvMooney / totalVMooney,
   }));
-  console.log(Math.round(totalLockedMooney), Math.round(totalVMooney), holders);
   return {
     holders,
     distribution,

@@ -9,7 +9,7 @@ function Holders({ data }) {
     },
   ];
   return (
-    <>
+    <div className="h-[80vh] w-[80vw]">
       <ResponsiveLine
         data={formattedData}
         key={"holders"}
@@ -34,12 +34,13 @@ function Holders({ data }) {
         }}
         axisBottom={{
           tickValues: "every week",
-          tickSize: 5,
+          tickSize: 10,
           tickRotation: 0,
+          tickPadding: 10,
           format: "%m-%d-%y",
           orient: "bottom",
-          legend: "time",
-          legendOffset: 36,
+          legend: "",
+          legendOffset: 45,
           legendPosition: "middle",
         }}
         enableGridX={false}
@@ -50,7 +51,7 @@ function Holders({ data }) {
         pointBorderColor={{ from: "serieColor" }}
         useMesh={true}
         theme={{
-          textColor: "white",
+          textColor: "slategrey",
         }}
         colors={["orange"]}
         legends={[
@@ -59,8 +60,8 @@ function Holders({ data }) {
             anchor: "bottom-right",
             direction: "column",
             justify: false,
-            translateX: 10,
-            translateY: 30,
+            translateX: 60,
+            translateY: 75,
             itemsSpacing: 0,
             itemDirection: "left-to-right",
             itemWidth: 80,
@@ -81,7 +82,7 @@ function Holders({ data }) {
           },
         ]}
       />
-    </>
+    </div>
   );
 }
 
