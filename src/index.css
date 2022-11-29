@@ -72,6 +72,10 @@ body::-webkit-scrollbar {
   .component-background {
     @apply relative bg-gradient-to-br from-zinc-200 via-gray-100 to-white dark:from-black dark:via-slate-900 dark:to-slate-900;
   }
+
+  .fancy-btn {
+    @apply absolute w-[5vw] rounded-full bg-[skyblue] dark:bg-[orange];
+  }
 }
 
 .rows {

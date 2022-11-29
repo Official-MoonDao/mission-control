@@ -5,8 +5,7 @@ import ReactPaginate from "react-paginate";
 // Example items, to simulate fetching from another resources.
 function Box({ text, label }) {
   return (
-    <div className="flex w-1/3 items-center justify-center">
-      <label className="font-bold text-[orange]">{label}</label>
+    <div className="justify-left flex w-1/3 items-center">
       <h4 className="text-[slategrey]">{text}</h4>
     </div>
   );
@@ -14,8 +13,8 @@ function Box({ text, label }) {
 
 function Holders({ currentItems }) {
   return (
-    <div className="flex h-[80%] w-[95%] flex-col gap-2 font-Montserrat text-[1vw] leading-10 text-slate-800 text-[slategrey]">
-      <div className="text-gradient flex gap-12">
+    <div className="flex h-[70%] w-[135%] flex-col gap-2 font-Montserrat text-[1.25vw] leading-10 text-slate-800 text-[slategrey]">
+      <div className="text-gradient flex gap-[8%]">
         <h3>address</h3>
         <h3>locked Mooney</h3>
         <h3>vMooney</h3>
@@ -24,10 +23,10 @@ function Holders({ currentItems }) {
       {currentItems &&
         currentItems.map((item) => (
           <div
-            className="justify-left component-background flex h-1/6 items-center gap-5 rounded-2xl border-2 px-2"
+            className="justify-left component-background flex w-full items-center gap-[10%] rounded-2xl border-2 px-2"
             key={item.id}
           >
-            <h4 className="text-[1vw] text-[orange]">{item.id}</h4>
+            <h4 className="px-0.5text-[1.25vw] text-gradient">{item.id}</h4>
             <div className="flex w-full gap-1">
               <Box
                 text={Math.round(item.totalLocked).toLocaleString("en-US")}
@@ -43,7 +42,7 @@ function Holders({ currentItems }) {
   );
 }
 
-function HoldersList({ data, itemsPerPage = 10 }) {
+function HoldersList({ data, itemsPerPage = 10, LightMode }) {
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   // Here we use item offsets; we could also use page offsets
@@ -70,17 +69,17 @@ function HoldersList({ data, itemsPerPage = 10 }) {
         breakClassName="absolute hidden w-0"
         nextLabel=">"
         nextClassName=""
-        nextLinkClassName="absolute w-[5vw] bg-[orange] rounded-full"
+        nextLinkClassName="fancy-btn"
         onPageChange={handlePageClick}
         pageLinkClassName="absolute hidden w-0 z[-10]"
         pageRangeDisplayed={100}
         pageCount={pageCount}
         previousLabel="<"
         previousClassName=""
-        previousLinkClassName="absolute w-[5vw] bg-[orange] rounded-full"
+        previousLinkClassName={"fancy-btn"}
         renderOnZeroPageCount={null}
         containerClassName={
-          "relative right-3 bottom-2 h-[8vh] my-2 flex justify-center space-x-2 items-center text-center w-full"
+          "relative right-6 h-[8vh] my-2 flex justify-center space-x-2 items-center text-center w-full select-none"
         }
       />
     </div>

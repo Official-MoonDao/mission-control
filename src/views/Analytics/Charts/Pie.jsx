@@ -1,8 +1,10 @@
 import { ResponsivePie } from "@nivo/pie";
-function Pie({ data }) {
-  console.log(data);
+import { useState } from "react";
+import { useEffect } from "react";
+
+function Pie({ data, lightMode }) {
   return (
-    <div className="h-[80vh] w-[80vw]">
+    <div className="relative right-16 h-[80vh] w-[45vw]">
       <ResponsivePie
         data={data}
         valueFormat=">-.1%"
@@ -10,9 +12,9 @@ function Pie({ data }) {
         margin={{ top: 50, right: 150, bottom: 50, left: 50 }}
         innerRadius={0.5}
         padAngle={0.25}
-        cornerRadius={3}
+        cornerRadius={2}
         activeOuterRadiusOffset={8}
-        colors={{ scheme: "red_yellow_blue" }}
+        colors={lightMode ? { scheme: "blues" } : { scheme: "orange_red" }}
         borderWidth={2}
         borderColor={{
           from: "color",
@@ -20,8 +22,8 @@ function Pie({ data }) {
         }}
         arcLinkLabelsSkipAngle={20}
         arcLinkLabelsTextColor="slategrey"
-        arcLinkLabelsStraightLength={20}
-        arcLinkLabelsDiagonalLength={25}
+        arcLinkLabelsStraightLength={10}
+        arcLinkLabelsDiagonalLength={20}
         arcLinkLabelsThickness={3}
         arcLinkLabelsColor={{ from: "color" }}
         arcLabelsSkipAngle={20}

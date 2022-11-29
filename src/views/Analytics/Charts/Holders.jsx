@@ -1,6 +1,6 @@
 import { ResponsiveLine } from "@nivo/line";
 import { patternDotsDef, patternSquaresDef } from "@nivo/core";
-function Holders({ data }) {
+function Holders({ data, lightMode }) {
   if (!data) return;
   const formattedData = [
     {
@@ -25,11 +25,11 @@ function Holders({ data }) {
         xFormat="time:%Y-%m-%d"
         axisLeft={null}
         axisRight={{
-          tickSize: 5,
+          tickSize: 10,
           tickPadding: 5,
           tickRotation: 0,
           format: ".2s",
-          legend: "holders",
+          legend: "",
           legendOffset: 50,
           legendPosition: "middle",
         }}
@@ -54,10 +54,10 @@ function Holders({ data }) {
         theme={{
           textColor: "slategrey",
         }}
-        colors={["orange"]}
+        colors={lightMode ? ["skyblue"] : ["orange"]}
         legends={[
           {
-            itemTextColor: "white",
+            itemTextColor: "slategrey",
             anchor: "bottom-right",
             direction: "column",
             justify: false,
