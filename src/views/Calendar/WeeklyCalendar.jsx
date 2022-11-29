@@ -9,7 +9,7 @@ import {
   parseISO,
   format,
   getHours,
-  getMinutes
+  getMinutes,
 } from "date-fns";
 
 function classNames(...classes) {
@@ -20,7 +20,7 @@ export default function WeeklyCalendar({
   selectedDate,
   setSelectedDate,
   events,
-  getDayEvents
+  getDayEvents,
 }) {
   const [weekDays, setWeekDays] = useState([]);
 
@@ -46,18 +46,18 @@ export default function WeeklyCalendar({
     return days;
   }
 
-  function getWeekEvents(){
+  function getWeekEvents() {
     /*
     Returns array of events which occur on the selected week.
     */
-    let weekevents = []
-    for(var i = 0; i < weekDays.length; i++){
-      if(weekDays[i].events != [] ){
-        weekevents.push(...weekDays[i].events)
+    let weekevents = [];
+    for (var i = 0; i < weekDays.length; i++) {
+      if (weekDays[i].events != []) {
+        weekevents.push(...weekDays[i].events);
       }
     }
 
-    return(weekevents);
+    return weekevents;
   }
 
   useEffect(() => {
@@ -76,10 +76,9 @@ export default function WeeklyCalendar({
         >
           <div
             ref={containerNav}
-            className="sticky top-0 z-30 flex-none bg-white dark:bg-calendar-deepblue shadow ring-1 ring-black ring-opacity-5"
+            className="sticky top-0 z-30 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 dark:bg-calendar-deepblue"
           >
             <div className="grid grid-cols-7 text-sm leading-6 text-black dark:text-gray-200 sm:hidden">
-
               {weekDays.map((day) => (
                 <button
                   key={day.toString()}
@@ -90,24 +89,27 @@ export default function WeeklyCalendar({
                   }}
                 >
                   {format(day, "EEEEE") + " "}
-                  <span className={classNames(
-                    isSameDay(day, selectedDate)
-                          ? "rounded-full bg-moon-blue font-semibold text-white"
-                          : "font-semibold text-gray-600 dark:text-gray-400", "mt-1 flex h-8 w-8 items-center justify-center"
-                  )}>
+                  <span
+                    className={classNames(
+                      isSameDay(day, selectedDate)
+                        ? "rounded-full bg-moon-blue font-semibold text-white"
+                        : "font-semibold text-gray-600 dark:text-gray-400",
+                      "mt-1 flex h-8 w-8 items-center justify-center"
+                    )}
+                  >
                     {getDate(day)}
                   </span>
                 </button>
               ))}
             </div>
 
-            <div className="-mr-px hidden grid-cols-7 border-b border-gray-200 dark:border-gray-600 text-sm leading-6 text-gray-500 sm:grid">
+            <div className="-mr-px hidden grid-cols-7 border-b border-gray-200 text-sm leading-6 text-gray-500 dark:border-gray-600 sm:grid">
               <div className="col-end-1 w-14" />
 
               {weekDays.map((day) => (
                 <div
                   className="flex items-center justify-center py-3 text-black dark:text-moon-gold"
-                  key={day.toString()+"mobile"}
+                  key={day.toString() + "mobile"}
                   onClick={() => {
                     setSelectedDate(day);
                   }}
@@ -133,7 +135,7 @@ export default function WeeklyCalendar({
             </div>
           </div>
           <div className="flex flex-auto ">
-            <div className="sticky left-0 z-10 w-14 flex-none bg-white dark:bg-calendar-deepblue ring-1 ring-gray-100" />
+            <div className="sticky left-0 z-10 w-14 flex-none bg-white ring-1 ring-gray-100 dark:bg-calendar-deepblue" />
             <div className="grid flex-auto grid-cols-1 grid-rows-1">
               {/* Horizontal lines */}
               <div
@@ -305,16 +307,27 @@ export default function WeeklyCalendar({
                   gridTemplateRows: "1.75rem repeat(288, minmax(0, 1fr)) auto",
                 }}
               >
-                {getWeekEvents().map((event) => (
+                  {getWeekEvents().map((event) => (
                     <li
                       key={event.date + event.title}
-                      className={classNames(isSameDay(selectedDate, parseISO(event.date))? 
-                        `col-start-1 sm:col-start-${getDay(parseISO(event.date)) == 0? 7 :getDay(parseISO(event.date))}`:
-                        `invisible sm:visible sm:col-start-${getDay(parseISO(event.date)) == 0? 7 :getDay(parseISO(event.date))}`,
-                        'relative mt-px flex '
-                        )}
+                      className={classNames(
+                        isSameDay(selectedDate, parseISO(event.date))
+                          ? ``
+                          : `invisible sm:visible `,
+                        `relative mt-px flex col-start-${
+                          getDay(parseISO(event.date)) == 0
+                            ? 7
+                            : getDay(parseISO(event.date))
+                        }`
+                      )}
                       // style={{ gridRow: "2 / span 12" }}
-                      style={{ gridRow: `${(getHours(parseISO(event.date)) * 12) + (getMinutes(parseISO(event.date)) * 0.1) + 2} / span 12` }}
+                      style={{
+                        gridRow: `${
+                          getHours(parseISO(event.date)) * 12 +
+                          getMinutes(parseISO(event.date)) * 0.1 +
+                          2
+                        } / span 12`,
+                      }}
                     >
                       <a
                         href={event.href}
@@ -324,12 +337,47 @@ export default function WeeklyCalendar({
                           {event.title}
                         </p>
                         <p className="text-blue-500 group-hover:text-blue-700">
-                          <time dateTime="2022-01-12T06:00">{format(parseISO(event.date), "hh:mm aaaaa'm")} </time>
+                          <time dateTime="2022-01-12T06:00">
+                            {format(parseISO(event.date), "hh:mm aaaaa'm")}{" "}
+                          </time>
                         </p>
                       </a>
                     </li>
-                  )
-                )}
+                  ))}
+
+                  {getWeekEvents().map((event) => (
+                    <li
+                      key={event.date + event.title}
+                      className={classNames(
+                        isSameDay(selectedDate, parseISO(event.date))
+                          ? `visible sm:invisible  col-start-1`
+                          : `invisible`,
+                        `relative mt-px flex`
+                      )}
+                      // style={{ gridRow: "2 / span 12" }}
+                      style={{
+                        gridRow: `${
+                          getHours(parseISO(event.date)) * 12 +
+                          getMinutes(parseISO(event.date)) * 0.1 +
+                          2
+                        } / span 12`,
+                      }}
+                    >
+                      <a
+                        href={event.href}
+                        className="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-blue-50 p-2 text-xs leading-5 hover:bg-blue-100"
+                      >
+                        <p className="order-1 font-semibold text-blue-700">
+                          {event.title}
+                        </p>
+                        <p className="text-blue-500 group-hover:text-blue-700">
+                          <time dateTime="2022-01-12T06:00">
+                            {format(parseISO(event.date), "hh:mm aaaaa'm")}{" "}
+                          </time>
+                        </p>
+                      </a>
+                    </li>
+                  ))}
               </ol>
             </div>
           </div>
