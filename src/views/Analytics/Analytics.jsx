@@ -16,7 +16,7 @@ import Balance from "./Charts/Balance";
 import Holders from "./Charts/Holders";
 import Pie from "./Charts/Pie";
 import Frame from "./Frame";
-import { getVMOONEYData } from "../../api/analytics/getVMOONEYAnalytics";
+import { getVMOONEYData } from "../../api/getVMOONEYAnalytics";
 import HoldersList from "./HoldersList";
 import Header from "../../components/Header";
 function Title({ text }) {
