@@ -1,6 +1,6 @@
 import { createClient } from "urql";
 import moment from "moment";
-const APIURL = import.meta.env.VITE_ANALYTICS_URL;
+const APIURL = "https://api.studio.thegraph.com/query/38443/vmooney/v0.1.834";
 const client = createClient({
   url: APIURL,
 });
