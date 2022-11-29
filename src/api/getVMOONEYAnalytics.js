@@ -11,7 +11,7 @@ export async function getVMOONEYData() {
         supply
         blockTimestamp
       }
-      holders(first:1000, where: {totalLocked_gt: "0"}, orderBy: initialLock){
+      holders(first:1000, orderBy: initialLock, orderDirection: asc,  where: {totalLocked_gt: "0"}){
             id
             totalLocked
             locktime
@@ -47,13 +47,18 @@ export async function getVMOONEYData() {
       totalVMooney += vmooney;
       return holder;
     });
+  const holdersByVMooney = [...holders].sort(
+    (a, b) => b.totalvMooney - a.totalvMooney
+  );
   const distribution = holders.map((h) => ({
     id: h.id,
     label: h.id,
     value: h.totalvMooney / totalVMooney,
   }));
+  console.log(holdersByVMooney);
   return {
     holders,
+    holdersByVMooney,
     distribution,
     totals: {
       vMooney: Math.round(totalVMooney).toLocaleString("en-US"),

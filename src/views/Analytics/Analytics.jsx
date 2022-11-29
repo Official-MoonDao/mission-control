@@ -1,17 +1,7 @@
 import axios from "axios";
 
 import { useEffect, useState } from "react";
-import {
-  Line,
-  PageLayout,
-  PaginationContainer,
-  SectionLayout,
-} from "../../components/Layout";
-import {
-  getHistoricalMOONEYBalance,
-  getHistoricalMOONEYBalanceBar,
-} from "../../api/analytics/getMOONEYAnalytics";
-
+import { Line, PageLayout, SectionLayout } from "../../components/Layout";
 import Balance from "./Charts/Balance";
 import Holders from "./Charts/Holders";
 import Pie from "./Charts/Pie";
@@ -79,7 +69,7 @@ function Analytics() {
           </div>
           <Frame>
             <Pie data={data.distribution} />
-            <HoldersList itemsPerPage={5} holders={data.holders} />
+            <HoldersList itemsPerPage={5} data={data.holdersByVMooney} />
           </Frame>
           <Frame>
             <Holders data={data.holders} />

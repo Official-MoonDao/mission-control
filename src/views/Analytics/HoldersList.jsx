@@ -43,8 +43,7 @@ function Holders({ currentItems }) {
   );
 }
 
-function HoldersList({ holders, itemsPerPage = 10 }) {
-  const data = holders.sort((a, b) => b.totalvMooney - a.totalvMooney);
+function HoldersList({ data, itemsPerPage = 10 }) {
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   // Here we use item offsets; we could also use page offsets
