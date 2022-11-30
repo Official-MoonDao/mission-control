@@ -12,8 +12,8 @@ function Box({ text }) {
 
 function Holders({ currentItems }) {
   return (
-    <div className="flex h-[100%] w-[130%] flex-col gap-2 font-Montserrat text-[1.25vw] leading-10 text-slate-800 text-[slategrey]">
-      <div className="text-gradient flex gap-[8%]">
+    <div className=" relative flex h-[100%] w-[100%] flex-col gap-2 font-Montserrat text-[1.25vw] leading-10 text-slate-800 text-[slategrey] lg:right-6 lg:w-[140%]">
+      <div className="text-gradient flex w-full gap-[2vw]">
         <h3>address</h3>
         <h3>locked Mooney</h3>
         <h3>vMooney</h3>
