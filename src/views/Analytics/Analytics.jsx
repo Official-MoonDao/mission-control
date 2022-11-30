@@ -82,12 +82,12 @@ function Analytics() {
           </div>
           <Frame>
             <Pie data={data.distribution} lightMode={lightMode} />
-            <div className="relative right-8 flex">
+            <div className="flex flex-col items-center justify-center">
               <HoldersList itemsPerPage={5} data={data.holdersByVMooney} />
             </div>
           </Frame>
           <Frame>
-            <Holders data={data.holders} lightMode={lightMode}/>
+            <Holders data={data.holders} lightMode={lightMode} />
           </Frame>
         </div>
       </SectionLayout>

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 function Pie({ data, lightMode }) {
   return (
-    <div className="relative right-16 h-[80vh] w-[45vw]">
+    <div className="relative h-[80vh] lg:right-16 lg:w-[45vw]">
       <ResponsivePie
         data={data}
         valueFormat=">-.1%"

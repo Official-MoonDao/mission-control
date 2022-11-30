@@ -13,7 +13,7 @@ function Box({ text, label }) {
 
 function Holders({ currentItems }) {
   return (
-    <div className="flex h-[70%] w-[135%] flex-col gap-2 font-Montserrat text-[1.25vw] leading-10 text-slate-800 text-[slategrey]">
+    <div className="flex h-[100%] w-[120%] flex-col gap-2 font-Montserrat text-[1.25vw] leading-10 text-slate-800 text-[slategrey]">
       <div className="text-gradient flex gap-[8%]">
         <h3>address</h3>
         <h3>locked Mooney</h3>
@@ -62,24 +62,24 @@ function HoldersList({ data, itemsPerPage = 10, LightMode }) {
   };
 
   return (
-    <div className="flex w-full flex-col items-center justify-center">
+    <div className="flex w-[60vw] flex-col items-center justify-center lg:w-[25vw]">
       <Holders currentItems={currentItems} />
       <ReactPaginate
         breakLabel=""
         breakClassName="absolute hidden w-0"
         nextLabel=">"
-        nextClassName=""
+        nextClassName="relative bottom-4 flex justify-center"
         nextLinkClassName="fancy-btn"
         onPageChange={handlePageClick}
         pageLinkClassName="absolute hidden w-0 z[-10]"
         pageRangeDisplayed={100}
         pageCount={pageCount}
         previousLabel="<"
-        previousClassName=""
+        previousClassName="relative bottom-4 flex justify-center"
         previousLinkClassName={"fancy-btn"}
         renderOnZeroPageCount={null}
         containerClassName={
-          "relative right-6 h-[8vh] my-2 flex justify-center space-x-2 items-center text-center w-full select-none"
+          "h-[8vh] my-4 flex justify-center space-x-2 items-center text-center w-full select-none"
         }
       />
     </div>
