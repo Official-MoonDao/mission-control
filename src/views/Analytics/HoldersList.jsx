@@ -12,8 +12,8 @@ function Box({ text }) {
 
 function Holders({ currentItems }) {
   return (
-    <div className=" relative flex h-[100%] w-[100%] flex-col gap-2 font-Montserrat text-[1.25vw] leading-10 text-slate-800 text-[slategrey] lg:right-6 lg:w-[140%]">
-      <div className="text-gradient flex w-full gap-[2vw]">
+    <div className="relative flex h-[100%] w-[100%] flex-col gap-2 font-Montserrat text-[1.25vw] leading-10 text-slate-800 text-[slategrey] lg:right-6 lg:w-[140%]">
+      <div className="text-gradient flex w-full gap-[15%] lg:gap-[2vw]">
         <h3>address</h3>
         <h3>locked Mooney</h3>
         <h3>vMooney</h3>
@@ -22,8 +22,11 @@ function Holders({ currentItems }) {
       {currentItems &&
         currentItems.map((item) => (
           <div
-            className="justify-left component-background flex w-full items-center gap-[10%] rounded-2xl border-2 px-2"
+            className="justify-left component-background flex w-full items-center gap-[10%] rounded-2xl border-2 px-2 hover:scale-[1.05] hover:border-4"
             key={item.id}
+            onClick={() =>
+              window.open(`https://etherscan.io/address/${item.address}`)
+            }
           >
             <h4 className="px-0.5text-[1.25vw] text-gradient">{item.id}</h4>
             <div className="flex w-full gap-1">
@@ -78,7 +81,7 @@ function HoldersList({ data, itemsPerPage = 10 }) {
         previousLinkClassName={"fancy-btn"}
         renderOnZeroPageCount={null}
         containerClassName={
-          "h-[8vh] my-4 flex justify-center space-x-2 items-center text-center w-full select-none"
+          "h-[8vh] relative lg:right-6 my-4 flex justify-center space-x-1 lg:space-x-2 items-center text-center w-full select-none"
         }
       />
     </div>

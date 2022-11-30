@@ -13,7 +13,7 @@ function Data({ text, value }) {
         {text}
         <hr className="relative bottom-1.5 mt-4 h-1 bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange" />
       </div>
-      <div className="w-ful text-slate px-4 text-center font-Montserrat  text-[3vw] leading-10 hover:text-[#6ca3e6] dark:text-indigo-100 dark:hover:text-[orange]">
+      <div className="w-ful text-slate px-4 text-center font-Montserrat text-[3vw]  leading-10 hover:text-[#6ca3e6] dark:text-indigo-100 dark:hover:text-[orange] lg:my-4">
         {" "}
         {value}
       </div>

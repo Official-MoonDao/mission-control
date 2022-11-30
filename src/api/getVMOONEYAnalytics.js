@@ -44,6 +44,7 @@ export async function getVMOONEYData() {
         x: moment.unix(h.initialLock).format("YYYY-MM-DD"),
         y: totalHolders,
         id: `${h.id.slice(0, 4)}...${h.id.slice(-4)}`,
+        address: h.id,
         locktime: moment.unix(h.locktime).format("YYYY-MM-DD"),
         totalLocked: mooney,
         totalvMooney: vmooney,

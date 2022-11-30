@@ -74,7 +74,7 @@ body::-webkit-scrollbar {
   }
 
   .fancy-btn {
-    @apply absolute flex h-[2vw] w-[5vw] items-center justify-center rounded-full bg-[skyblue] dark:bg-[orange];
+    @apply absolute flex w-[15vw] items-center justify-center rounded-full bg-[skyblue] dark:bg-[orange] lg:h-[2vw] lg:w-[5vw];
   }
 }
 

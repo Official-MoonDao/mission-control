@@ -1,7 +1,7 @@
 import { ResponsivePie } from "@nivo/pie";
 function Pie({ data, lightMode }) {
   return (
-    <div className="relative h-[80vh] lg:right-16 lg:w-[45vw]">
+    <div className="relative right-8 h-[100vw] w-[90vw] lg:right-16 lg:h-[80vh] lg:w-[45vw]">
       <ResponsivePie
         data={data}
         valueFormat=">-.1%"
@@ -19,8 +19,8 @@ function Pie({ data, lightMode }) {
         }}
         arcLinkLabelsSkipAngle={20}
         arcLinkLabelsTextColor="slategrey"
-        arcLinkLabelsStraightLength={10}
-        arcLinkLabelsDiagonalLength={20}
+        arcLinkLabelsStraightLength={8}
+        arcLinkLabelsDiagonalLength={10}
         arcLinkLabelsThickness={3}
         arcLinkLabelsColor={{ from: "color" }}
         arcLabelsSkipAngle={20}

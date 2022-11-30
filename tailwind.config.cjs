@@ -10,7 +10,7 @@ module.exports = {
         "moon-deepblue": "#132456",
         "moon-pink": "#ff03f8",
         "moon-salmon": "#e76e6b",
-        "moon-lightblue": "#69e9f1"
+        "moon-lightblue": "#69e9f1",
       },
       fontFamily: {
         Montserrat: ["Montserrat", "sans-serif"],
@@ -18,12 +18,12 @@ module.exports = {
       },
     },
     screens: {
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
-      'treasury': '1396px'
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      treasury: "1396px",
     },
   },
   darkMode: "class",
