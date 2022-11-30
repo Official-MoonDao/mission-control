@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 import ReactPaginate from "react-paginate";
 
 // Example items, to simulate fetching from another resources.
-function Box({ text, label }) {
+function Box({ text }) {
   return (
     <div className="justify-left flex w-1/3 items-center">
       <h4 className="text-[slategrey]">{text}</h4>
@@ -13,7 +12,7 @@ function Box({ text, label }) {
 
 function Holders({ currentItems }) {
   return (
-    <div className="flex h-[100%] w-[120%] flex-col gap-2 font-Montserrat text-[1.25vw] leading-10 text-slate-800 text-[slategrey]">
+    <div className="flex h-[100%] w-[130%] flex-col gap-2 font-Montserrat text-[1.25vw] leading-10 text-slate-800 text-[slategrey]">
       <div className="text-gradient flex gap-[8%]">
         <h3>address</h3>
         <h3>locked Mooney</h3>
@@ -42,7 +41,7 @@ function Holders({ currentItems }) {
   );
 }
 
-function HoldersList({ data, itemsPerPage = 10, LightMode }) {
+function HoldersList({ data, itemsPerPage = 10 }) {
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   // Here we use item offsets; we could also use page offsets

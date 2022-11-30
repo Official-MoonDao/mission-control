@@ -40,7 +40,7 @@ function Balance({ data }) {
       axisTop={null}
       axisRight={null}
       axisBottom={false}
-      colors={["skyblue", "slategrey", "cyan", "grey"]}
+      // colors={["skyblue", "slategrey", "cyan", "grey"]}
       colorBy="index"
       axisLeft={{
         tickSize: 5,

@@ -1,8 +1,5 @@
-import axios from "axios";
-
 import { useEffect, useState } from "react";
 import { Line, PageLayout, SectionLayout } from "../../components/Layout";
-import Balance from "./Charts/Balance";
 import Holders from "./Charts/Holders";
 import Pie from "./Charts/Pie";
 import Frame from "./Frame";
@@ -23,21 +20,6 @@ function Data({ text, value }) {
     </div>
   );
 }
-
-const pieData = [
-  {
-    id: "treasury",
-    label: "treasury",
-    value: 1000,
-    color: "hsl(243, 70%, 50%)",
-  },
-  {
-    id: "holders",
-    label: "holders",
-    value: 100,
-    color: "hsl(243, 70%, 50%)",
-  },
-];
 
 function Analytics() {
   const [data, setData] = useState({});

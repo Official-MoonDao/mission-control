@@ -1,5 +1,4 @@
 import { ResponsiveLine } from "@nivo/line";
-import { patternDotsDef, patternSquaresDef } from "@nivo/core";
 function Holders({ data, lightMode }) {
   if (!data) return;
   const formattedData = [

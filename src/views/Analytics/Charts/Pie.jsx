@@ -1,7 +1,4 @@
 import { ResponsivePie } from "@nivo/pie";
-import { useState } from "react";
-import { useEffect } from "react";
-
 function Pie({ data, lightMode }) {
   return (
     <div className="relative h-[80vh] lg:right-16 lg:w-[45vw]">
