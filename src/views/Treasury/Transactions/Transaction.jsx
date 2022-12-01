@@ -1,6 +1,5 @@
 import { ArrowDown, ArrowUp, GoldPaperArrow } from "../../../assets";
 import { getHumanTime } from "../../../utilities/getHumanTime";
-import { transactionTokenDict as dict } from "../../../utilities/transactionTokenDict";
 
 const MULTISIG_ADDRESS = "0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9";
 
@@ -12,11 +11,11 @@ const Transaction = ({ data, loading }) => {
   const value = `${token
     .toFixed(0)
     .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ${dict[data.tokenName] ? dict[data.tokenName] : data.tokenSymbol}`;
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ${data.tokenSymbol}`;
 
   return (
     <div
-      className={`component-background relative mt-5 flex w-[336px] flex-col items-center rounded-[15px] border-[0.5px] border-gray-300 py-2 shadow-md shadow-blue-300 hover:scale-105 dark:shadow-indigo-200 sm:w-[400px]  xl:w-full xl:flex-row xl:justify-between xl:px-5 xl:py-3 ${
+      className={`component-background relative mt-5 flex w-[336px] flex-col items-center rounded-[15px] border-[0.5px] border-gray-300 py-2 shadow-md shadow-blue-300 hover:scale-105 dark:shadow-yellow-100 sm:w-[400px]  xl:w-full xl:flex-row xl:justify-between xl:px-5 xl:py-3 ${
         loading && "loading-component"
       }`}
     >

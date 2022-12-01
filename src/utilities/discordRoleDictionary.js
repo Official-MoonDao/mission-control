@@ -11,3 +11,15 @@ export const discordRoleDictionary = {
     "941227287007866883": ["text-sky-500","DAO Contributor"],
     "914998572859142185": ["text-blue-500","Earthlings"],
   };
+
+  /*
+  
+  This affects the color of role mentions within the Discord Announcements.
+
+  Update following this pattern:
+
+  ROLE ID FROM DISCORD : [ "TAILWINDCSS STYLES" , "ROLE NAME"]
+
+  Currently just changing colors, but properties like text size or underlining could also be changed in this way.
+  
+  */

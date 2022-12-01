@@ -10,3 +10,12 @@ export const errorToast = (msg) => toast.error(msg, {
     progress: undefined,
     theme:"colored"
 });
+
+/* 
+
+Notification that displays every time there is a connection error.
+
+For documentation on how to customize and style this notification, check https://fkhadra.github.io/react-toastify/introduction/
+
+
+*/

@@ -1,8 +1,8 @@
-import { coinDictionary } from "../../../utilities/coinDictionary";
+import { assetImageExtension } from "../../../utilities/assetImageExtension";
 
 const Asset = ({ name, amount, usd, address, loading }) => {
   const assetLink = address ? `https://etherscan.io/address/${address}` : "";
-  const image = coinDictionary[name] ? `/coins/${name}.${coinDictionary[name]}` : "/coins/DEFAULT.png"
+  const image = assetImageExtension[name] ? `/coins/${name}.${assetImageExtension[name]}` : "/coins/DEFAULT.png"
 
   return (
     <div className={`mt-5  component-background flex xl:mt-6 w-[336px] flex-col xl:flex-row items-center xl:justify-between xl:px-7 py-1 xl:py-2 rounded-sm border-[0.5px] border-gray-300  sm:w-[400px] lg:w-[336px] xl:w-full  ${loading && "loading-component"}`}>

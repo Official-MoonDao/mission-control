@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useAnnouncements = () => {
   const ANNOUNCEMENTS_API_URL = import.meta.env.VITE_ANNOUNCEMENTS_API_URL;
+  console.log(ANNOUNCEMENTS_API_URL)
   const [announcements, setAnnouncements] = useState([]);
   const [announcementsError, setAnnouncementsError] = useState(null);
   const [announcementsLoaded, setAnnouncementsLoaded] = useState(false);

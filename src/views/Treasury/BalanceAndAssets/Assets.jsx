@@ -1,6 +1,7 @@
 import Asset from "./Asset";
 import ArticleTitle from "../../../components/ArticleTitle";
-import {allowedAssets} from '../../../utilities/allowedAssets'
+import {allowedAssets} from '../../../utilities/allowedAssets';
+
 const Assets = ({ tokens }) => {
   return (
     <section className="mt-3 xl:mt-5 flex flex-col">
