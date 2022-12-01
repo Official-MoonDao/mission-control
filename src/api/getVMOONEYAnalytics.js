@@ -11,7 +11,7 @@ const client = createClient({
 export async function getVMOONEYData() {
   const query = `
     query {
-      supplies(orderBy: blockTimestamp) {
+      supplies(orderBy: blockNumber, orderDirection: desc) {
         supply
         blockTimestamp
       }
@@ -31,8 +31,7 @@ export async function getVMOONEYData() {
   let now = new Date().getTime() / 1000;
   let totalHolders = 0,
     totalVMooney = 0,
-    averageStakingPeriod = 0,
-    totalLockedMooney = 0;
+    averageStakingPeriod = 0;
   const res = await client.query(query).toPromise();
   const holders = res.data.holders
     .filter((h) => h.locktime > now)
@@ -41,7 +40,7 @@ export async function getVMOONEYData() {
       const mooney = h.totalLocked / 10 ** 18;
       const vmooney = mooney * ((h.locktime - now) / (4 * 365 * 86400));
       const holder = {
-        x: moment.unix(h.initialLock).format("YYYY-MM-DD"),
+        x: moment.unix(h.initialLock).format("YYYY-MM-DD HH:mm"),
         y: totalHolders,
         id: `${h.id.slice(0, 4)}...${h.id.slice(-4)}`,
         address: h.id,
@@ -49,7 +48,6 @@ export async function getVMOONEYData() {
         totalLocked: mooney,
         totalvMooney: vmooney,
       };
-      totalLockedMooney += mooney;
       totalVMooney += vmooney;
       averageStakingPeriod += Number(h.locktime) / arr.length;
       return holder;
@@ -62,7 +60,7 @@ export async function getVMOONEYData() {
     label: h.id,
     value: h.totalvMooney / totalVMooney,
   }));
-
+  const totalLockedMooney = res.data.supplies[0].supply / 10 ** 18;
   return {
     holders,
     holdersByVMooney,

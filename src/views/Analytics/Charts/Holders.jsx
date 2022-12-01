@@ -19,17 +19,17 @@ function Holders({ data, lightMode }) {
           min: "0",
           max: `${data.length + 10}`,
           reverse: false,
+          nice: true,
         }}
-        xScale={{ format: "%Y-%m-%d", type: "time" }}
+        xScale={{ format: "%Y-%m-%d %H:%M", type: "time", precision: "minute" }}
         xFormat="time:%Y-%m-%d"
         axisLeft={null}
         axisRight={{
           tickSize: 10,
           tickPadding: 5,
-          tickRotation: 0,
           format: ".2s",
           legend: "",
-          legendOffset: 50,
+          legendOffset: 0,
           legendPosition: "middle",
         }}
         axisBottom={{
