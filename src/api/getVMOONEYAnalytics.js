@@ -1,16 +1,13 @@
 import { createClient } from "urql";
 import moment from "moment";
 
-const totalCirculating = await fetch(
-  "http://api.moondao.com/supply/circulating"
-).then((res) => res.json());
 const APIURL = "https://api.studio.thegraph.com/query/38443/vmooney/v0.1.834";
 const client = createClient({
   url: APIURL,
 });
 
 const now = new Date().getTime() / 1000;
-
+let totalCirculating;
 export async function getVMOONEYData() {
   const query = `
     query {
@@ -34,6 +31,9 @@ export async function getVMOONEYData() {
     }
     `;
 
+  totalCirculating = await fetch(
+    "http://api.moondao.com/supply/circulating"
+  ).then((res) => res.json());
   let totalHolders = 0,
     totalVMooney = 0,
     averageStakingPeriod = 0;
