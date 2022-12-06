@@ -7,6 +7,7 @@ import Header from "../../../components/Header";
 import { errorToast } from "../../../utilities/errorToast";
 import { useTransactions } from "../../../api/useTransactions";
 import TransactionPagination from "./TransactionPagination";
+import { allowedAssets } from "../../../utilities/allowedAssets";
 
 import { useState } from "react";
 
@@ -28,7 +29,10 @@ const WalletTransactions = () => {
 
       <Line />
 
-      <div className="mt-10">{!isLoaded || error ? <TransactionSkeletons /> : transactions.map((e, i) => <Transaction key={i} data={e} />)}</div>
+      <div className="mt-10">{!isLoaded || error ? <TransactionSkeletons /> : 
+
+      transactions.filter(transaction => allowedAssets[transaction.tokenSymbol]).map((e, i) => <Transaction key={i} data={e} />)}
+      </div>
 
       <PaginationContainer>
         <TransactionCaret left page={page} pageMax={pageMax} setPage={setPage} isLoaded={isLoaded} />
@@ -43,6 +47,7 @@ const WalletTransactions = () => {
             ))}
         <TransactionCaret page={page} pageMax={pageMax} setPage={setPage} isLoaded={isLoaded} />
       </PaginationContainer>
+      
     </section>
   );
 };
