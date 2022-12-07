@@ -12,10 +12,10 @@ import { MooneyCoin } from "../../components/r3f/MooneyCoin";
 import { useAssets } from "../../api/useAssets";
 function Data({ text, value, mooney, vmooney }) {
   return (
-    <div className="justify-left flexflex-col rounded-2xl p-4 lg:w-1/2 w-full">
-      <div className="m-2 font-Montserrat text-[1.5vw] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-2xl 2xl:text-[26px] w-full">
+    <div className="justify-left flexflex-col w-full rounded-2xl p-4 lg:w-1/2">
+      <div className="m-2 w-full font-Montserrat text-[1.5vw] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-2xl 2xl:text-[26px]">
         {text}
-        <hr className="relative bottom-1.5 mt-4 h-1 bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange w-full" />
+        <hr className="relative bottom-1.5 mt-4 h-1 w-full bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange" />
       </div>
       <div className="text-slate flex px-4 text-center font-Montserrat text-[3vw]  leading-10 hover:text-[#6ca3e6] dark:text-indigo-100 dark:hover:text-[orange] lg:my-4">
         {" "}
@@ -63,12 +63,12 @@ function Analytics() {
               <Data
                 text={"vMooney Balance"}
                 value={Math.round(data.totals.vMooney).toLocaleString("en-US")}
-                mooney
+                vmooney
               />
               <Data
                 text={"Locked Mooney"}
                 value={Math.round(data.totals.Mooney).toLocaleString("en-US")}
-                vmooney
+                mooney
               />
             </div>
             <div className="absolute left-[0] top-[50%]">
