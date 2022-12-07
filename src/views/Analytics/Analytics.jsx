@@ -9,14 +9,15 @@ import Header from "../../components/Header";
 import CustomCanvas from "../../components/r3f/CustomCanvas";
 import { VMooneyCoin } from "../../components/r3f/vMooneyCoin";
 import { MooneyCoin } from "../../components/r3f/MooneyCoin";
+import { useAssets } from "../../api/useAssets";
 function Data({ text, value, mooney, vmooney }) {
   return (
-    <div className="justify-left flex w-full flex-col rounded-2xl p-4">
-      <div className="m-2 font-Montserrat text-[1.5vw] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-2xl 2xl:text-[26px]">
+    <div className="justify-left flexflex-col rounded-2xl p-4 lg:w-1/2 w-full">
+      <div className="m-2 font-Montserrat text-[1.5vw] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-2xl 2xl:text-[26px] w-full">
         {text}
-        <hr className="relative bottom-1.5 mt-4 h-1 bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange" />
+        <hr className="relative bottom-1.5 mt-4 h-1 bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange w-full" />
       </div>
-      <div className="text-slate flex w-full px-4 text-center font-Montserrat text-[3vw]  leading-10 hover:text-[#6ca3e6] dark:text-indigo-100 dark:hover:text-[orange] lg:my-4">
+      <div className="text-slate flex px-4 text-center font-Montserrat text-[3vw]  leading-10 hover:text-[#6ca3e6] dark:text-indigo-100 dark:hover:text-[orange] lg:my-4">
         {" "}
         {value}
         {mooney && (
@@ -37,6 +38,8 @@ function Data({ text, value, mooney, vmooney }) {
 function Analytics() {
   const [data, setData] = useState({});
   const [lightMode, setLightMode] = useState(false);
+  const { tokens } = useAssets();
+  let circulatingSupply = 2618632244 - tokens[0]?.balance || 0;
   useEffect(() => {
     (async () => {
       setData(await getVMOONEYData());
@@ -59,10 +62,14 @@ function Analytics() {
             <div className="flex flex-col justify-around lg:flex-row">
               <Data
                 text={"vMooney Balance"}
-                value={data.totals.vMooney}
+                value={Math.round(data.totals.vMooney).toLocaleString("en-US")}
                 mooney
               />
-              <Data text={"Locked Mooney"} value={data.totals.Mooney} vmooney />
+              <Data
+                text={"Locked Mooney"}
+                value={Math.round(data.totals.Mooney).toLocaleString("en-US")}
+                vmooney
+              />
             </div>
             <div className="absolute left-[0] top-[50%]">
               <div className="mt-[25px] h-[2px] w-[80vw] bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange lg:h-[3px] lg:w-full" />
@@ -70,7 +77,10 @@ function Analytics() {
             <div className="flex flex-col justify-around lg:flex-row">
               <Data
                 text={"% of Circulating Mooney Staked"}
-                value={data.totals.PercentStaked}
+                value={
+                  (data.totals.Mooney / circulatingSupply).toFixed(4) * 100 +
+                  "%"
+                }
               />
               <Data text={"Holders"} value={data.holders.length} />
               <Data
