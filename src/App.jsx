@@ -6,6 +6,7 @@ import {
   Projects,
   Treasury,
   Analytics,
+  Calendar,
 } from "./views";
 import useLocalStorage from "./utilities/useLocalStorage";
 import { useAnnouncements } from "./api/useAnnouncements";
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/projects" element={<Projects />}></Route>
           <Route path="/treasury" element={<Treasury />}></Route>
           <Route path="/analytics" element={<Analytics />}></Route>
+          <Route path="/calendar" element={<Calendar />}></Route>
           <Route path="*" element={<Announcements />}></Route>
         </Routes>
       </HashRouter>
