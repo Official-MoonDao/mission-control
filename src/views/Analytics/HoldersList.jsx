@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-
-// Example items, to simulate fetching from another resources.
 function Box({ text }) {
   return (
     <div className="justify-left flex w-1/3 items-center">

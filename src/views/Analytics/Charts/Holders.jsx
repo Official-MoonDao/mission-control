@@ -1,4 +1,7 @@
 import { ResponsiveLine } from "@nivo/line";
+// make sure parent container have a defined height when using
+// responsive component, otherwise height will be 0 and
+// no chart will be rendered.
 function Holders({ data, lightMode }) {
   if (!data) return;
   const formattedData = [

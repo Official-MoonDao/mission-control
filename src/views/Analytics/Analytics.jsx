@@ -6,7 +6,7 @@ import Frame from "./Frame";
 import { getVMOONEYData } from "../../api/getVMOONEYAnalytics";
 import HoldersList from "./HoldersList";
 import Header from "../../components/Header";
-import PixelCanvas from "../../components/r3f/PixelCanvas";
+import CustomCanvas from "../../components/r3f/CustomCanvas";
 import { VMooneyCoin } from "../../components/r3f/vMooneyCoin";
 import { MooneyCoin } from "../../components/r3f/MooneyCoin";
 function Data({ text, value, mooney, vmooney }) {
@@ -20,14 +20,14 @@ function Data({ text, value, mooney, vmooney }) {
         {" "}
         {value}
         {mooney && (
-          <PixelCanvas>
+          <CustomCanvas>
             <MooneyCoin />
-          </PixelCanvas>
+          </CustomCanvas>
         )}
         {vmooney && (
-          <PixelCanvas>
+          <CustomCanvas>
             <VMooneyCoin />
-          </PixelCanvas>
+          </CustomCanvas>
         )}
       </div>
     </div>

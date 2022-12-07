@@ -1,11 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import PixelCanvas from "./PixelCanvas";
-
+import model from "../../assets/vmooney.glb?url";
 export function VMooneyCoin(props) {
   const coinRef = useRef();
-  const { nodes, materials } = useGLTF("/src/assets/vmooney.glb");
+  const { nodes, materials } = useGLTF(model);
   const { viewport } = useThree();
   const [hover, setHover] = useState(false);
   const isMobile = viewport.width > 800;
@@ -15,7 +14,6 @@ export function VMooneyCoin(props) {
       -Math.sin(clock.getElapsedTime() * 0.2) + Math.PI;
     coinRef.current.rotation.z += 0.01 * speed;
   });
-  console.log(isMobile);
   return (
     <group
       {...props}
@@ -53,5 +51,3 @@ export function VMooneyCoin(props) {
     </group>
   );
 }
-
-useGLTF.preload("/src/assets/vmooney.glb");

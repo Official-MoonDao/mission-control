@@ -1,4 +1,7 @@
 import { ResponsivePie } from "@nivo/pie";
+// make sure parent container have a defined height when using
+// responsive component, otherwise height will be 0 and
+// no chart will be rendered.
 function Pie({ data, lightMode }) {
   return (
     <div className="relative right-8 h-[100vw] w-[90vw] lg:right-16 lg:h-[80vh] lg:w-[45vw]">
