@@ -1,6 +1,5 @@
 import { createClient } from "urql";
 import moment from "moment";
-import { useAssets } from "./useAssets";
 
 const APIURL = "https://api.studio.thegraph.com/query/38443/vmooney/v0.1.834";
 const client = createClient({
@@ -10,9 +9,6 @@ const client = createClient({
 const now = new Date().getTime() / 1000;
 
 export async function getVMOONEYData() {
-  const totalCirculating = await fetch(
-    "http://api.moondao.com/supply/circulating"
-  ).then((res) => res.json());
   const query = `
     query {
       supplies(first:1, orderBy: blockNumber, orderDirection: desc) {
