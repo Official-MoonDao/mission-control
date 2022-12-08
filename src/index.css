@@ -18,6 +18,13 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
 
 @font-face {
   font-family: "Good Times";
@@ -25,11 +32,13 @@
 }
 
 .stars-dark {
-  background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(14, 15, 15), rgb(15, 12, 36), rgb(13, 0, 31));
+  background: url("./assets/star-background.png") repeat,
+    linear-gradient(to right, rgb(14, 15, 15), rgb(15, 12, 36), rgb(13, 0, 31));
 }
 
 .stars-light {
-  background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(184, 186, 235), #ade7c5, rgb(141, 177, 212));
+  background: url("./assets/star-background.png") repeat,
+    linear-gradient(to right, rgb(184, 186, 235), #ade7c5, rgb(141, 177, 212));
 }
 
 @layer utilities {
@@ -62,6 +71,10 @@
 
   .component-background {
     @apply relative bg-gradient-to-br from-zinc-200 via-gray-100 to-white dark:from-black dark:via-slate-900 dark:to-slate-900;
+  }
+
+  .fancy-btn {
+    @apply absolute flex w-[15vw] items-center justify-center rounded-full bg-[skyblue] dark:bg-[orange] lg:h-[2vw] lg:w-[5vw];
   }
 }
 

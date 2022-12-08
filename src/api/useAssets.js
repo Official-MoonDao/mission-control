@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 export const useAssets = () => {
   const ASSETS_URL = import.meta.env.VITE_ASSETS_URL;
-
   const [tokens, setTokens] = useState([]);
   const [balanceSum, setBalanceSum] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -41,7 +40,8 @@ const transformAssets = (result) => {
 
   result.items.forEach((token) => {
     tokenArr.push({
-      balance: parseFloat(token.balance) / 10 ** parseFloat(token.tokenInfo.decimals),
+      balance:
+        parseFloat(token.balance) / 10 ** parseFloat(token.tokenInfo.decimals),
       symbol: token.tokenInfo.symbol,
       usd: parseFloat(token.fiatBalance),
       address: token.tokenInfo.address,
