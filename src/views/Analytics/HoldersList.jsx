@@ -10,12 +10,12 @@ function Box({ text }) {
 
 function Holders({ currentItems }) {
   return (
-    <div className="relative flex h-[100%] w-[100%] flex-col gap-2 font-Montserrat text-[1.2vw] leading-10 text-slate-800 text-[slategrey] lg:right-6 lg:w-[140%]">
+    <div className="relative flex h-[100%] w-[100%] flex-col gap-2 font-Montserrat text-[2vw] leading-10 text-slate-800 text-[slategrey] lg:right-6 lg:w-[140%] lg:text-[1.2vw]">
       <div className="text-gradient flex w-full gap-[15%] lg:gap-[2vw]">
-        <h3>address</h3>
-        <h3>locked Mooney</h3>
-        <h3>vMooney</h3>
-        <h3>unlock date</h3>
+        <p>address</p>
+        <p>locked Mooney</p>
+        <p>vMooney</p>
+        <p>unlock date</p>
       </div>
       {currentItems &&
         currentItems.map((item) => (

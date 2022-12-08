@@ -10,14 +10,15 @@ import CustomCanvas from "../../components/r3f/CustomCanvas";
 import { VMooneyCoin } from "../../components/r3f/vMooneyCoin";
 import { MooneyCoin } from "../../components/r3f/MooneyCoin";
 import { useAssets } from "../../api/useAssets";
+import LoadingSpinner from "../../components/LoadingSpinner";
 function Data({ text, value, mooney, vmooney }) {
   return (
     <div className="justify-left flexflex-col w-full rounded-2xl p-4 lg:w-1/2">
-      <div className="m-2 w-full font-Montserrat text-[1.5vw] font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-2xl 2xl:text-[26px]">
+      <div className=" w-full font-Montserrat font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-[1.5vw] lg:text-2xl 2xl:text-[26px]">
         {text}
         <hr className="relative bottom-1.5 mt-4 h-1 w-full bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange" />
       </div>
-      <div className="text-slate flex px-4 text-center font-Montserrat text-[3vw]  leading-10 hover:text-[#6ca3e6] dark:text-indigo-100 dark:hover:text-[orange] lg:my-4">
+      <div className="text-slate flex flex-col justify-center px-4  text-center font-Montserrat leading-10 hover:text-[#6ca3e6] dark:text-indigo-100  dark:hover:text-[orange] md:items-center lg:my-4 lg:flex-row lg:text-[3vw]">
         {" "}
         {value}
         {mooney && (
@@ -39,7 +40,7 @@ function Analytics() {
   const [data, setData] = useState({});
   const [lightMode, setLightMode] = useState(false);
   const { tokens } = useAssets();
-  let circulatingSupply = 2618632244 - tokens[0]?.balance || 0;
+  let circulatingSupply = 2618632244 - tokens[0]?.balance;
   useEffect(() => {
     (async () => {
       setData(await getVMOONEYData());
@@ -78,13 +79,17 @@ function Analytics() {
               <Data
                 text={"% of Circulating Mooney Staked"}
                 value={
-                  (data.totals.Mooney / circulatingSupply).toFixed(4) * 100 +
-                  "%"
+                  tokens[0] ? (
+                    (data.totals.Mooney / circulatingSupply).toFixed(4) * 100 +
+                    "%"
+                  ) : (
+                    <LoadingSpinner />
+                  )
                 }
               />
               <Data text={"Holders"} value={data.holders.length} />
               <Data
-                text={"AVG Staking Period"}
+                text={"Average Staking Period"}
                 value={data.totals.AvgStakingPeriod}
               />
             </div>
