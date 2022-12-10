@@ -9,7 +9,6 @@ const snapshotClient = new ApolloClient({
 const Calendar = () => {
   return (
     <ApolloProvider client={snapshotClient}>
-      {/* Calendar here? */}
       <EventCalendar />
     </ApolloProvider>
   );

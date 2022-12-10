@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
+      animation: {
+        rotation: "rotation 1s linear infinite",
+      },
       colors: {
         "moon-blue": "#0B3B8E",
         "moon-orange": "#D7594F",
@@ -17,6 +20,16 @@ module.exports = {
       fontFamily: {
         Montserrat: ["Montserrat", "sans-serif"],
         GoodTimes: ["Good Times", "sans-serif"],
+      },
+      keyframes: {
+        rotation: {
+          "0%": {
+            transform: "rotate(0deg)"
+          },
+          "100%": {
+            transform : "rotate(360deg)"
+          }
+        },
       },
     },
     screens: {

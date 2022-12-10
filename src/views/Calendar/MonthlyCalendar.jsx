@@ -71,7 +71,7 @@ export default function MonthlyCalendar({
   }, [selectedDate, events]);
 
   return (
-    <div className="overflow-hidden rounded-3xl">
+    <div className="overflow-hidden rounded-3xl mt-8  border-blue-500 border  shadow-lg shadow-cyan-300 dark:border-gray-100 dark:shadow-yellow-100">
       <div className="rounded-xl shadow  ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col">
       <div className="grid grid-cols-7 gap-px border-b border-gray-300 dark:border-gray-600 bg-white dark:bg-calendar-deepblue text-center text-xs font-semibold leading-6 text-moon-blue dark:text-moon-gold lg:flex-none">
           <div className="dark:bg-calendar-deepblue bw-white py-2">

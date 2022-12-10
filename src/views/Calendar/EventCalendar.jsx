@@ -66,7 +66,7 @@ export default function EventCalendar() {
   }, []);
 
   return (
-    <div className="px-10 py-5 lg:flex  lg:h-full lg:flex-col lg:px-20">
+    <div className="px-10 py-12 lg:flex lg:h-full lg:flex-col lg:px-20">
       <CalendarHeader
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}

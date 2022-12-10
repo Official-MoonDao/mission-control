@@ -34,7 +34,6 @@ export async function getVMOONEYData() {
     totalVMooney = 0,
     averageStakingPeriod = 0;
   const res = await client.query(query).toPromise();
-  console.log(res);
   const holders = res.data.holders.map((h, i, arr) => {
     totalHolders++;
     const mooney = h.totalLocked / 10 ** 18;
