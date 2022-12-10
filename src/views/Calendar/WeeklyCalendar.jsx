@@ -65,7 +65,7 @@ export default function WeeklyCalendar({
   }, [selectedDate, events]);
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col mt-8 border-blue-500 border rounded-3xl  shadow-lg shadow-cyan-300 dark:border-gray-100 dark:shadow-yellow-100">
       <div
         ref={container}
         className="isolate flex flex-auto flex-col overflow-auto rounded-3xl bg-white dark:bg-calendar-deepblue-hover"

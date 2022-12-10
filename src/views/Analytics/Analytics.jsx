@@ -11,6 +11,8 @@ import { VMooneyCoin } from "../../components/r3f/vMooneyCoin";
 import { MooneyCoin } from "../../components/r3f/MooneyCoin";
 import { useAssets } from "../../api/useAssets";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import AnalyticsSkeleton from "../../components/Skeletons/AnalyticsSkeleton";
+
 function Data({ text, value, mooney, vmooney }) {
   return (
     <div className="justify-left flexflex-col w-full rounded-2xl p-4 lg:w-1/2">
@@ -40,16 +42,23 @@ function Analytics() {
   const [data, setData] = useState({});
   const [lightMode, setLightMode] = useState(false);
   const { tokens } = useAssets();
+  
   let circulatingSupply = 2618632244 - tokens[0]?.balance;
+  
   useEffect(() => {
     (async () => {
       setData(await getVMOONEYData());
     })();
   }, []);
+  
   useEffect(() => {
     setLightMode(localStorage.getItem("lightMode") === "true" ? true : false);
   }, [localStorage]);
-  if (!data.holders) return;
+  
+  
+  if (!data.holders) return <AnalyticsSkeleton/>
+
+
   return (
     <PageLayout>
       <SectionLayout>

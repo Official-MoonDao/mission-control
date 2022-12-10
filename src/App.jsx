@@ -5,7 +5,6 @@ import {
   Proposals,
   Projects,
   Treasury,
-  Analytics,
   Calendar,
 } from "./views";
 import useLocalStorage from "./utilities/useLocalStorage";
@@ -13,6 +12,9 @@ import { useAnnouncements } from "./api/useAnnouncements";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { HashRouter } from "react-router-dom";
+import { lazy, Suspense } from "react";
+const Analytics = lazy(() => import("./views/Analytics/Analytics"));
+
 
 const App = () => {
   const [lightMode, setLightMode] = useLocalStorage("lightMode", false);
@@ -47,7 +49,13 @@ const App = () => {
           ></Route>
           <Route path="/projects" element={<Projects />}></Route>
           <Route path="/treasury" element={<Treasury />}></Route>
-          <Route path="/analytics" element={<Analytics />}></Route>
+          <Route path="/analytics" element={
+          <Suspense>
+
+            <Analytics />
+          </Suspense>
+          
+          }></Route>
           <Route path="/calendar" element={<Calendar />}></Route>
           <Route path="*" element={<Announcements />}></Route>
         </Routes>
