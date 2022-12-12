@@ -10,12 +10,12 @@ function Box({ text }) {
 
 function Holders({ currentItems }) {
   return (
-    <div className="relative flex h-[100%] w-[100%] flex-col gap-2 font-Montserrat text-[2vw] leading-10 text-slate-800 lg:right-6 lg:w-[140%] lg:text-[1.2vw]">
+    <div className="relative flex h-[100%] w-[100%] flex-col gap-2 font-Montserrat text-[2vw] leading-10 text-slate-800 lg:right-6 lg:w-[140%] lg:text-[1.0vw]">
       <div className="text-gradient flex w-full gap-[15%] lg:gap-[2vw]">
-        <p>address</p>
-        <p>locked Mooney</p>
-        <p>vMooney</p>
-        <p>unlock date</p>
+        <p>ADDRESS</p>
+        <p>LOCKED MOONEY</p>
+        <p>VMOONEY</p>
+        <p>UNLOCK DATE</p>
       </div>
       {currentItems &&
         currentItems.map((item) => (
@@ -52,7 +52,7 @@ function HoldersList({ data, itemsPerPage = 10 }) {
   useEffect(() => {
     // Fetch items from another resources.
     const endOffset = itemOffset + itemsPerPage;
-    
+
     //console.log(`Loading items from ${itemOffset} to ${endOffset}`);
 
     setCurrentItems(data.slice(itemOffset, endOffset));

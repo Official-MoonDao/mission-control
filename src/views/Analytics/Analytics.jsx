@@ -16,9 +16,9 @@ import AnalyticsSkeleton from "../../components/Skeletons/AnalyticsSkeleton";
 function Data({ text, value, mooney, vmooney }) {
   return (
     <div className="justify-left flexflex-col w-full rounded-2xl p-4 lg:w-1/2">
-      <div className=" w-full font-Montserrat font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-[1.5vw] lg:text-2xl 2xl:text-[26px]">
+      <div className="w-full font-Montserrat font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-[1.5vw] lg:text-2xl 2xl:text-[26px]">
         {text}
-        <hr className="relative bottom-1.5 mt-4 h-1 w-full bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange" />
+        <hr className="relative mt-1 h-1 w-full bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange" />
       </div>
       <div className="text-slate flex flex-col justify-center px-4  text-center font-Montserrat leading-10 hover:text-[#6ca3e6] dark:text-indigo-100  dark:hover:text-[orange] md:items-center lg:my-4 lg:flex-row lg:text-[3vw]">
         {" "}
@@ -34,6 +34,15 @@ function Data({ text, value, mooney, vmooney }) {
           </CustomCanvas>
         )}
       </div>
+    </div>
+  );
+}
+
+function Label({ text }) {
+  return (
+    <div className="mt-4 flex w-full flex-col items-center justify-center text-center font-Montserrat font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-[2.5vw]  2xl:text-[36px]">
+      {text}
+      <hr className="relative mt-1 h-1.5 w-[90%] bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange" />
     </div>
   );
 }
@@ -66,25 +75,26 @@ function Analytics() {
         </div>
         <div className="flex flex-col items-center justify-center">
           <div className="component-background relative top-10  mb-24 flex  w-[80vw] flex-col justify-center gap-8 rounded-2xl p-10">
+            <Label text="vMooney Key Figures" />
             <div className="blur-background z-[-10] rounded-2xl" />
             <div className="flex flex-col justify-around lg:flex-row">
               <Data
-                text={"vMooney Balance"}
+                text={"vMOONEY Balance"}
                 value={Math.round(data.totals.vMooney).toLocaleString("en-US")}
                 vmooney
               />
               <Data
-                text={"Locked Mooney"}
+                text={"Locked MOONEY"}
                 value={Math.round(data.totals.Mooney).toLocaleString("en-US")}
                 mooney
               />
             </div>
             <div className="absolute left-[0] top-[50%]">
-              <div className="mt-[25px] h-[2px] w-[80vw] bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange lg:h-[3px] lg:w-full" />
+              <div className="mt-[75px] h-[2px] w-[80vw] bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange lg:h-[3px] lg:w-full" />
             </div>
             <div className="flex flex-col justify-around lg:flex-row">
               <Data
-                text={"% of Circulating Mooney Staked"}
+                text={"% of Circulating MOONEY Staked"}
                 value={
                   tokens[0] ? (
                     ((data.totals.Mooney / circulatingSupply) * 100).toFixed(
@@ -109,7 +119,11 @@ function Analytics() {
             </div>
           </Frame>
           <Frame>
-            <Holders data={data.holders} lightMode={lightMode} />
+            <div className="flex flex-col">
+              <Label text="vMOONEY Holders Over Time" />
+
+              <Holders data={data.holders} lightMode={lightMode} />
+            </div>
           </Frame>
         </div>
       </SectionLayout>
