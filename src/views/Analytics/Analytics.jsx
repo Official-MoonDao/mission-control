@@ -42,22 +42,20 @@ function Analytics() {
   const [data, setData] = useState({});
   const [lightMode, setLightMode] = useState(false);
   const { tokens } = useAssets();
-  
+
   let circulatingSupply = 2618632244 - tokens[0]?.balance;
-  
+
   useEffect(() => {
     (async () => {
       setData(await getVMOONEYData());
     })();
   }, []);
-  
+
   useEffect(() => {
     setLightMode(localStorage.getItem("lightMode") === "true" ? true : false);
   }, [localStorage]);
-  
-  
-  if (!data.holders) return <AnalyticsSkeleton/>
 
+  if (!data.holders) return <AnalyticsSkeleton />;
 
   return (
     <PageLayout>
@@ -89,8 +87,9 @@ function Analytics() {
                 text={"% of Circulating Mooney Staked"}
                 value={
                   tokens[0] ? (
-                    (data.totals.Mooney / circulatingSupply).toFixed(4) * 100 +
-                    "%"
+                    ((data.totals.Mooney / circulatingSupply) * 100).toFixed(
+                      2
+                    ) + "%"
                   ) : (
                     <LoadingSpinner />
                   )
