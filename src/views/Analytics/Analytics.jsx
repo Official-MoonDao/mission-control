@@ -113,7 +113,12 @@ function Analytics() {
             </div>
           </div>
           <Frame>
-            <Pie data={data.distribution} lightMode={lightMode} />
+            <div className="flex flex-col px-4 lg:w-1/2">
+              <div className="relative lg:right-[20%]">
+                <Label text="vMOONEY Distribution" />
+              </div>
+              <Pie data={data.distribution} lightMode={lightMode} />
+            </div>
             <div className="flex flex-col items-center justify-center">
               <HoldersList itemsPerPage={5} data={data.holdersByVMooney} />
             </div>

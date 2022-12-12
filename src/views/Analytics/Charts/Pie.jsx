@@ -9,7 +9,7 @@ function Pie({ data, lightMode }) {
         data={data}
         valueFormat=">-.1%"
         sortByValue={true}
-        margin={{ top: 50, right: 150, bottom: 50, left: 50 }}
+        margin={{ top: 50, right: 200, bottom: 50, left: 50 }}
         innerRadius={0.5}
         padAngle={0.25}
         cornerRadius={2}
