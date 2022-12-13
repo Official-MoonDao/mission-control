@@ -4,12 +4,12 @@ import { ResponsivePie } from "@nivo/pie";
 // no chart will be rendered.
 function Pie({ data, lightMode }) {
   return (
-    <div className="relative right-8 h-[100vw] w-[90vw] lg:right-16 lg:h-[80vh] lg:w-[45vw]">
+    <div className="relative h-[100vw] w-[90vw] md:right-8 lg:right-[20%] lg:h-[80vh] lg:w-[45vw]">
       <ResponsivePie
         data={data}
         valueFormat=">-.1%"
         sortByValue={true}
-        margin={{ top: 50, right: 150, bottom: 50, left: 50 }}
+        margin={{ top: 50, right: 200, bottom: 50, left: 50 }}
         innerRadius={0.5}
         padAngle={0.25}
         cornerRadius={2}

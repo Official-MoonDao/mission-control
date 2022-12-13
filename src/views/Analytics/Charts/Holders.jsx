@@ -10,7 +10,7 @@ function Holders({ data, lightMode }) {
       data: data,
     },
   ];
-  
+
   return (
     <div className="h-[80vh] w-[80vw]">
       <ResponsiveLine

@@ -18,7 +18,7 @@ export function MooneyCoin(props) {
   return (
     <group
       {...props}
-      scale={isMobile ? 1 : 1.85}
+      scale={2.5}
       dispose={null}
       rotation={[Math.PI / 2, Math.PI, 0]}
       ref={coinRef}
