@@ -18,7 +18,7 @@ export function VMooneyCoin(props) {
     <group
       {...props}
       dispose={null}
-      scale={isMobile ? 1 : 1.85}
+      scale={2.5}
       rotation={[Math.PI / 2, Math.PI, 0]}
       ref={coinRef}
       onPointerEnter={() => setHover(true)}

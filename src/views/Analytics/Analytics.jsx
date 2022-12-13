@@ -16,8 +16,8 @@ import AnalyticsSkeleton from "../../components/Skeletons/AnalyticsSkeleton";
 function Data({ text, value, mooney, vmooney }) {
   return (
     <div className="justify-left flexflex-col w-full rounded-2xl p-4 lg:w-1/2">
-      <div className="w-full font-Montserrat font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-[1.5vw] lg:text-2xl 2xl:text-[26px]">
-        {text}
+      <div className=" w-full font-Montserrat font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-[1.5vw] lg:text-2xl 2xl:text-[26px]">
+        <p className="min-h-[6vh]">{text}</p>
         <hr className="relative mt-1 h-1 w-full bg-gradient-to-r from-blue-500 to-emerald-400 dark:from-moon-gold dark:to-moon-orange" />
       </div>
       <div className="text-slate flex flex-col justify-center px-4  text-center font-Montserrat leading-10 hover:text-[#6ca3e6] dark:text-indigo-100  dark:hover:text-[orange] md:items-center lg:my-4 lg:flex-row lg:text-[3vw]">
@@ -94,7 +94,7 @@ function Analytics() {
             </div>
             <div className="flex flex-col justify-around lg:flex-row">
               <Data
-                text={"% of Circulating MOONEY Staked"}
+                text={"Circulating MOONEY Staked"}
                 value={
                   tokens[0] ? (
                     ((data.totals.Mooney / circulatingSupply) * 100).toFixed(
@@ -117,10 +117,14 @@ function Analytics() {
               <div className="relative lg:right-[20%]">
                 <Label text="vMOONEY Distribution" />
               </div>
+
               <Pie data={data.distribution} lightMode={lightMode} />
             </div>
             <div className="flex flex-col items-center justify-center">
-              <HoldersList itemsPerPage={5} data={data.holdersByVMooney} />
+              <HoldersList
+                itemsPerPage={window.innerHeight > 1080 ? 10 : 5}
+                data={data.holdersByVMooney}
+              />
             </div>
           </Frame>
           <Frame>

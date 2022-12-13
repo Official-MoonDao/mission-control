@@ -32,7 +32,7 @@ export async function getVMOONEYData() {
     `;
   let totalHolders = 0,
     totalVMooney = 0,
-    averageStakingPeriod = 0;
+    totalStakingPeriod = 0;
   const res = await client.query(query).toPromise();
   const holders = res.data.holders.map((h, i, arr) => {
     totalHolders++;
@@ -48,7 +48,7 @@ export async function getVMOONEYData() {
       totalvMooney: vmooney,
     };
     totalVMooney += vmooney;
-    averageStakingPeriod += Number(h.locktime) / arr.length;
+    totalStakingPeriod += Number(h.locktime);
     return holder;
   });
   const holdersByVMooney = [...holders].sort(
@@ -68,7 +68,8 @@ export async function getVMOONEYData() {
       vMooney: totalVMooney,
       Mooney: totalLockedMooney,
       AvgStakingPeriod:
-        Math.floor((averageStakingPeriod - now) / (3600 * 24)) + " days",
+        Math.floor((totalStakingPeriod / holders.length - now) / (3600 * 24)) +
+        " days",
     },
   };
 }
