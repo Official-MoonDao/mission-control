@@ -1,6 +1,4 @@
-import {
-  ClockIcon,
-} from "@heroicons/react/20/solid";
+import { ClockIcon } from "@heroicons/react/20/solid";
 import {
   addDays,
   subDays,
@@ -14,7 +12,7 @@ import {
   isToday,
   isSameDay,
   parseISO,
-  format
+  format,
 } from "date-fns";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -37,22 +35,25 @@ function getNextSunday(date) {
   return date;
 }
 
-
-export default function MonthlyCalendar({ 
-  selectedDate, 
-  setSelectedDate, 
+export default function MonthlyCalendar({
+  selectedDate,
+  setSelectedDate,
   events,
-  getDayEvents
+  getDayEvents,
 }) {
-  const [monthEvents, setMonthEvents] = useState([]);  
-
-  function getMonthEvents(){
+  const [monthEvents, setMonthEvents] = useState([]);
+  const [hover, setHover] = useState("");
+  function getMonthEvents() {
     /*
     Gets all days of the selected month, with their respective events.
     */
 
-    let startDate = getLastMonday(startOfWeek(startOfMonth(selectedDate), {weekStartsOn:1}));
-    let endDate = getNextSunday(endOfWeek(lastDayOfMonth(selectedDate), {weekStartsOn:1}));
+    let startDate = getLastMonday(
+      startOfWeek(startOfMonth(selectedDate), { weekStartsOn: 1 })
+    );
+    let endDate = getNextSunday(
+      endOfWeek(lastDayOfMonth(selectedDate), { weekStartsOn: 1 })
+    );
 
     let day = startDate;
     let days = [];
@@ -63,52 +64,77 @@ export default function MonthlyCalendar({
       day = addDays(day, 1);
     }
 
-    return(days);
+    return days;
   }
 
   useEffect(() => {
-    setMonthEvents(getMonthEvents())
+    setMonthEvents(getMonthEvents());
   }, [selectedDate, events]);
 
   return (
-    <div className="overflow-hidden rounded-3xl mt-8  border-blue-500 border  shadow-lg shadow-cyan-300 dark:border-gray-100 dark:shadow-yellow-100">
-      <div className="rounded-xl shadow  ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col">
-      <div className="grid grid-cols-7 gap-px border-b border-gray-300 dark:border-gray-600 bg-white dark:bg-calendar-deepblue text-center text-xs font-semibold leading-6 text-moon-blue dark:text-moon-gold lg:flex-none">
-          <div className="dark:bg-calendar-deepblue bw-white py-2">
+    <div className="mt-8 mb-[10%] border-2  border-blue-500 shadow-lg drop-shadow-[0px_30px_15px_rgba(128,237,235,0.35)] dark:border-gray-100 dark:drop-shadow-[0px_30px_15px_rgba(252,242,146,0.35)]">
+      <div className="rounded-xl shadow ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col">
+        <div className="grid grid-cols-7 gap-px rounded-xl border-b border-gray-300 bg-white text-center text-xs font-semibold leading-6 text-moon-blue dark:border-gray-600 dark:bg-calendar-deepblue dark:text-moon-gold lg:flex-none">
+          <div className="bw-white py-2 dark:bg-calendar-deepblue">
             M<span className="sr-only sm:not-sr-only">on</span>
           </div>
-          <div className="dark:bg-calendar-deepblue bw-white py-2">
+          <div className="bw-white py-2 dark:bg-calendar-deepblue">
             T<span className="sr-only sm:not-sr-only">ue</span>
           </div>
-          <div className="dark:bg-calendar-deepblue bw-white py-2">
+          <div className="bw-white py-2 dark:bg-calendar-deepblue">
             W<span className="sr-only sm:not-sr-only">ed</span>
           </div>
-          <div className="dark:bg-calendar-deepblue bw-white py-2">
+          <div className="bw-white py-2 dark:bg-calendar-deepblue">
             T<span className="sr-only sm:not-sr-only">hu</span>
           </div>
-          <div className="dark:bg-calendar-deepblue bw-white py-2">
+          <div className="bw-white py-2 dark:bg-calendar-deepblue">
             F<span className="sr-only sm:not-sr-only">ri</span>
           </div>
-          <div className="dark:bg-calendar-deepblue bw-white py-2">
+          <div className="bw-white py-2 dark:bg-calendar-deepblue">
             S<span className="sr-only sm:not-sr-only">at</span>
           </div>
-          <div className="dark:bg-calendar-deepblue bw-white py-2">
+          <div className="bw-white py-2 dark:bg-calendar-deepblue">
             S<span className="sr-only sm:not-sr-only">un</span>
           </div>
         </div>
-        <div className="flex bg-gray-300 dark:bg-gray-600 text-xs leading-6 text-gray-200 lg:flex-auto">
+        <div className="flex bg-gray-300 text-xs leading-6 text-gray-200 dark:bg-gray-600 lg:flex-auto">
           <div className="hidden w-full lg:grid lg:grid-cols-7 lg:grid-rows-4 lg:gap-px">
-         {monthEvents.map((day) => (   
+            {monthEvents.map((day) => (
               <div
                 key={day.toString()}
                 className={classNames(
                   isSameMonth(day, selectedDate)
-                    ? "dark:bg-calendar-deepblue bg-white"
-                    : "dark:bg-calendar-deepblue-hover bg-gray-50 dark:text-gray-200 ",
+                    ? "bg-white dark:bg-calendar-deepblue"
+                    : "bg-gray-50 dark:bg-calendar-deepblue-hover dark:text-gray-200 ",
                   "relative py-2 px-3"
                 )}
-                onClick={() => {setSelectedDate(day)}}
+                onClick={() => {
+                  setSelectedDate(day);
+                }}
+                onPointerEnter={() => setHover(day.toString())}
+                onPointerLeave={() => setHover("")}
               >
+                {hover === day.toString() && day.events.length > 0 && (
+                  <div
+                    className="order-b absolute left-0 top-0 z-10 flex min-h-[50%] min-w-[125%] animate-fadeIn 
+                  flex-col rounded-2xl bg-gray-50 text-center text-sm font-semibold leading-6 text-moon-blue  drop-shadow-[0_15px_15px_rgba(128,237,235,0.25)] dark:border-gray-600 dark:bg-calendar-deepblue dark:text-moon-gold dark:drop-shadow-[0_15px_15px_rgba(255,242,122,0.25)]"
+                  >
+                    {day.events.map((event) => (
+                      <div className="justify-left flex w-full items-center p-2">
+                        <div className="dark:dark-glass absolute top-0 left-0 z-10 h-full w-full rounded-2xl " />
+                        <p className="ont-medium group z-20 flex w-full text-left text-black group-hover:text-moon-blue dark:text-gray-400">
+                          {event.title}
+                        </p>
+                        <time
+                          dateTime={event.date}
+                          className="z-20 ml-3 flex-none text-black group-hover:text-moon-blue dark:text-gray-500 xl:block"
+                        >
+                          {format(parseISO(event.date), "hh:mm aaaaa'm'")}
+                        </time>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 <time
                   dateTime={day.toString()}
                   className={
@@ -119,19 +145,19 @@ export default function MonthlyCalendar({
                 >
                   {getDate(day)}
                 </time>
-                {day.events.length > 0  ? (
+                {day.events.length > 0 ? (
                   <ol className="mt-2">
                     {day.events.slice(0, 2).map((event) => (
                       <li key={event.date + event.title}>
                         <a href={event.href} className="group flex">
-                          <p className="flex-auto truncate font-medium text-black dark:text-gray-400 group-hover:text-moon-blue">
+                          <p className="flex-auto truncate font-medium text-black group-hover:text-moon-blue dark:text-gray-400">
                             {event.title}
                           </p>
                           <time
                             dateTime={event.date}
-                            className="ml-3 hidden flex-none text-black dark:text-gray-500 group-hover:text-moon-blue xl:block"
+                            className="ml-3 hidden flex-none text-black group-hover:text-moon-blue dark:text-gray-500 xl:block"
                           >
-                            {format( parseISO(event.date), "hh:mm aaaaa'm'")} 
+                            {format(parseISO(event.date), "hh:mm aaaaa'm'")}
                           </time>
                         </a>
                       </li>
@@ -142,10 +168,12 @@ export default function MonthlyCalendar({
                       </li>
                     )}
                   </ol>
-                ): (<div className="py-10"/>)}
+                ) : (
+                  <div className="py-10" />
+                )}
               </div>
-            ))} 
-            </div>
+            ))}
+          </div>
           <div className="isolate grid w-full grid-cols-7 grid-rows-4 gap-px lg:hidden">
             {monthEvents.map((day) => (
               <button
@@ -153,17 +181,21 @@ export default function MonthlyCalendar({
                 type="button"
                 className={classNames(
                   isSameMonth(day, selectedDate)
-                    ? "dark:bg-calendar-deepblue bg-white"
-                    : "dark:bg-calendar-deepblue-hover bg-gray-50",
-                  "flex h-14 flex-col py-2 px-3 dark:hover:bg-calendar-deepblue-hover focus:z-10 dark:text-gray-200 text-black"
+                    ? "bg-white dark:bg-calendar-deepblue"
+                    : "bg-gray-50 dark:bg-calendar-deepblue-hover",
+                  "flex h-14 flex-col py-2 px-3 text-black focus:z-10 dark:text-gray-200 dark:hover:bg-calendar-deepblue-hover"
                 )}
-                onClick={() => {setSelectedDate(day)}}
+                onClick={() => {
+                  setSelectedDate(day);
+                }}
               >
                 <time
                   dateTime={day.toString()}
                   className={classNames(
-                    isSameDay(day, selectedDate)? "flex h-6 w-6 items-center justify-center rounded-full bg-moon-blue font-semibold text-white" :
-                      "flex h-6 w-6 items-center justify-center rounded-full","ml-auto"
+                    isSameDay(day, selectedDate)
+                      ? "flex h-6 w-6 items-center justify-center rounded-full bg-moon-blue font-semibold text-white"
+                      : "flex h-6 w-6 items-center justify-center rounded-full",
+                    "ml-auto"
                   )}
                 >
                   {getDate(day)}
@@ -174,7 +206,7 @@ export default function MonthlyCalendar({
                     {day.events.map((event) => (
                       <span
                         key={event.date + event.title}
-                        className="mx-0.5 mb-1 h-1.5 w-1.5 rounded-full dark:bg-gray-400 bg-moon-blue"
+                        className="w-5.5 h-1.55 mx-0.5 mb-1 rounded-full bg-moon-blue dark:bg-gray-400"
                       />
                     ))}
                   </span>
@@ -203,7 +235,7 @@ export default function MonthlyCalendar({
                       className="mr-2 h-5 w-5 text-gray-400"
                       aria-hidden="true"
                     />
-                    {format( parseISO(event.date), "hh:mm aaaaa'm'")} 
+                    {format(parseISO(event.date), "hh:mm aaaaa'm'")}
                   </time>
                 </div>
               </li>
@@ -211,7 +243,6 @@ export default function MonthlyCalendar({
           </ol>
         </div>
       )}
-
     </div>
   );
 }
