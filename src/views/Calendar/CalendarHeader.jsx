@@ -26,7 +26,7 @@ export default function CalendarHeader({ selectedDate, setSelectedDate, isMonthl
 
   return (
     <header className="flex items-center justify-between  py-4 px-6 lg:flex-none">
-      <h1 className="text-lg lg:text-2xl pr-5 font-bold text-moon-deepblue underline underline-offset-4 decoration-2 decoration-blue-600 dark:decoration-moon-orange dark:text-gray-200">
+      <h1 className="text-lg lg:text-2xl pr-5 font-bold text-moon-deepblue underline underline-offset-4 decoration-2 decoration-blue-600 dark:decoration-moon-gold dark:text-gray-100">
         <time dateTime="2022-01">{format(selectedDate, "MMMM yyyy")}</time>
       </h1>
       <div className="flex items-center">
@@ -121,7 +121,7 @@ export default function CalendarHeader({ selectedDate, setSelectedDate, isMonthl
           <div className="ml-6 h-6 w-px bg-gray-300" />
           <button
             type="button"
-            className="ml-6 flex items-center rounded-md border border-transparent bg-moon-blue py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-calendar-deepblue-hover focus:outline-none focus:ring-2 focus:ring-moon-blue focus:ring-offset-2"
+            className="ml-6 flex items-center rounded-md border border-transparent bg-moon-blue dark:bg-amber-500  py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-calendar-deepblue-hover dark:hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-moon-blue focus:ring-offset-2"
             onClick={() => {
               navigator.clipboard.writeText(calendarLink);
             }}
