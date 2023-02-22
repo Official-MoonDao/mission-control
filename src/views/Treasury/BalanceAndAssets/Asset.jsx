@@ -19,7 +19,7 @@ const Asset = ({ name, amount, usd, address, loading }) => {
         <p className={`text-[24px] font-bold text-transparent opacity-80 dark:from-purple-100 dark:to-indigo-100 dark:opacity-100 ${loading ? "loading-line" : "bg-clip-text bg-gradient-to-r from-slate-900  to-stone-900"}`}>
           {amount}
         </p>
-        <p className={`mt-2 xl:mt-3 opacity-70 dark:text-white dark:opacity-80 ${loading && "loading-line"}`}>${usd}</p>
+        <p className={`mt-2 xl:mt-3 opacity-70 dark:text-white dark:opacity-80 ${loading && "loading-line"}`}>{name === "MOONEY" ? "Governance Token" : `$${usd}`}</p>
       </div>
 
 

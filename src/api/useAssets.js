@@ -40,14 +40,14 @@ const transformAssets = (result) => {
   balanceSum = parseFloat(result.fiatTotal);
 
   result.items.forEach((token) => {
-    //Discounting the value of MOONEY temporarily
+    //Discounting the value of MOONEY.
     if(token.tokenInfo.name === "MOONEY") balanceSum -= token.fiatBalance;
-    
+
     tokenArr.push({
       balance:
         parseFloat(token.balance) / 10 ** parseFloat(token.tokenInfo.decimals),
       symbol: token.tokenInfo.symbol,
-      usd: parseFloat(token.tokenInfo.name === "MOONEY"? 0 : token.fiatBalance),
+      usd: parseFloat(token.fiatBalance),
       address: token.tokenInfo.address,
     });
   });
