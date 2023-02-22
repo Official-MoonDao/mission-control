@@ -34,16 +34,20 @@ export const useAssets = () => {
 };
 
 const transformAssets = (result) => {
+  console.log(result)
   let tokenArr = [];
   let balanceSum = 0.0;
   balanceSum = parseFloat(result.fiatTotal);
 
   result.items.forEach((token) => {
+    //Discounting the value of MOONEY temporarily
+    if(token.tokenInfo.name === "MOONEY") balanceSum -= token.fiatBalance;
+    
     tokenArr.push({
       balance:
         parseFloat(token.balance) / 10 ** parseFloat(token.tokenInfo.decimals),
       symbol: token.tokenInfo.symbol,
-      usd: parseFloat(token.fiatBalance),
+      usd: parseFloat(token.tokenInfo.name === "MOONEY"? 0 : token.fiatBalance),
       address: token.tokenInfo.address,
     });
   });

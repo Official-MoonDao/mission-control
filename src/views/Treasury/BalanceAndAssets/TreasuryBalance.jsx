@@ -9,7 +9,10 @@ const TreasuryBalance = ({ balance, loading }) => {
       <div className="mt-2 xl:mt-0">
         <Header text={"Treasury"} />
       </div>
-      <h2 className={`mt-4 xl:mt-7 truncate font-Montserrat text-[38px] font-extrabold opacity-70 dark:text-white dark:opacity-100 xl:text-5xl 2xl:text-6xl ${loading && "loading-line"}`}>${balance}</h2>
+      <h2 className={`mt-4 xl:mt-7 truncate font-Montserrat text-[38px] font-extrabold opacity-70 dark:text-white dark:opacity-100 xl:text-5xl 2xl:text-6xl ${loading && "loading-line"}`}>* ${balance}</h2>
+      {/*Temporal disclaimer */}
+      <p className="mt-10 w-[336px] sm:w-[400px] lg:w-[336px] xl:w-full inline-block font-Montserrat text-lg text-slate-800 hover:decoration-[3px] dark:text-gray-200 xl:text-xl">* The total doesn't include the value of $MOONEY. </p>
+
       <Line />
     </div>
   );
