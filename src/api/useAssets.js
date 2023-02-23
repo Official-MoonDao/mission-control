@@ -34,7 +34,6 @@ export const useAssets = () => {
 };
 
 const transformAssets = (result) => {
-  console.log(result)
   let tokenArr = [];
   let balanceSum = 0.0;
   balanceSum = parseFloat(result.fiatTotal);
