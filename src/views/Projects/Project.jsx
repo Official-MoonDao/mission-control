@@ -8,15 +8,15 @@ const Project = ({ title, startDate, active, deadline, teamLeads, link, body, ta
       <div className="blur-background rounded-2xl"></div>
 
       <div className="component-background rounded-2xl px-5 pt-6 pb-3 lg:px-8 xl:px-9">
-      <div className="lg:hidden">
-            <Status active={active} />
-          </div>
+        <div className="lg:hidden">
+          <Status active={active} />
+        </div>
         {/*Title and date*/}
-        <div className="mt-3 lg:mt-0 pb-[20px]">
+        <div className="mt-3 pb-[20px] lg:mt-0">
           <ArticleTitle text={title} link={link} />
 
           <p className="mt-3 font-semibold text-blue-500 opacity-90 dark:text-moon-gold 2xl:mt-4">
-            Start Date: {startDate} | Deadline: {deadline}
+            Start Date: {startDate} {deadline ? `| Deadline: ${deadline}` : ""}
           </p>
           {/*Body*/}
           <div className="mt-5 2xl:mt-6">
@@ -31,9 +31,13 @@ const Project = ({ title, startDate, active, deadline, teamLeads, link, body, ta
           {/*Status, Team, and Tags*/}
           <div className="mt-[32px] hidden lg:flex lg:items-center">
             <Status active={active} />
-            <p className="pl-[30px] font-semibold text-moon-gold ">{teamLeads && teamLeads.length > 0 ? "Team stewards" : "No team data yet"}</p>
+            <p className="pl-[30px] font-semibold text-moon-gold ">Team stewards</p>
 
-            {teamLeads && teamLeads.length > 0 && teamLeads.map((e, i) => <Stamp key={i} teamMember name={e} />)}
+            {teamLeads && teamLeads.length > 0 ? (
+              teamLeads.map((e, i) => <Stamp key={i} teamMember name={e} />)
+            ) : (
+              <Stamp key={1} teamMember name="MoonDAO Team" />
+            )}
 
             <p className="pl-[30px] font-semibold text-moon-gold ">{tags && tags.length > 0 ? "Tags" : "No tags"}</p>
             {tags && tags.length > 0 && tags.map((e, i) => <Stamp i={i} key={i} name={e} />)}
