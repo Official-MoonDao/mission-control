@@ -16,38 +16,87 @@ const WalletTransactions = () => {
   const pageMax = 697;
   const { transactions, isLoaded, error } = useTransactions(page);
 
-  if (error) errorToast("Connection with Etherscan failed. Contact MoonDAO if the problem persists 🚀");
+  if (error)
+    errorToast(
+      "Connection with Etherscan failed. Contact MoonDAO if the problem persists 🚀"
+    );
 
   return (
     <section className="mt-12 lg:mt-0 xl:w-[45%] xl:max-w-[700px]">
       <div className="flex flex-row items-center justify-between">
         <Header text="Transactions" noStar />
         <div className="hidden treasury:block">
-          <LinkButton text={"Gnosis"} link={"https://gnosis-safe.io/app/eth:0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/home"} img={"/coins/SAFE.png"} />
+          <LinkButton
+            text={"Gnosis"}
+            link={
+              "https://gnosis-safe.io/app/eth:0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9/home"
+            }
+            img={"/coins/SAFE.png"}
+          />
         </div>
       </div>
 
       <Line />
 
-      <div className="mt-10">{!isLoaded || error ? <TransactionSkeletons /> : 
-
-      transactions.filter(transaction => allowedAssets[transaction.tokenSymbol]).map((e, i) => <Transaction key={i} data={e} />)}
+      <div className="mt-10">
+        {!isLoaded || error || !transactions || !transactions[0] ? (
+          <TransactionSkeletons />
+        ) : (
+          transactions
+            .filter((transaction) => allowedAssets[transaction.tokenSymbol])
+            .map((e, i) => <Transaction key={i} data={e} />)
+        )}
       </div>
 
       <PaginationContainer>
-        <TransactionCaret left page={page} pageMax={pageMax} setPage={setPage} isLoaded={isLoaded} />
+        <TransactionCaret
+          left
+          page={page}
+          pageMax={pageMax}
+          setPage={setPage}
+          isLoaded={isLoaded}
+        />
         {page <= 3
-          ? [1, 2, 3, 4, 5].map((e, i) => <TransactionPagination key={i} currentPage={page} pageNumber={e} setPage={setPage} pageMax={pageMax} isLoaded={isLoaded} />)
-          : page >= pageMax - 2
-          ? [pageMax - 4, pageMax - 3, pageMax - 2, pageMax - 1, pageMax].map((e, i) => (
-              <TransactionPagination key={i} currentPage={page} pageNumber={e} setPage={setPage} pageMax={pageMax} isLoaded={isLoaded} />
+          ? [1, 2, 3, 4, 5].map((e, i) => (
+              <TransactionPagination
+                key={i}
+                currentPage={page}
+                pageNumber={e}
+                setPage={setPage}
+                pageMax={pageMax}
+                isLoaded={isLoaded}
+              />
             ))
+          : page >= pageMax - 2
+          ? [pageMax - 4, pageMax - 3, pageMax - 2, pageMax - 1, pageMax].map(
+              (e, i) => (
+                <TransactionPagination
+                  key={i}
+                  currentPage={page}
+                  pageNumber={e}
+                  setPage={setPage}
+                  pageMax={pageMax}
+                  isLoaded={isLoaded}
+                />
+              )
+            )
           : [page - 2, page - 1, page, page + 1, page + 2].map((e, i) => (
-              <TransactionPagination key={i} currentPage={page} pageNumber={e} setPage={setPage} pageMax={pageMax} isLoaded={isLoaded} />
+              <TransactionPagination
+                key={i}
+                currentPage={page}
+                pageNumber={e}
+                setPage={setPage}
+                pageMax={pageMax}
+                isLoaded={isLoaded}
+              />
             ))}
-        <TransactionCaret page={page} pageMax={pageMax} setPage={setPage} isLoaded={isLoaded} />
+        <TransactionCaret
+          page={page}
+          pageMax={pageMax}
+          setPage={setPage}
+          isLoaded={isLoaded}
+        />
       </PaginationContainer>
-      
     </section>
   );
 };
