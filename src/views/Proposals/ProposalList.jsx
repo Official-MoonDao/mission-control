@@ -12,7 +12,7 @@ import CaretButton from "./CaretButton";
 
 const ProposalList = () => {
   const [skip, setSkip] = useState(0);
-  const pages = [...Array(5)];
+  const pages = [...Array(6)];
   const { data, loading, error } = useQuery(PROPOSALS_QUERY, {
     variables: { skip: skip },
   });
@@ -21,7 +21,7 @@ const ProposalList = () => {
 
   return (
     <SectionLayout>
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row justify-between items-center lg:max-w-[1080px]">
         <Header text={"Proposals"} id="top" />
         <div className="hidden lg:block">
           <LinkButton text={"Snapshot"} img={"/snapshot-icon.png"} link={"https://snapshot.org/#/tomoondao.eth"} />

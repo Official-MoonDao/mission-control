@@ -15,23 +15,24 @@ const Transaction = ({ data, loading }) => {
 
   return (
     <div
-      className={`component-background relative mt-5 flex w-[336px] flex-col items-center rounded-[15px] border-[0.5px] border-gray-300 py-2 shadow-md shadow-blue-300 hover:scale-105 dark:shadow-yellow-100 sm:w-[400px]  xl:w-full xl:flex-row xl:justify-between xl:px-5 xl:py-3 ${
+      className={`component-background relative mt-5 flex w-[336px] flex-col items-center rounded-[15px] border-[0.5px] border-blue-400 dark:border-yellow-100 py-2 shadow shadow-blue-500 hover:scale-105 dark:shadow-yellow-100 sm:w-[400px] 2xl:w-full 2xl:flex-row 2xl:justify-between 2xl:px-5 2xl:py-3 ${
         loading && "loading-component"
       }`}
     >
+      {/*Sent or receive*/}
       <div className="relative right-3 flex items-center">
         <span className={`${loading && "loading-line"}`}>{loading ? "" : sent ? <ArrowUp /> : <ArrowDown />}</span>
         <p className={`text ml-3 font-Montserrat text-xl font-semibold text-amber-600 dark:text-moon-gold ${loading && "loading-line"}`}>{sent ? "Sent" : "Received"}</p>
       </div>
-
+      {/*Ammount*/}
       <p
-        className={`mt-2 block truncate bg-gradient-to-r from-slate-900 to-stone-900 bg-clip-text text-lg font-bold text-transparent opacity-80 dark:from-purple-100 dark:to-indigo-100 dark:opacity-100 xl:mt-0 xl:max-w-[43%] xl:hover:overflow-visible xl:hover:whitespace-pre xl:hover:text-center 2xl:text-xl`}
+        className={`mt-2 block tracking-wide text-blue-950 dark:text-yellow-50 2xl:tracking-wider  truncate text-lg font-bold 2xl:mt-0 2xl:max-w-[43%] 2xl:hover:overflow-visible 2xl:hover:whitespace-pre xl:hover:text-center`}
       >
         <span className={`${loading && "loading-line"}`}>{value}</span>
       </p>
-
-      <div className="mt-2 flex items-center xl:mt-0">
-        <p className={`font-semibold opacity-80 dark:text-gray-100 dark:opacity-70 ${loading && "loading-line"}`}>{timeStr} ago</p>
+      {/*Date and Etherscan Link*/}
+      <div className="mt-2 flex items-center 2xl:mt-0">
+        <p className={`font-semibold text-slate-500 dark:text-slate-300 ${loading && "loading-line"}`}>{timeStr} ago</p>
         {!loading && (
           <a aria-label="Link to transaction information on Etherscan" className={`ml-2 block`} href={transactionLink} target="_blank">
             <GoldPaperArrow loading={loading} />

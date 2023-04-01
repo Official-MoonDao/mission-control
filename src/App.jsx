@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navigation/Navbar";
+import Sidebar from "./components/Navigation/Sidebar"
 import {
   Announcements,
   Proposals,
@@ -33,7 +33,7 @@ const App = () => {
     >
       <ToastContainer />
       <HashRouter>
-        <Navbar lightMode={lightMode} setLightMode={setLightMode} />
+        <Sidebar lightMode={lightMode} setLightMode={setLightMode}/>
         <Routes>
           <Route path="/" element={<Proposals />}></Route>
           <Route

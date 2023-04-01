@@ -21,7 +21,7 @@ const BalanceAssets = () => {
       )}
 
       <a
-        className="mt-10 inline-block font-Montserrat text-xl text-slate-800 underline decoration-amber-600 decoration-2 hover:text-black hover:decoration-[3px] dark:text-moon-gold dark:decoration-moon-gold dark:hover:text-amber-200 xl:text-[22px]"
+        className="mt-10 inline-block font-Montserrat text-lg text-blue-900 underline hover:decoration-blue-700 decoration-blue-500 hover:text-blue-950 hover:decoration-[2px] dark:text-yellow-100 dark:decoration-white dark:hover:text-moon-gold"
         href="https://etherscan.io/address/0xce4a1E86a5c47CD677338f53DA22A91d85cab2c9"
         target="_blank"
       >
