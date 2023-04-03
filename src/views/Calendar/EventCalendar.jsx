@@ -1,6 +1,7 @@
 import WeeklyCalendar from "./WeeklyCalendar";
 import CalendarHeader from "./CalendarHeader";
 import MonthlyCalendar from "./MonthlyCalendar";
+import SectionLayout from "../../components/Layout/SectionLayout"
 import { useState, useEffect } from "react";
 import { parseISO, isSameDay } from "date-fns";
 
@@ -9,6 +10,7 @@ export default function EventCalendar() {
   const [calendarEvents, setCalendarEvents] = useState(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
 
+  {/*REFACTOR INTO A SEPARATE FUNCTION FILE SOON*/}
   const calendarLink =
     "https://sesh.fyi/api/calendar/v2/1NtkbbR6C4pu9nfgPwPGQn.ics";
 
@@ -66,7 +68,7 @@ export default function EventCalendar() {
   }, []);
 
   return (
-    <div className="px-10 py-12 lg:flex lg:h-full lg:flex-col lg:px-20">
+    <SectionLayout twoSection>
       <CalendarHeader
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
@@ -94,7 +96,6 @@ export default function EventCalendar() {
       )}
 
       {/* Bottom list */}
-      
-    </div>
+      </SectionLayout>
   );
 }

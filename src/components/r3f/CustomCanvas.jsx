@@ -2,7 +2,7 @@ import { EffectComposer, DotScreen } from "@react-three/postprocessing";
 import { Canvas } from "@react-three/fiber";
 function CustomCanvas(props) {
   return (
-    <div className="relative left-4 h-full w-full lg:h-[10vw] lg:w-[20vw] lg:w-[60%]">
+    <div className="relative left-4 h-full w-full lg:h-[10vw] lg:w-[60%]">
       <Canvas>
         <ambientLight intensity={0.5} />
         {props.children}

@@ -7,7 +7,7 @@
 * {
   scroll-behavior: smooth;
   transition: all;
-  transition-duration: 200ms;
+  transition-duration: 150ms;
 }
 
 :root {
@@ -32,13 +32,11 @@ body::-webkit-scrollbar {
 }
 
 .stars-dark {
-  background: url("./assets/star-background.png") repeat,
-    linear-gradient(to right, rgb(10, 10, 10), rgb(5, 5, 5), rgb(3, 1, 7));
+  background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(10, 10, 10), rgb(5, 5, 5), rgb(3, 1, 7));
 }
 
 .stars-light {
-  background: url("./assets/star-background.png") repeat,
-    linear-gradient(to right, rgb(184, 186, 245), #dce3fa, rgb(129, 182, 235));
+  background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(184, 186, 245), #dce3fa, rgb(129, 182, 235));
 }
 
 @layer utilities {

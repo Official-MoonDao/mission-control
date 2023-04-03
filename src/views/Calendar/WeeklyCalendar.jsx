@@ -65,14 +65,14 @@ export default function WeeklyCalendar({
   }, [selectedDate, events]);
 
   return (
-    <div className="flex flex-col mt-8 border-blue-500 border-2 rounded-3xl  shadow-lg shadow-cyan-300 dark:border-amber-100 dark:shadow-yellow-100">
+    <div className="flex flex-col lg:mx-10 lg:max-w-[1200px] mt-8 rounded border border-blue-600 shadow-md shadow-blue-300 dark:border-amber-100 dark:shadow-amber-200">
       <div
         ref={container}
-        className="isolate flex flex-auto flex-col overflow-auto rounded-3xl bg-white dark:bg-calendar-deepblue-hover"
+        className="isolate flex flex-auto flex-col overflow-auto rounded bg-white dark:bg-calendar-deepblue-hover"
       >
         <div
           style={{ width: "165%" }}
-          className="flex max-w-full flex-none flex-col sm:max-w-none md:max-w-full"
+          className="flex max-w-full flex-none flex-col sm:max-w-none lg:max-w-full"
         >
           <div
             ref={containerNav}

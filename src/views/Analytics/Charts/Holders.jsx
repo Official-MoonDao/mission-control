@@ -12,7 +12,7 @@ function Holders({ data, lightMode }) {
   ];
 
   return (
-    <div className="h-[80vh] w-[80vw]">
+    <div className="h-[400px] w-[335px] lg:h-[480px] lg:w-[650px]  2xl:h-[540px] 2xl:w-[850px] ">
       <ResponsiveLine
         data={formattedData}
         key={"holders"}

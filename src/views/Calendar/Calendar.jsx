@@ -1,4 +1,5 @@
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import PageLayout from "../../components/Layout/PageLayout";
 import EventCalendar from "./EventCalendar";
 
 const snapshotClient = new ApolloClient({
@@ -9,7 +10,9 @@ const snapshotClient = new ApolloClient({
 const Calendar = () => {
   return (
     <ApolloProvider client={snapshotClient}>
-      <EventCalendar />
+      <PageLayout>
+        <EventCalendar />
+      </PageLayout>
     </ApolloProvider>
   );
 };

@@ -1,6 +1,5 @@
 import LogoBlack from "./LogoBlack";
 import LogoWhite from "./LogoWhite";
-import LogoMobile from "./LogoMobile";
 import DiscordIcon from "./DiscordIcon";
 import TwitterIcon from "./TwitterIcon";
 import Menu from "./Menu";
@@ -16,7 +15,6 @@ import TreasuryAndMobileLogo from "./TreasuryAndMobileLogo";
 export {
   LogoBlack,
   LogoWhite,
-  LogoMobile,
   DiscordIcon,
   TwitterIcon,
   Menu,

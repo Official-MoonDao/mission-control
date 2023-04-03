@@ -27,7 +27,9 @@ const Sidebar = ({ lightMode, setLightMode }) => {
         <div className="hidden md:fixed md:inset-y-0 md:flex md:w-60 md:flex-col lg:w-64">
           {/* Sidebar component*/}
           <div className="flex flex-grow flex-col overflow-y-auto bg-gradient-to-b from-gray-50 via-zinc-50 to-gray-50 pt-5 dark:from-slate-950 dark:via-gray-950 dark:to-slate-950">
+          <a href="https://moondao.com">
             <div className="flex flex-shrink-0 items-center px-4">{lightMode ? <LogoBlack /> : <LogoWhite />}</div>
+            </a>
             <div className="flex flex-grow flex-col pt-9 lg:pl-2">
               <nav className="flex-1 space-y-1 px-4">
                 {navigation.map((item, i) => (
@@ -48,7 +50,7 @@ const Sidebar = ({ lightMode, setLightMode }) => {
 
         {/*This is the top bar for mobile, below MD*/}
         <div className="flex flex-1 flex-col lg:pl-64">
-          <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 justify-between bg-white shadow dark:bg-slate-900 md:hidden">
+          <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 justify-between bg-white shadow dark:bg-slate-950 md:hidden">
             <button
               type="button"
               className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:border-gray-600 dark:focus:ring-moon-gold  md:hidden"

@@ -3,7 +3,7 @@ import ArticleTitle from "../../components/ArticleTitle";
 const Project = ({ title, startDate, active, deadline, teamLeads, link, body, tags }) => {
   return (
     <article
-      className={`relative mt-10 flex w-[336px] flex-col rounded-2xl border border-gray-300  font-mono text-white hover:scale-105 sm:w-[400px] lg:w-full lg:max-w-[1080px] lg:flex-row lg:justify-between`}
+      className={`relative mt-10 flex w-[336px] flex-col rounded-2xl border border-gray-300  font-mono text-white hover:scale-[1.03] sm:w-[400px] lg:w-full lg:max-w-[1080px] lg:flex-row lg:justify-between`}
     >
       <div className="blur-background rounded-2xl"></div>
 
