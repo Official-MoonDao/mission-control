@@ -46,7 +46,7 @@ const Proposal = ({
               >
                 <LinkHighlighter
                   text={body.slice(0, 250) + "..."}
-                  label={"Proposal Link"}
+                  label={"Proposal"}
                 />
                 <a
                   className={`link text-lg lg:text-xl ${loading && "hidden"}`}
