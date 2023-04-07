@@ -15,7 +15,7 @@ import AnalyticsSkeleton from "../../components/Skeletons/AnalyticsSkeleton";
 
 function Data({ text, value, mooney, vmooney }) {
   return (
-    <div className="justify-left flex flex-col w-full rounded-2xl p-4 lg:w-1/2">
+    <div className="justify-left flex w-full flex-col rounded-2xl p-4 lg:w-1/2">
       <div className=" w-full font-Montserrat font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-xl 2xl:text-2xl">
         <p className="min-h-[6vh]">{text}</p>
         <hr className="relative mt-1 h-1 w-full bg-gradient-to-r from-blue-500 to-blue-900 dark:from-moon-gold dark:to-yellow-100" />
@@ -40,7 +40,7 @@ function Data({ text, value, mooney, vmooney }) {
 
 function Label({ text }) {
   return (
-    <div className="mt-4 flex w-full flex-col items-center justify-center text-center font-Montserrat font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-2xl  2xl:text-3xl">
+    <div className="mt-4 flex w-full flex-col items-center justify-center text-center font-Montserrat font-bold leading-10 text-slate-800 hover:text-black dark:text-indigo-100 dark:hover:text-white lg:text-2xl 2xl:text-3xl">
       {text}
       <hr className="relative mt-1 h-1.5 w-[90%] bg-gradient-to-r from-blue-600 to-blue-400 dark:from-moon-gold dark:to-yellow-100" />
     </div>
@@ -74,16 +74,13 @@ function Analytics() {
           <Line />
         </div>
         <div className="flex flex-col items-center lg:items-start">
-          <div className="component-background relative top-10 w-[336px] sm:w-[400px] lg:w-[650px] xl:w-[800px] 2xl:w-[1080px]  mb-12 flex flex-col justify-center gap-8 rounded-2xl p-10">
+          <div className="component-background relative top-10 mb-12 flex w-[336px] flex-col justify-center gap-8 rounded-2xl border-[0.5px] border-blue-500 p-10 shadow-md shadow-blue-500 dark:border-moon-gold dark:shadow-moon-gold sm:w-[400px] lg:w-[650px] xl:w-[800px] 2xl:w-[1080px]">
             <Label text="vMooney Key Figures" />
-            <div className="blur-background z-[-10] rounded-2xl" />
             <div className="flex flex-col justify-around lg:flex-row">
               <Data text={"vMOONEY Balance"} value={Math.round(data.totals.vMooney).toLocaleString("en-US")} vmooney />
               <Data text={"Locked MOONEY"} value={Math.round(data.totals.Mooney).toLocaleString("en-US")} mooney />
             </div>
-            <div className="absolute left-[0] top-[50%]">
-              
-            </div>
+            <div className="absolute left-[0] top-[50%]"></div>
             <div className="flex flex-col justify-around lg:flex-row">
               <Data
                 text={"Circulating MOONEY Staked"}
@@ -94,7 +91,7 @@ function Analytics() {
             </div>
           </div>
           <Frame>
-            <div className="flex flex-col items-center justify-center">
+            <div className="mt-2 flex flex-col items-center justify-center lg:mt-3">
               <div className="">
                 <Label text="vMOONEY Distribution" />
               </div>

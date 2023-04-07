@@ -28,19 +28,19 @@ function Holders({ data, lightMode }) {
         xFormat="time:%Y-%m-%d"
         axisLeft={null}
         axisRight={{
-          tickSize: 10,
-          tickPadding: 5,
+          tickSize: 12,
+          tickPadding: 10,
           format: ".2s",
           legend: "",
           legendOffset: 0,
           legendPosition: "middle",
         }}
         axisBottom={{
-          tickValues: "every week",
-          tickSize: 10,
+          tickValues: "every month",
+          tickSize: 12,
           tickRotation: 0,
           tickPadding: 10,
-          format: "%m-%d-%y",
+          format: "%m-%y",
           orient: "bottom",
           legend: "",
           legendOffset: 45,

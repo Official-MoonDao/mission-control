@@ -2,6 +2,7 @@ import { parseAnnouncementText } from "../../utilities/parseAnnouncementText";
 import { discordRoleDictionary } from "../../utilities/discordRoleDictionary";
 
 const AnnouncementContent = ({ text, mentions, loading }) => {
+  
   const linkRegex =
     /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/g;
   const textSeparatedFromLinks = parseAnnouncementText(text, linkRegex);
