@@ -1,11 +1,14 @@
 import { gql } from "@apollo/client/core";
 
-export const PROPOSALS_QUERY = gql`
-  query Proposals($skip: Int) {
+export const PROJECTS_QUERY = gql`
+  query Proposals {
     proposals(
-      first: 10
-      skip: $skip
-      where: { space_in: ["tomoondao.eth"] }
+      first: 1000
+      where: {
+        space_in: ["tomoondao.eth"]
+        state: "closed"
+        scores_state: "final"
+      }
       orderBy: "created"
       orderDirection: desc
     ) {
@@ -16,7 +19,10 @@ export const PROPOSALS_QUERY = gql`
       start
       end
       snapshot
+      link
       state
+      scores
+      scores_total
       author
       space {
         id
