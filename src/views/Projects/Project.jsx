@@ -21,7 +21,17 @@ const Project = ({ title, startDate, deadline, link, body }) => {
             <p
               className={`leading-8 text-gray-800 dark:text-gray-100 lg:text-lg 2xl:text-xl 2xl:leading-9`}
             >
-              <LinkHighlighter label={"Proposal"} text={body.slice(0, 350)} />
+              <LinkHighlighter
+                label={"Proposal"}
+                text={body.slice(0, 350) + "..."}
+              />
+              <a
+                className={`link text-lg lg:text-xl`}
+                href={link}
+                target="_blank"
+              >
+                {"read more."}
+              </a>
             </p>
           </div>
 
