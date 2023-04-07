@@ -13,7 +13,6 @@ export default function ProjectList() {
       setProjects(
         data.proposals.filter((p) => p.scores[0] >= p.scores_total * 0.8)
       );
-    console.log(projects);
   }, [data, loading, projects]);
   return (
     <>
