@@ -17,6 +17,8 @@ const Analytics = lazy(() => import("./views/Analytics/Analytics"));
 
 
 const App = () => {
+  //Note: Announcements are currently being loaded here and passed as a prop so they can get loaded in the back while other section is being visited. This works for now but it would be better to implement a cleaner way to load announcements in the background.
+
   const [lightMode, setLightMode] = useLocalStorage("lightMode", false);
   const {
     announcements,

@@ -1,8 +1,8 @@
 import { parseAnnouncementText } from "../../utilities/parseAnnouncementText";
 import { discordRoleDictionary } from "../../utilities/discordRoleDictionary";
+import { discordChannelDictionary } from "../../utilities/discordChannelDictionary";
 
 const AnnouncementContent = ({ text, mentions, loading }) => {
-  
   const linkRegex =
     /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/g;
   const textSeparatedFromLinks = parseAnnouncementText(text, linkRegex);
@@ -21,7 +21,7 @@ const AnnouncementContent = ({ text, mentions, loading }) => {
 };
 
 const TextContent = ({ sentence, mentions }) => {
-  const mentionsRegex = /<@.[0-9]*>/g;
+  const mentionsRegex = /<(@|#).[0-9]*>/g;
   const sentenceSeparatedFromMentions = parseAnnouncementText(sentence, mentionsRegex);
 
   return (
@@ -29,6 +29,8 @@ const TextContent = ({ sentence, mentions }) => {
       {sentenceSeparatedFromMentions.map((e, i) =>
         e.startsWith("<@&") ? (
           <ReplaceIdWithRoleName key={i} word={e} />
+        ) : e.startsWith("<#") ? (
+          <ReplaceIdWithChannelName key={i} word={e} />
         ) : e.startsWith("<@") ? (
           <ReplaceIdWithMention key={i} word={e} mentions={mentions} />
         ) : (
@@ -43,7 +45,22 @@ const ReplaceIdWithRoleName = ({ word }) => {
   const ending = word.lastIndexOf(">");
   const roleId = word.slice(3, ending);
 
-  return <>{discordRoleDictionary[roleId] && <span className={`${discordRoleDictionary[roleId][0]}`}>{`@${discordRoleDictionary[roleId][1]}`}</span>}</>;
+  return <>{discordRoleDictionary[roleId] ? <span className={`${discordRoleDictionary[roleId][0]}`}>{`@${discordRoleDictionary[roleId][1]}`}</span> : word}</>;
+};
+
+const ReplaceIdWithChannelName = ({ word }) => {
+  const ending = word.lastIndexOf(">");
+  const channelId = word.slice(2, ending);
+
+  return (
+    <>
+      {discordChannelDictionary[channelId] ? (
+        <span className={`${discordChannelDictionary[channelId][0]}`}>{`@${discordChannelDictionary[channelId][1]}`}</span>
+      ) : (
+        word
+      )}
+    </>
+  );
 };
 
 const ReplaceIdWithMention = ({ word, mentions }) => {
