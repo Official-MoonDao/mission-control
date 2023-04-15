@@ -8,7 +8,7 @@ const LinkButton = ({ text, link, img }) => {
       <a href={link} target="_blank" className="ml-1">
         {text}
       </a>
-      <p className="text-gradient px-1 text-xl">→</p>
+      <p className="text-blue-600 dark:text-moon-gold px-1 text-xl">→</p>
     </button>
   );
 };

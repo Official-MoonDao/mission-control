@@ -1,6 +1,7 @@
 import Reaction from "./Reaction";
 import AnnouncementContent from "./AnnouncementContent";
 import React from "react";
+import BlurBackground from "../../components/Layout/BlurBackground";
 
 const Announcement = React.forwardRef(({ content, mentions, author, timestamp, reactions, loading, attachments }, ref) => {
   const avatar = `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.webp?size=80`;
@@ -9,7 +10,9 @@ const Announcement = React.forwardRef(({ content, mentions, author, timestamp, r
 
   const AnnouncementBody = (
     <div className={`relative mt-10 w-[336px] rounded-2xl text-gray-900  sm:w-[400px] lg:mt-10 lg:w-full lg:max-w-[1080px] ${loading && "loading-component"}`}>
-      <div className="blur-background rounded-2xl"></div>
+
+      <BlurBackground/>
+
 
       <div className="component-background relative rounded-2xl border border-gray-300 px-3 py-3 sm:px-4 lg:py-5 lg:px-6 xl:px-12 xl:py-9">
         {/*Avatar, Name, Date */}
@@ -38,7 +41,7 @@ const Announcement = React.forwardRef(({ content, mentions, author, timestamp, r
         </div>
 
         {/*Attachments*/}
-        <div className="rows mt-2 grid gap-4 lg:mt-4 2xl:mt-6">
+        <div className="mt-2 grid gap-4 lg:mt-4 2xl:mt-6">
           {attachments && attachments.map((attachment, i) => <img className="h-auto max-w-[300px] lg:max-w-[400px] 2xl:max-w-[450px]" key={i} src={attachment.url} />)}
         </div>
 

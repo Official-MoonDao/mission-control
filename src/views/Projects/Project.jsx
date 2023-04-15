@@ -1,12 +1,13 @@
 import ArticleTitle from "../../components/ArticleTitle";
 import LinkHighlighter from "../../components/LinkHighlighter";
+import BlurBackground from "../../components/Layout/BlurBackground";
 
 const Project = ({ title, startDate, deadline, link, body }) => {
   return (
     <article
       className={`relative mt-10 flex w-[336px] flex-col rounded-2xl border border-gray-300  font-mono text-white hover:scale-[1.03] sm:w-[400px] lg:w-full lg:max-w-[1080px] lg:flex-row lg:justify-between`}
     >
-      <div className="blur-background rounded-2xl"></div>
+      <BlurBackground />
 
       <div className="component-background w-full rounded-2xl px-5 pb-3 pt-6 lg:px-8 xl:px-9">
         <div className="lg:hidden">{/* <Status active={active} /> */}</div>
@@ -18,18 +19,9 @@ const Project = ({ title, startDate, deadline, link, body }) => {
           </p>
           {/*Body*/}
           <div className="mt-5 2xl:mt-6">
-            <p
-              className={`leading-8 text-gray-800 dark:text-gray-100 lg:text-lg 2xl:text-xl 2xl:leading-9`}
-            >
-              <LinkHighlighter
-                label={"Proposal"}
-                text={body.slice(0, 350) + "..."}
-              />
-              <a
-                className={`link text-lg lg:text-xl`}
-                href={link}
-                target="_blank"
-              >
+            <p className={`leading-8 text-gray-800 dark:text-gray-100 lg:text-lg 2xl:text-xl 2xl:leading-9`}>
+              <LinkHighlighter label={"Proposal"} text={body.slice(0, 350) + "..."} />
+              <a className={`link text-lg lg:text-xl`} href={link} target="_blank">
                 {"read more."}
               </a>
             </p>
@@ -63,14 +55,8 @@ const Project = ({ title, startDate, deadline, link, body }) => {
 
 const Status = ({ active }) => {
   return (
-    <div
-      className={`${
-        active ? "bg-amber-500" : "bg-gray-800 opacity-75"
-      } inline-block rounded px-[10px] py-[8px] `}
-    >
-      <p className={`font-semibold uppercase`}>
-        {active ? "ongoing" : "ended"}
-      </p>
+    <div className={`${active ? "bg-amber-500" : "bg-gray-800 opacity-75"} inline-block rounded px-[10px] py-[8px] `}>
+      <p className={`font-semibold uppercase`}>{active ? "ongoing" : "ended"}</p>
     </div>
   );
 };
@@ -78,9 +64,7 @@ const Status = ({ active }) => {
 const Stamp = ({ name, i, teamMember }) => (
   <p
     className={`${i === 0 ? "ml-[21px]" : "ml-[8px]"} ${
-      teamMember
-        ? "bg-blue-500 dark:bg-indigo-800"
-        : "bg-gray-200 text-blue-700 dark:bg-slate-800 dark:text-gray-50"
+      teamMember ? "bg-blue-500 dark:bg-indigo-800" : "bg-gray-200 text-blue-700 dark:bg-slate-800 dark:text-gray-50"
     }  rounded px-[10px] py-[5px] text-sm font-semibold`}
   >
     {name}

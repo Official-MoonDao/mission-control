@@ -18,6 +18,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -31,6 +32,8 @@ body::-webkit-scrollbar {
   src: url("./assets/fonts/goodtimesrg.otf") format("opentype");
 }
 
+/* These two classes control the color of the background*/
+
 .stars-dark {
   background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(10, 10, 10), rgb(5, 5, 5), rgb(3, 1, 7));
 }
@@ -39,35 +42,30 @@ body::-webkit-scrollbar {
   background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(184, 186, 245), #dce3fa, rgb(129, 182, 235));
 }
 
+/*
+Contains Loading Skeleton utilities, link & component background.
+*DO NOT* expand this list of class utilities using @layer or traditional CSS classes, instead, consider the following:
+
+1) If a class is going to be used just once or twice, prefer writing the classes on that same component. 
+2) If we expect to use a set of classes more times than that, it's preferable to create a REACT COMPONENT that has those classes.
+
+What we achieve by doing this: the ideal scenario is that the HTML/JSX of a component has all the styling contained in itself using familiar Tailwind Classes, instead of having the component make a reference to other CSS files.
+*/
+
 @layer utilities {
   .loading-component {
     @apply cursor-wait select-none rounded-2xl bg-gray-100 shadow-none hover:scale-100 dark:bg-slate-800 !important;
   }
+
   .loading-line {
     @apply animate-pulse select-none rounded-lg bg-blue-400 fill-current stroke-current text-blue-400 hover:scale-100 dark:bg-slate-600 dark:text-slate-600 !important;
-  }
-
-  .text-gradient {
-    @apply bg-gradient-to-r from-blue-800 to-blue-950 bg-clip-text text-transparent dark:from-yellow-200 dark:to-moon-gold;
   }
 
   .link {
     @apply whitespace-pre-wrap text-yellow-600 underline hover:text-yellow-500 dark:text-moon-gold dark:hover:text-amber-300;
   }
 
-  .blur-background {
-    @apply absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-400 blur dark:from-moon-gold dark:to-amber-400;
-  }
-
   .component-background {
     @apply relative bg-gradient-to-br from-white via-gray-50 to-zinc-50 dark:from-black dark:via-slate-950 dark:to-gray-950;
   }
-
-  .fancy-btn {
-    @apply absolute flex w-[15vw] items-center justify-center rounded-full bg-[skyblue] dark:bg-[orange] lg:h-[2vw] lg:w-[5vw];
-  }
-}
-
-.rows {
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }

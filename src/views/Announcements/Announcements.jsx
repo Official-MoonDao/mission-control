@@ -53,14 +53,14 @@ const Announcements = ({ announcements, announcementsLoaded, announcementsError,
                 )}
 
               {lastPostId !== endingId ? (
-                <p className={`${updating ? "block" : "hidden"} text-gradient mt-7 w-full animate-pulse text-center text-xl lg:text-2xl`}>Loading more announcements...</p>
+                <p className={`${updating ? "block" : "hidden"} text-blue-600 dark:text-moon-gold mt-7 w-full animate-pulse text-center text-xl lg:text-2xl`}>Loading more announcements...</p>
               ) : (
                 <button
                 name="Back to the Top"
                   onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
-                  className="bg-gradient-to-r mt-10 from-moon-orange underline decoration-2 hover:scale-105 decoration-rose-400 to-moon-pink bg-clip-text font-semibold text-transparent  dark:from-moon-pink dark:to-moon-gold text-2xl lg:text-3xl"
+                  className="mt-10 flex items-center rounded-xl border-[0.5px] border-gray-300 dark:border-gray-100 bg-gradient-to-br from-zinc-100 to-gray-200 px-2 py-1 lg:px-3 shadow-sm font-mono font-semibold hover:scale-105 dark:from-slate-950 dark:to-gray-950 dark:text-gray-100 shadow-blue-400 dark:shadow-indigo-100 lg:text-lg 2xl:text-xl"
                 >
-                  Back to the top→
+                  Back to the top →
                 </button>
               )}
             </>
