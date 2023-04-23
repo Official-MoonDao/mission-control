@@ -6,14 +6,14 @@ export default function TextHighlighter({ text, label }) {
   // Map over the segments and highlight any that match the regex pattern
   const highlightedSegments = segments.map((segment, index) => {
     if (segment.match(urlRegex)) {
-      // If the segment is a URL, wrap it in an anchor tag with the "text-blue-600" class from Tailwind
+      // If the segment is a URL, wrap it in an anchor tag
       return (
         <a
           key={index}
           href={segment}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500 dark:text-moon-gold"
+          className="text-moon-blue dark:text-moon-gold"
         >
           {label || segment}
         </a>

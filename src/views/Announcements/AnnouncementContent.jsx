@@ -9,7 +9,7 @@ const AnnouncementContent = ({ text, mentions, loading }) => {
 
   return (
     <p
-      className={`whitespace-pre-wrap break-words font-mono leading-relaxed text-gray-700 dark:text-gray-100 lg:text-lg 2xl:text-xl ${
+      className={`whitespace-pre-wrap break-words font-mono leading-relaxed text-light-text dark:text-dark-text lg:text-lg 2xl:text-xl ${
         loading && "loading-line"
       }`}
     >
@@ -70,7 +70,7 @@ const ReplaceIdWithMention = ({ word, mentions }) => {
   return (
     <>
       {mentions.map(
-        (mention, i) => mention.id.includes(id) && <span key={i} className="font-semibold text-blue-500 dark:text-amber-400">{`@${mention.username}`}</span>
+        (mention, i) => mention.id.includes(id) && <span key={i} className="font-semibold text-moon-blue dark:text-stronger-dark">{`@${mention.username}`}</span>
       )}
     </>
   );

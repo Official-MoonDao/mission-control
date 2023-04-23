@@ -9,25 +9,27 @@ const Announcement = React.forwardRef(({ content, mentions, author, timestamp, r
   const time = new Date(timestamp).toDateString();
 
   const AnnouncementBody = (
-    <div className={`relative mt-10 w-[336px] rounded-2xl text-gray-900  sm:w-[400px] lg:mt-10 lg:w-full lg:max-w-[1080px] ${loading && "loading-component"}`}>
+    <div className={`relative mt-10 w-[336px] rounded-2xl sm:w-[400px] lg:mt-10 lg:w-full lg:max-w-[1080px] ${loading && "loading-component"}`}>
+      <BlurBackground />
 
-      <BlurBackground/>
-
-
-      <div className="component-background relative rounded-2xl border border-gray-300 px-3 py-3 sm:px-4 lg:py-5 lg:px-6 xl:px-12 xl:py-9">
+      <div className="component-background relative rounded-2xl border border-detail-light dark:border-detail-dark px-4 py-4 lg:px-6 lg:py-5 xl:px-10 xl:py-6">
         {/*Avatar, Name, Date */}
         <div className="flex items-center">
           {loading ? (
             <div className="loading-line h-16 w-16 rounded-full"></div>
           ) : (
-            <img alt={`${name} Discord's Avatar`} src={avatar} className="h-[60px] w-auto rounded-full object-cover lg:h-[85px] lg:border lg:border-blue-600 lg:border-opacity-50 lg:dark:border-yellow-200 lg:p-1" />
+            <img
+              alt={`${name} Discord's Avatar`}
+              src={avatar}
+              className="h-[60px] w-auto rounded-full object-cover lg:h-[85px] lg:border lg:border-detail-light lg:border-opacity-75 lg:p-1 lg:dark:border-detail-dark"
+            />
           )}
 
-          <div className="ml-6 lg:ml-7 flex flex-col">
-            <p className={`inline-block font-mono text-sm text-moon-gold dark:text-yellow-100 xl:text-base ${loading && "loading-line"}`}>{time}</p>
+          <div className="ml-6 flex flex-col lg:ml-7">
+            <p className={`inline-block font-mono text-sm text-stronger-dark dark:text-detail-dark xl:text-base ${loading && "loading-line"}`}>{time}</p>
             <h4
-              className={`mt-1 font-GoodTimes text-xl lg:text-3xl xl:text-3xl ${
-                loading ? "loading-line" : "bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent dark:to-yellow-100 dark:from-amber-600"
+              className={`mt-1 font-Montserrat capitalize tracking-wider text-xl lg:text-3xl xl:text-3xl ${
+                loading ? "loading-line" : "bg-gradient-to-r from-stronger-light to-moon-blue bg-clip-text text-transparent dark:from-stronger-dark dark:to-detail-dark"
               }`}
             >
               {name}
@@ -42,11 +44,12 @@ const Announcement = React.forwardRef(({ content, mentions, author, timestamp, r
 
         {/*Attachments*/}
         <div className="mt-2 grid gap-4 lg:mt-4 2xl:mt-6">
-          {attachments && attachments.map((attachment, i) => <img className="h-auto max-w-[300px] lg:max-w-[400px] 2xl:max-w-[450px]" key={i} src={attachment.url} />)}
+          {attachments &&
+            attachments.map((attachment, i) => <img className="h-auto max-w-[300px] lg:max-w-[400px] 2xl:max-w-[450px]" key={i} src={attachment.url} />)}
         </div>
 
         {/*Reactions*/}
-        <div className="mt-3 flex overflow-x-auto lg:mt-5 2xl:mt-6 p-1">
+        <div className="mt-3 flex overflow-x-auto p-1">
           {reactions && reactions.map((reaction, i) => <Reaction key={i} reaction={reaction} index={i} loading={loading} />)}
         </div>
       </div>

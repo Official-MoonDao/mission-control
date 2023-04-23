@@ -65,26 +65,26 @@ export default function MonthlyCalendar({ selectedDate, setSelectedDate, events,
   return (
     <div className="mt-8 overflow-hidden rounded border border-blue-600 shadow-md shadow-blue-300 dark:border-amber-100 dark:shadow-amber-200 lg:mx-10 lg:max-w-[1200px] ">
       <div className="shadow ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col">
-        <div className="grid grid-cols-7 gap-px border-b border-gray-300 bg-white text-center text-xs font-semibold leading-6 text-moon-blue dark:border-gray-600 dark:bg-calendar-deepblue dark:text-moon-gold lg:flex-none">
-          <div className="bw-white py-2 dark:bg-calendar-deepblue">
+        <div className="grid grid-cols-7 gap-px border-b border-gray-300 bg-white text-center text-xs font-semibold leading-6 text-moon-blue dark:border-gray-600 dark:bg-blue-950 dark:text-moon-gold lg:flex-none">
+          <div className="bw-white py-2 dark:bg-blue-950">
             M<span className="sr-only sm:not-sr-only">on</span>
           </div>
-          <div className="bw-white py-2 dark:bg-calendar-deepblue">
+          <div className="bw-white py-2 dark:bg-blue-950">
             T<span className="sr-only sm:not-sr-only">ue</span>
           </div>
-          <div className="bw-white py-2 dark:bg-calendar-deepblue">
+          <div className="bw-white py-2 dark:bg-blue-950">
             W<span className="sr-only sm:not-sr-only">ed</span>
           </div>
-          <div className="bw-white py-2 dark:bg-calendar-deepblue">
+          <div className="bw-white py-2 dark:bg-blue-950">
             T<span className="sr-only sm:not-sr-only">hu</span>
           </div>
-          <div className="bw-white py-2 dark:bg-calendar-deepblue">
+          <div className="bw-white py-2 dark:bg-blue-950">
             F<span className="sr-only sm:not-sr-only">ri</span>
           </div>
-          <div className="bw-white py-2 dark:bg-calendar-deepblue">
+          <div className="bw-white py-2 dark:bg-blue-950">
             S<span className="sr-only sm:not-sr-only">at</span>
           </div>
-          <div className="bw-white py-2 dark:bg-calendar-deepblue">
+          <div className="bw-white py-2 dark:bg-blue-950">
             S<span className="sr-only sm:not-sr-only">un</span>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function MonthlyCalendar({ selectedDate, setSelectedDate, events,
               <div
                 key={day.toString()}
                 className={classNames(
-                  isSameMonth(day, selectedDate) ? "bg-white dark:bg-calendar-deepblue" : "bg-gray-50 dark:bg-calendar-deepblue-hover dark:text-gray-200 ",
+                  isSameMonth(day, selectedDate) ? "bg-white dark:bg-blue-950" : "bg-gray-50 dark:bg-stronger-light dark:text-gray-200 ",
                   "relative px-3 py-2"
                 )}
                 onClick={() => {
@@ -106,7 +106,7 @@ export default function MonthlyCalendar({ selectedDate, setSelectedDate, events,
                 {hover === day.toString() && day.events.length > 0 && (
                   <div
                     className="order-b absolute left-0 top-0 z-10 flex min-h-[50%] min-w-[125%] animate-fadeIn 
-                  flex-col rounded-2xl bg-gray-50 text-center text-sm font-semibold leading-6 text-moon-blue  drop-shadow-[0_15px_15px_rgba(128,237,235,0.25)] dark:border-gray-600 dark:bg-calendar-deepblue dark:text-moon-gold dark:drop-shadow-[0_15px_15px_rgba(255,242,122,0.25)]"
+                  flex-col rounded-2xl bg-gray-50 text-center text-sm font-semibold leading-6 text-moon-blue  drop-shadow-[0_15px_15px_rgba(128,237,235,0.25)] dark:border-gray-600 dark:bg-blue-950 dark:text-moon-gold dark:drop-shadow-[0_15px_15px_rgba(255,242,122,0.25)]"
                   >
                     {day.events.map((event) => (
                       <div className="justify-left flex w-full items-center p-2">
@@ -155,8 +155,8 @@ export default function MonthlyCalendar({ selectedDate, setSelectedDate, events,
                 key={day.toString()}
                 type="button"
                 className={classNames(
-                  isSameMonth(day, selectedDate) ? "bg-white dark:bg-calendar-deepblue" : "bg-gray-50 dark:bg-calendar-deepblue-hover",
-                  "flex h-14 flex-col px-3 py-2 text-black focus:z-10 dark:text-gray-200 dark:hover:bg-calendar-deepblue-hover"
+                  isSameMonth(day, selectedDate) ? "bg-white dark:bg-blue-950" : "bg-gray-50 dark:bg-stronger-light",
+                  "flex h-14 flex-col px-3 py-2 text-black focus:z-10 dark:text-gray-200 dark:hover:bg-stronger-light"
                 )}
                 onClick={() => {
                   setSelectedDate(day);

@@ -3,9 +3,9 @@ const Reaction = ({ reaction, index, loading }) => {
 
   if(/\P{Extended_Pictographic}/u.test(reaction.emoji.name)) return;
   return (
-    <div className={`${index === 0 ? "" : "ml-3"} flex items-center rounded-xl bg-stone-100 py-1 px-2 dark:bg-slate-800 lg:px-3 shadow-sm shadow-blue-600 dark:shadow-yellow-100`}>
+    <div className={`${index === 0 ? "" : "ml-3"} flex items-center rounded-xl bg-background-light py-1 px-2 dark:bg-background-dark lg:px-3 shadow-sm shadow-detail-light dark:shadow-detail-dark`}>
       <p>{reaction.emoji.name}</p>
-      <p className="ml-1 xl:ml-2 text-sm dark:text-gray-100 lg:text-base">{reaction.count}</p>
+      <p className="ml-1 xl:ml-2 text-sm dark:text-dark-text lg:text-base">{reaction.count}</p>
     </div>
   );
 };

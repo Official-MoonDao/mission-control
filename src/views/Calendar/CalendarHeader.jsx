@@ -117,7 +117,7 @@ export default function CalendarHeader({ selectedDate, setSelectedDate, isMonthl
           <div className="ml-6 h-6 w-px bg-gray-300" />
           <button
             type="button"
-            className="ml-6 flex items-center rounded-md border border-transparent bg-moon-blue px-4  py-2 text-sm font-medium text-white shadow-sm hover:bg-calendar-deepblue-hover focus:outline-none focus:ring-2 focus:ring-moon-blue focus:ring-offset-2 dark:bg-amber-500 dark:hover:bg-amber-600"
+            className="ml-6 flex items-center rounded-md border border-transparent bg-moon-blue px-4  py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-moon-blue focus:ring-offset-2 dark:bg-amber-500 dark:hover:bg-amber-600"
             onClick={() => {
               navigator.clipboard.writeText(calendarLink);
             }}

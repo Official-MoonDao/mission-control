@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;500;600;700;800&display=swap");
 
+/* Check below for Guidelines and recommendations. */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -32,24 +34,18 @@ body::-webkit-scrollbar {
   src: url("./assets/fonts/goodtimesrg.otf") format("opentype");
 }
 
-/* These two classes control the color of the background*/
-
-.stars-dark {
-  background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(10, 10, 10), rgb(5, 5, 5), rgb(3, 1, 7));
-}
-
-.stars-light {
-  background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(184, 186, 245), #dce3fa, rgb(129, 182, 235));
-}
-
 /*
+
 Contains Loading Skeleton utilities, link & component background.
+
 *DO NOT* expand this list of class utilities using @layer or traditional CSS classes, instead, consider the following:
 
-1) If a class is going to be used just once or twice, prefer writing the classes on that same component. 
+1) If a class is going to be used just once or twice, prefer writing the classes on that same component.
+
 2) If we expect to use a set of classes more times than that, it's preferable to create a REACT COMPONENT that has those classes.
 
 What we achieve by doing this: the ideal scenario is that the HTML/JSX of a component has all the styling contained in itself using familiar Tailwind Classes, instead of having the component make a reference to other CSS files.
+
 */
 
 @layer utilities {
@@ -62,10 +58,20 @@ What we achieve by doing this: the ideal scenario is that the HTML/JSX of a comp
   }
 
   .link {
-    @apply whitespace-pre-wrap text-yellow-600 underline hover:text-yellow-500 dark:text-moon-gold dark:hover:text-amber-300;
+    @apply whitespace-pre-wrap text-yellow-500 underline hover:text-yellow-600 dark:text-moon-gold dark:hover:text-amber-300;
   }
 
   .component-background {
     @apply relative bg-gradient-to-br from-white via-gray-50 to-zinc-50 dark:from-black dark:via-slate-950 dark:to-gray-950;
   }
+}
+
+/* These two classes control the color of the background*/
+
+.stars-dark {
+  background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(10, 10, 10), rgb(5, 5, 5), rgb(3, 1, 7));
+}
+
+.stars-light {
+  background: url("./assets/star-background.png") repeat, linear-gradient(to right, rgb(184, 186, 245), #dce3fa, rgb(129, 182, 235));
 }
