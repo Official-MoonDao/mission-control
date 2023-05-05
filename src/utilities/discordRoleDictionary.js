@@ -11,6 +11,9 @@ export const discordRoleDictionary = {
   "941227287007866883": ["text-sky-500", "DAO Contributor"],
   "914998572859142185": ["text-blue-500", "Earthlings"],
   "1096152084782522448": ["text-indigo-600", "MoonDAOcrew"],
+  "1044672824243138560": ["text-rose-600", "CN Member"],
+  "941227401290067998": ["text-emerald-500", "MoonDAO World"],
+
 };
 
 /*
