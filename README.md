@@ -1,5 +1,7 @@
 # MoonDAO Mission-Control 🌕🌕
 
+[![](/public/Original_Black.png)](https://app.moondao.com)
+
 The MoonDAO Dashboard at https://dashboard.moondao.com is where community members can see the latest Announcements, Proposals, Treasury information and more..
 
 ## File Structure
