@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Navigation/Sidebar"
+import Sidebar from "./components/Navigation/Sidebar";
 import {
   Announcements,
   Proposals,
@@ -15,6 +15,11 @@ import { HashRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 const Analytics = lazy(() => import("./views/Analytics/Analytics"));
 
+function RouteRedirect({ route }) {
+  const baseUrl = "http://app.moondao.com";
+  window.location.href = baseUrl + route;
+  return null;
+}
 
 const App = () => {
   //Note: Announcements are currently being loaded here and passed as a prop so they can get loaded in the back while other section is being visited. This works for now but it would be better to implement a cleaner way to load announcements in the background.
@@ -30,18 +35,47 @@ const App = () => {
   return (
     <main
       className={`${
-        !lightMode ? "dark stars-dark" : "stars-light"
+        !lightMode ? "stars-dark dark" : "stars-light"
       } min-h-screen `}
     >
       <ToastContainer />
       <HashRouter>
-        <Sidebar lightMode={lightMode} setLightMode={setLightMode}/>
+        <Sidebar lightMode={lightMode} setLightMode={setLightMode} />
         <Routes>
+          <Route path="/" element={<RouteRedirect route={"/proposals"} />} />
+          <Route path="/announcements" element={<RouteRedirect route={""} />} />
+          <Route path="/projects" element={<RouteRedirect route={""} />} />
+          <Route
+            path="/calendar"
+            element={<RouteRedirect route={"/events"} />}
+          />
+          <Route
+            path="/analytics"
+            element={<RouteRedirect route={"/analytics"} />}
+          />
+          <Route
+            path="/treasury"
+            element={<RouteRedirect route={"/analytics"} />}
+          />
+          <Route path="*" element={<RouteRedirect route={""} />} />
+        </Routes>
+      </HashRouter>
+    </main>
+  );
+};
+
+export default App;
+
+/*
+
+OLD ROUTES
+
+
           <Route path="/" element={<Proposals />}></Route>
           <Route
             path="/announcements"
             element={
-              <Announcements
+              <Announcements  
                 announcements={announcements}
                 announcementsLoaded={announcementsLoaded}
                 announcementsError={announcementsError}
@@ -60,10 +94,6 @@ const App = () => {
           }></Route>
           <Route path="/calendar" element={<Calendar />}></Route>
           <Route path="*" element={<Announcements />}></Route>
-        </Routes>
-      </HashRouter>
-    </main>
-  );
-};
 
-export default App;
+
+*/
