@@ -15,7 +15,7 @@ import { HashRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 const Analytics = lazy(() => import("./views/Analytics/Analytics"));
 
-function RouteRedirect({ route }) {
+function RouteRedirect({ route = "" }) {
   const baseUrl = "http://app.moondao.com";
   window.location.href = baseUrl + route;
   return null;
@@ -42,9 +42,9 @@ const App = () => {
       <HashRouter>
         <Sidebar lightMode={lightMode} setLightMode={setLightMode} />
         <Routes>
-          <Route path="/" element={<RouteRedirect route={"/proposals"} />} />
-          <Route path="/announcements" element={<RouteRedirect route={""} />} />
-          <Route path="/projects" element={<RouteRedirect route={""} />} />
+          <Route path="/" element={<RouteRedirect />} />
+          <Route path="/announcements" element={<RouteRedirect />} />
+          <Route path="/projects" element={<RouteRedirect />} />
           <Route
             path="/calendar"
             element={<RouteRedirect route={"/events"} />}
@@ -57,7 +57,7 @@ const App = () => {
             path="/treasury"
             element={<RouteRedirect route={"/analytics"} />}
           />
-          <Route path="*" element={<RouteRedirect route={""} />} />
+          <Route path="*" element={<RouteRedirect />} />
         </Routes>
       </HashRouter>
     </main>
