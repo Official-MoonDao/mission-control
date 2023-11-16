@@ -47,7 +47,7 @@ const App = () => {
           <Route path="/projects" element={<RouteRedirect />} />
           <Route
             path="/calendar"
-            element={<RouteRedirect route={"/events"} />}
+            element={<RouteRedirect route={"/calendar"} />}
           />
           <Route
             path="/analytics"
